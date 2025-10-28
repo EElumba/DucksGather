@@ -4,38 +4,35 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy.exc import SQLAlchemyError
 from dotenv import load_dotenv
 
+# Load variables from .env if present
 load_dotenv()
 
-# Get database URL from environment
-# Supabase provides a PostgreSQL connection string
-# Fetch variables
+# Prefer a single DATABASE_URL if provided (enables SQLite for tests)
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-USER = os.getenv("user")
-PASSWORD = os.getenv("password")
-HOST = os.getenv("host")
-PORT = os.getenv("port")
-DBNAME = os.getenv("dbname")
+# Otherwise, try to construct from individual parts (commonly used for Supabase)
+if not DATABASE_URL:
+    USER = os.getenv("user") or os.getenv("DB_USER") or os.getenv("POSTGRES_USER")
+    PASSWORD = os.getenv("password") or os.getenv("DB_PASSWORD") or os.getenv("POSTGRES_PASSWORD")
+    HOST = os.getenv("host") or os.getenv("DB_HOST") or os.getenv("POSTGRES_HOST")
+    PORT = os.getenv("port") or os.getenv("DB_PORT") or os.getenv("POSTGRES_PORT") or "5432"
+    DBNAME = os.getenv("dbname") or os.getenv("DB_NAME") or os.getenv("POSTGRES_DB") or "postgres"
 
-#DATABASE_URL = os.getenv("DATABASE_URL")
+    if USER and PASSWORD and HOST and PORT and DBNAME:
+        DATABASE_URL = f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
 
-
-
-# Construct the SQLAlchemy connection string
-DATABASE_URL = f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
-
-
-# If DATABASE_URL is not set, construct it from Supabase credentials
+# As a last resort, derive a Supabase connection string if possible
 if not DATABASE_URL:
     SUPABASE_URL = os.getenv("SUPABASE_URL", "")
     SUPABASE_DB_PASSWORD = os.getenv("SUPABASE_DB_PASSWORD", "")
-    
     if SUPABASE_URL and SUPABASE_DB_PASSWORD:
-        # Extract project reference from Supabase URL
-        # Format: https://xxxxx.supabase.co
+        # Extract project reference from Supabase URL (https://xxxxx.supabase.co)
         project_ref = SUPABASE_URL.replace("https://", "").replace(".supabase.co", "")
-        DATABASE_URL = f"postgresql://postgres:{SUPABASE_DB_PASSWORD}@db.{project_ref}.supabase.co:5432/postgres"
+        DATABASE_URL = (
+            f"postgresql://postgres:{SUPABASE_DB_PASSWORD}@db.{project_ref}.supabase.co:5432/postgres"
+        )
 
-# Create SQLAlchemy engine
+# Create SQLAlchemy engine (may be SQLite in tests)
 engine = create_engine(DATABASE_URL) if DATABASE_URL else None
 
 # Create session factory
