@@ -1,0 +1,2212 @@
+Event Title: Ugo Akabike: Caught Existing Exhibit
+Start Date: 2025-10-27T08:00:00-07:00
+End Date: 2025-10-27T23:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/ugo-akabike-caught-existing-exhibit
+Image URL: https://localist-images.azureedge.net/photos/50659182023991/huge/be64e771d44e4df1dd540e2ac55c3b69c3179557.jpg
+Description: Visit the McMillan Art Gallery from September 25th and October 28th to see work from Ugo Akabike. 
+
+Ugo Akabike is a University of Oregon Alum often thinking about being in a place where the sand is warm, the sky is cerulean blue, and the waves are barreling. Through his photographic endeavors he strives to capture the moments that we often think little of, but remember fondly in reflection. Though often choosing to say little with words, the images he produces announce themselves boldly through their captivating visual nature.
+Ugo would love to hear from you and what you think about his work!
+He challenges you to out to him on Instagram right now just to say hello.
+--------------------------------------------------------------------------------
+Event Title:  On View: Day of the Dead Altares
+Start Date: 2025-10-27T11:00:00-07:00
+End Date: 2025-10-27T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/on-view-day-of-the-dead-altares-6140
+Image URL: https://localist-images.azureedge.net/photos/50719433974748/huge/6def37c345d7c0571ddcf982efbe399717806739.jpg
+Description: Please feel free to bring a photo of a loved one and place it in the altares to honor those who have passed away.
+
+On view during museum hours, not open to the public on Mondays and Tuesdays.
+--------------------------------------------------------------------------------
+Event Title: "Gathering: A Photographer's Collection"  Exhibition 
+Start Date: 2025-10-27T11:00:00-07:00
+End Date: 2025-10-27T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/gathering-a-photographers-collection-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162277011735/huge/ee109100992ca899c35325d2112d2b5538a88aa0.jpg
+Description: Gathering: A Photographer’s Collection presents a wide-ranging selection of photographs from the personal collection of Portland, Oregon-based photographer and curator, Christopher Rauschenberg. Over five decades, Rauschenberg has compiled a truly distinctive archive of photographs encompassing a wide array of themes, styles, uses of the medium, and range of subjects and content. This important resource represents a diverse mix of international and nationally emerging and established photographers.
+
+Rauschenberg typically acquires photographs directly from the artists or from non-profit community-based arts organizations exhibiting or representing their works. Rauschenberg has also traveled extensively and participated for decades as a highly regarded reviewer of photography portfolios at international gatherings of specialists who utilize and support opportunities for working creative photographers.
+
+In Gathering, one will find a wealth of individual points of view that, when engaged, may broaden each of our own visions: whether those considered perspectives are personal, familiar, social, cultural, political, or spiritual.
+--------------------------------------------------------------------------------
+Event Title: "James Lavadour: Land of Origin" Exhibition
+Start Date: 2025-10-27T11:00:00-07:00
+End Date: 2025-10-27T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/james-lavadour-land-of-origin-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162329518533/huge/c670c194617f68ce9d6980347f9464e3af5a786a.jpg
+Description: James Lavadour: Land of Origin presents the most comprehensive survey to date of works by painter and printmaker James Lavadour (Walla Walla). Spanning five decades of work, this national retrospective celebrates Lavadour’s deep connection to the eastern Oregon landscape, particularly the Umatilla Indian Reservation and surrounding Blue Mountains region where the artist has spent most of his life, and recognizes his esteemed place in contemporary American painting. The exhibition includes nearly thirty of Lavadour’s magnificent signature grid paintings, works on individual panels, and prints, most of which have never been exhibited together. It will draw on significant loans from the artist, major museum collections, and private lenders. Recognizing one of Oregon and the nation’s most original and powerful artists, James Lavadour: Land of Origin will also be accompanied by a full catalogue.
+--------------------------------------------------------------------------------
+Event Title: Introduction to R
+Start Date: 2025-10-27T12:00:00-07:00
+End Date: 2025-10-27T13:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/introduction-to-r-6160
+Image URL: https://localist-images.azureedge.net/photos/50896819962974/huge/6e7ff2a5038ea12a803c63a1998aecca1933b32a.jpg
+Description: Are you interested in using R and RStudio but unsure where to start? Learn how to analyze and visualize data in R in this eight-session workshop series. This course is intended for absolute beginners or anyone wanting to review the basics. Register for an online spot to recieve Zoom link. Each session will be an hour in the length and cover the topics described below:
+
+Intro to R and RStudio – October 6Project Management and Help in R – October 8Data Structures in R – October 13Exploring Data – October 15Data Visualization with R and ggplot – October 20Working with Data in R Part 1 – October 22Working with Data in R Part 2 – October 27Reproducible Reports with R and RMarkdown – October 29No prior experience with programming required. The workshop series follows this Carpentries workshop curriculum.
+
+These workshops require you have R and RStudio installed on your computer.
+
+Download and install the latest version of R.Download and install RStudio. RStudio is an application (an integrated development environment or IDE) that facilitates the use of R and offers a number of nice additional features. You will need the free desktop version for your computer.
+--------------------------------------------------------------------------------
+Event Title: SOJC Grab-&-Ghoul Week
+Start Date: 2025-10-27T12:00:00-07:00
+End Date: 2025-10-27T13:00:00-07:00
+Location: Allen Hall
+Latitude: 44.046361
+Longitude: -123.075042
+Event URL: https://calendar.uoregon.edu/event/sojc-grab-ghoul-week-6735
+Image URL: https://localist-images.azureedge.net/photos/51047200719306/huge/da7a61aede6a3621314684bf1317355648679490.jpg
+Description: No tricks, just treats! Swing by the Allen Hall Atrium for free candy and snacks the week of Halloween. You don't want to ghost this event!
+--------------------------------------------------------------------------------
+Event Title: Bioengineering Seminar Series: “Engineering High-Density Implants for Chronic Neural Interfacing” with Felix Deku (Mid-tenure Talk)
+Start Date: 2025-10-27T13:00:00-07:00
+End Date: 2025-10-27T14:00:00-07:00
+Location: Phil and Penny Knight Campus for Accelerating Scientific Impact
+Latitude: 44.046919
+Longitude: -123.070902
+Event URL: https://calendar.uoregon.edu/event/bioengineering-seminar-series-felix-deku-mid-tenure-talk
+Image URL: https://localist-images.azureedge.net/photos/51004847216161/huge/a1977fb73acd4d7369ff6dba86791b2b62b64979.jpg
+Description: Felix Deku, Betsy and Greg Hatton Assistant Professor in Neuroengineering in the Department of Bioengineering, will deliver his mid-tenure talk titled “Engineering High-Density Implants for Chronic Neural Interfacing.” This presentation will explore advances in neuroengineering technologies aimed at improving long-term communication with the nervous system.
+
+Held as part of the 2025–26 Bioengineering Seminar Series, this talk is open to the university community.
+--------------------------------------------------------------------------------
+Event Title: GIS and The Makerspace at UO
+Start Date: 2025-10-27T13:00:00-07:00
+End Date: 2025-10-27T15:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/gis-the-makerspace-uo
+Image URL: https://localist-images.azureedge.net/photos/50897333055069/huge/884a8cf6124a02bfe8487a42e7819c6453114a30.jpg
+Description: GIS and the Makerspace is a two-session workshop covering the basics of working in ArcGIS Pro to create a laser-cut coaster map of the world and a keychain map of Oregon. The first session covers GIS concepts, map projections, and formatting for the laser cutter. The second session introduces the equipment available in the DeArmond makerspace and the laser cutter.
+
+No experience with GIS or the Makerspace is required, and completion of this workshop will certify you to use the laser cutter for your own projects. Register today to learn GIS by making beautiful acrylic maps!
+
+You will need to be a current student, faculty, or staff member to participate in this workshop.
+--------------------------------------------------------------------------------
+Event Title: Pre-Business Requirements Workshop
+Start Date: 2025-10-27T14:30:00-07:00
+End Date: 2025-10-27T15:30:00-07:00
+Location: Justice Bean Hall
+Latitude: 44.041096
+Longitude: -123.068047
+Event URL: https://calendar.uoregon.edu/event/pre-business-requirements-workshop
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: Join advisors from the Lundquist College of Business undergraduate programs for an optional workshop to learn about pre-business and business major requirements. You will have the opportunity to plan your schedule for winter term.
+--------------------------------------------------------------------------------
+Event Title: EMU Duck Scavenger Hunt
+Start Date: 2025-10-27T15:00:00-07:00
+End Date: 2025-10-27T17:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/emu-duck-scavenger-hunt
+Image URL: https://localist-images.azureedge.net/photos/51073405691913/huge/ea2e52fc1ca7bf3a61c77f6e14ba27b278def4af.jpg
+Description: There are five wooden ducks hidden around the building. Find one and bring it to the O Desk to get an EMU-themed prize!
+--------------------------------------------------------------------------------
+Event Title: Language Circles Fall 2025
+Start Date: 2025-10-27T15:00:00-07:00
+End Date: 2025-10-27T19:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/language-circles-fall-2025
+Image URL: https://localist-images.azureedge.net/photos/50588044079153/huge/75e4fe70e17374f0646c7dbd94b3f6044483f2b6.jpg
+Description: Join us for Language Circles this fall term at the Mills International Center every Monday! 
+
+Language Circles are conversation groups led by native and/or proficient speakers. Students of all levels can learn and practice languages through informal conversation. 
+
+Different languages are offered every hour. Stay tuned for our fall 2025 Language Circles schedule! All times will be posted to our Instagram @uomills and in our space, Mills International Center, EMU M102. 
+
+The Mills International Center space is open to ALL students, faculty and guests, U.S. and international!
+--------------------------------------------------------------------------------
+Event Title: Jeremiah Public Lecture: "Consent and Sexual Violence in Contemporary Japan: Rethinking Autonomy, Choice, and Equality Under the Law"
+Start Date: 2025-10-27T16:00:00-07:00
+End Date: 2025-10-27T17:30:00-07:00
+Location: Chiles Hall
+Latitude: 44.045873
+Longitude: -123.078347
+Event URL: https://calendar.uoregon.edu/event/involuntary-consent
+Image URL: https://localist-images.azureedge.net/photos/50697326477863/huge/7253845076682e97aac70d5c0e9f19777f7ecb49.jpg
+Description: What does it mean to give consent when social, economic, and institutional pressures make refusal difficult? This talk examines sexual violence in contemporary Japan to challenge liberal ideals of autonomy, choice, and legal equality. Drawing on Involuntary Consent: The Illusion of Choice in Japan’s Adult Video Industry (Stanford, 2023) and new NHK survey data, Takeyama shows how “involuntary consent” emerges through structural inequalities, workplace hierarchies, and gendered expectations like emotional labor. Linking commercial sex work to everyday experiences, she calls for rethinking how law, culture, and power define sexual harm—and for imagining consent that accounts for relational and structural constraints.
+
+Presented by: Akiko Takeyama, PhD, Professor of Women, Gender, and Sexuality Studies, Director of the Center for East Asian Studies, University of Kansas.
+
+Hosted by: Haruka Nagao, PhD, Assistant Professor, Deparmtent of Global Studies, University of Oregon.
+
+Event sponsors: Global Studies Institute, Center for Asian and Pacific Studies.
+--------------------------------------------------------------------------------
+Event Title: Meditation Mondays - Duck Nest
+Start Date: 2025-10-27T16:00:00-07:00
+End Date: 2025-10-27T16:45:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/meditation-mondays-duck-nest
+Image URL: https://localist-images.azureedge.net/photos/50898250387780/huge/72600cc7fd499f5ad0849b4fda05dfa6365bfeb2.jpg
+Description: Join us on Mondays for peer-led meditation sessions, where we'll explore different meditation sessions, where we'll explore different meditation practices designed to support your overall wellbeing. Each week offers a new approach to help you relax, refocus, and recharge in a welcoming student-centered space.
+--------------------------------------------------------------------------------
+Event Title: Bingo
+Start Date: 2025-10-27T18:00:00-07:00
+End Date: 2025-10-27T19:30:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/bingo-7480
+Image URL: https://localist-images.azureedge.net/photos/50976148854448/huge/503a840c930402cda55230c96632798bdbea7474.jpg
+Description: Join the fun at the University of Oregon's Bingo Night! Mark your calendars for an evening of games, prizes, and good company. Whether you're a bingo pro or a newcomer, everyone's invited. Play for a chance to win Duck Bucks. Bring a friend or three to play! Can't wait to see you there! 
+
+Don’t know how to play bingo? Our team of student leaders can help. 
+
+As always, our events are FREE for UO students. Don’t miss out on this fun-filled event! 
+
+Each Monday throughout the term, from 6:00 – 7:30 p.m.
+
+Special Night November 3- Grocery BINGO, win grocery items.
+
+At the EMU O Desk.
+--------------------------------------------------------------------------------
+Event Title: EMU 75th Anniversary Show
+Start Date: 2025-10-28T08:00:00-07:00
+End Date: 2025-10-28T23:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/emu-75th-anniversary-show
+Image URL: https://localist-images.azureedge.net/photos/50659831725871/huge/c069367c512fc34b1169304143c15f2f1f723ef0.jpg
+Description: "EMU 75th Anniversary Show" October 28 to December 12.
+
+The EMU celebrates 75 years! The gallery will be hosting an exhibit showcasing the history of the University of Oregon and Erb Memorial Union through pictures, posters and storytelling. Please join us for the reception on November 4, from 6-7pm in the Adell McMillan Gallery!
+
+We hope to see you there!
+--------------------------------------------------------------------------------
+Event Title: Ugo Akabike: Caught Existing Exhibit
+Start Date: 2025-10-28T08:00:00-07:00
+End Date: 2025-10-28T23:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/ugo-akabike-caught-existing-exhibit
+Image URL: https://localist-images.azureedge.net/photos/50659182023991/huge/be64e771d44e4df1dd540e2ac55c3b69c3179557.jpg
+Description: Visit the McMillan Art Gallery from September 25th and October 28th to see work from Ugo Akabike. 
+
+Ugo Akabike is a University of Oregon Alum often thinking about being in a place where the sand is warm, the sky is cerulean blue, and the waves are barreling. Through his photographic endeavors he strives to capture the moments that we often think little of, but remember fondly in reflection. Though often choosing to say little with words, the images he produces announce themselves boldly through their captivating visual nature.
+Ugo would love to hear from you and what you think about his work!
+He challenges you to out to him on Instagram right now just to say hello.
+--------------------------------------------------------------------------------
+Event Title: Department of History Coffee Hour
+Start Date: 2025-10-28T10:00:00-07:00
+End Date: 2025-10-28T11:00:00-07:00
+Location: McKenzie Hall
+Latitude: 44.047318
+Longitude: -123.07856
+Event URL: https://calendar.uoregon.edu/event/department-of-history-coffee-hour-1561
+Image URL: https://localist-images.azureedge.net/photos/51074445244253/huge/0052f5d9316c8656c0d1b42935a25c24e427903f.jpg
+Description: Please join us Tuesday mornings for a free cup of coffee, pastries, and conversation with your history department community! We’re excited to continue this tradition for our history undergraduate and graduate students, faculty, and staff. We hope to see you there!
+--------------------------------------------------------------------------------
+Event Title:  On View: Day of the Dead Altares
+Start Date: 2025-10-28T11:00:00-07:00
+End Date: 2025-10-28T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/on-view-day-of-the-dead-altares-6140
+Image URL: https://localist-images.azureedge.net/photos/50719433974748/huge/6def37c345d7c0571ddcf982efbe399717806739.jpg
+Description: Please feel free to bring a photo of a loved one and place it in the altares to honor those who have passed away.
+
+On view during museum hours, not open to the public on Mondays and Tuesdays.
+--------------------------------------------------------------------------------
+Event Title: "Gathering: A Photographer's Collection"  Exhibition 
+Start Date: 2025-10-28T11:00:00-07:00
+End Date: 2025-10-28T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/gathering-a-photographers-collection-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162277011735/huge/ee109100992ca899c35325d2112d2b5538a88aa0.jpg
+Description: Gathering: A Photographer’s Collection presents a wide-ranging selection of photographs from the personal collection of Portland, Oregon-based photographer and curator, Christopher Rauschenberg. Over five decades, Rauschenberg has compiled a truly distinctive archive of photographs encompassing a wide array of themes, styles, uses of the medium, and range of subjects and content. This important resource represents a diverse mix of international and nationally emerging and established photographers.
+
+Rauschenberg typically acquires photographs directly from the artists or from non-profit community-based arts organizations exhibiting or representing their works. Rauschenberg has also traveled extensively and participated for decades as a highly regarded reviewer of photography portfolios at international gatherings of specialists who utilize and support opportunities for working creative photographers.
+
+In Gathering, one will find a wealth of individual points of view that, when engaged, may broaden each of our own visions: whether those considered perspectives are personal, familiar, social, cultural, political, or spiritual.
+--------------------------------------------------------------------------------
+Event Title: "James Lavadour: Land of Origin" Exhibition
+Start Date: 2025-10-28T11:00:00-07:00
+End Date: 2025-10-28T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/james-lavadour-land-of-origin-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162329518533/huge/c670c194617f68ce9d6980347f9464e3af5a786a.jpg
+Description: James Lavadour: Land of Origin presents the most comprehensive survey to date of works by painter and printmaker James Lavadour (Walla Walla). Spanning five decades of work, this national retrospective celebrates Lavadour’s deep connection to the eastern Oregon landscape, particularly the Umatilla Indian Reservation and surrounding Blue Mountains region where the artist has spent most of his life, and recognizes his esteemed place in contemporary American painting. The exhibition includes nearly thirty of Lavadour’s magnificent signature grid paintings, works on individual panels, and prints, most of which have never been exhibited together. It will draw on significant loans from the artist, major museum collections, and private lenders. Recognizing one of Oregon and the nation’s most original and powerful artists, James Lavadour: Land of Origin will also be accompanied by a full catalogue.
+--------------------------------------------------------------------------------
+Event Title: MCC: Sweet Relief Drop-In Edition
+Start Date: 2025-10-28T11:00:00-07:00
+End Date: 2025-10-28T14:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/mcc-sweet-relief-drop-in-edition
+Image URL: https://localist-images.azureedge.net/photos/51099525022488/huge/d3cf29397f39173a8eefddfcfd937a0f18cb0530.jpg
+Description: Join the Multicultural Center as we celebrate the EMU's 75th Anniversary! Each day between October 28 - 30 from 11:00 a.m. - 2:00 p.m., we will have relaxing activities to help you de-stress during midterms. 
+
+Day 1 (10/28): Date with a Book + Bookmark making 
+
+Day 2 (10/29): Decorate your own incense holder
+
+Day 3 (10/30): DIY Moroccan Body Scrub
+
+Visit us at EMU 109 for more information!
+--------------------------------------------------------------------------------
+Event Title: Inside the Oregon MBA: Summer Student Experience
+Start Date: 2025-11-05T16:00:00-08:00
+End Date: 2025-11-05T16:45:00-08:00
+Location: No Location
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/mba-summer-experiences-110625
+Image URL: https://localist-images.azureedge.net/photos/51040346033017/huge/01ff71fbdaf70eb7242855a0dad2976d38815a42.jpg
+Description: Join this virtual event to hear from current Oregon MBA students about their transformative summer experiences! Learn about their internships, training immersions, and international experiential learning trips, and how these opportunities have shaped their career paths. Discover the real-world impact of an Oregon MBA through their stories and get inspired for your own journey. Don’t miss this chance to connect with our students and ask your questions!
+--------------------------------------------------------------------------------
+Event Title: Oregon MBA Fall Preview Day
+Start Date: 2025-11-14T13:00:00-08:00
+End Date: 2025-11-14T16:00:00-08:00
+Location: Lillis Business Complex
+Latitude: 44.046001
+Longitude: -123.077599
+Event URL: https://calendar.uoregon.edu/event/mba-preview-day-111425
+Image URL: https://localist-images.azureedge.net/photos/50915534191941/huge/5e60548960b8a9d6046711d7242a5ff28aab54b5.jpg
+Description: Join us on-campus for an immersive experience at the Oregon MBA Fall Preview Day! 
+
+This event is designed to give you a peek into the Oregon MBA experience! You'll get an insider's look at the Oregon MBA, explore program specializations, tour the iconic Lillis Business Complex, and meet with current students, faculty, academic advisors and admissions advisors. 
+
+Bonus: Make the most out of your trip to Eugene and stick around for the Minnesota vs. Oregon football game at Autzen Stadium (kick off at 6 p.m.). Get a chance to mingle with current students at the MBA tailgate before the game. (Please note: game tickets are not included.)
+--------------------------------------------------------------------------------
+Event Title: Discover the Oregon MBA
+Start Date: 2025-12-04T09:00:00-08:00
+End Date: 2025-12-04T09:45:00-08:00
+Location: No Location
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/discover-the-oregon-mba-120425
+Image URL: https://localist-images.azureedge.net/photos/50411865961841/huge/f503c131530b97fc58f8fd1a127838bc56dd7096.jpg
+Description: Curious about what sets the University of Oregon's Master of Business Administration program apart? Join this information session to learn about the unique features and benefits of our program. Get insights into the curriculum, faculty, and opportunities that make the Oregon MBA a standout choice. Don’t miss this chance to explore how the Oregon MBA can transform your career!
+--------------------------------------------------------------------------------
+Event Title: Global Opportunities Fair
+Start Date: 2025-10-29T10:00:00-07:00
+End Date: 2025-10-29T14:30:00-07:00
+Location: Lillis Business Complex
+Latitude: 44.046001
+Longitude: -123.077599
+Event URL: https://calendar.uoregon.edu/event/global-opportunities-fair-cross-disciplinary-networking-career-exploration-day
+Image URL: https://localist-images.azureedge.net/photos/51100658342368/huge/53b3328f08a4dbc3694cce2d5ab0b1145411e500.jpg
+Description: Join the Lundquist College of Business and the Schnitzer School of Global Studies and Languages for a day of cross-disciplinary networking and career exploration.
+
+Recent analysis reveals a rising trend of UO students pursuing interdisciplinary paths that blend business skills with language proficiency and global cultural competence. This event offers opportunities for learning, networking, and career exploration across these dynamic fields.
+
+Engage with representatives from Global Education Oregon, who will share opportunities for international study and cultural exchange.
+ Connect with UO GlobalWorks International Internships and explore internships and work abroad programs that combine business and global studies skills.
+ Visit the UO Career Center and College of Arts and Sciences Advising for tailored advice on leveraging your unique interdisciplinary background in today's competitive job market.
+ Explore resources and meet faculty and staff from the Schnitzer School of Global Studies and Languages at their dedicated tabling area.
+ Explore resources and meet faculty and staff from the Lundquist College of Business.
+ Attend some of the many presentations that will be offered throughout the day. Sign up for individual presentations here.
+ Enjoy light refreshment and enter to try to win raffle prizes.
+ Whether you're a Lundquist College student interested in global markets, or a Schnitzer School student eager to apply your skills in international business contexts, this event is your gateway to cross-pollination of ideas, opportunities, and career pathways.
+--------------------------------------------------------------------------------
+Event Title: University of Oregon Law School Fair
+Start Date: 2025-10-31T13:00:00-07:00
+End Date: 2025-10-31T16:00:00-07:00
+Location: William W. Knight Law Center
+Latitude: 44.043144
+Longitude: -123.069603
+Event URL: https://calendar.uoregon.edu/event/university-of-oregon-law-school-fair
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: The UO Law School Fair connects around 50 law schools from throughout the country with hundreds of interested, prospective law students from the University of Oregon. Admissions representatives from several top law schools will be in attendance and ready to describe the many aspects of their schools, discuss admissions criteria, and answer your questions.
+--------------------------------------------------------------------------------
+Event Title: Haunted Campus Tour
+Start Date: 2025-10-31T18:30:00-07:00
+End Date: 2025-10-31T19:15:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/haunted-campus-tour-3092
+Image URL: https://localist-images.azureedge.net/photos/51011063204393/huge/321de48636ad7822f7907af467598e5ee1add607.jpg
+Description: Join the UO Ambassadors to see the spookiest areas on campus. Learn about Oregon history, legends, and ghost stories. Tours will be offered at 6:30 p.m. and last approximately 45 minutes. 
+
+Registration is required. Space is limited!
+--------------------------------------------------------------------------------
+Event Title: Career Closet Pop-Up: Free Interview-Ready Outfits! 
+Start Date: 2025-11-19T12:00:00-08:00
+End Date: 2025-11-19T15:00:00-08:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/careercloset
+Image URL: https://localist-images.azureedge.net/photos/48986129686641/huge/2878a379d278232294a8318400931a91760a19db.jpg
+Description: Make a first impression that reflects your awesomeness! Do you need an outfit to wow your interviewers? Pop-In to our Pop-Up Career Closet and curate a FREE interview-ready outfit that will give you the confidence to crush your next interview. 
+
+Wed. November 19 from 12-3pm in the EMU Redwood Room (214) at NO COST to you!
+hosted by the University Career Center + UO Student Sustainability Center.
+
+Browse through new or gently used business casual & business professional clothes like: blazers, slacks, suits, dresses, polos, button-ups, skirts, ties, belts, and anything else you might want to wear to a job interview! A variety of styles and sizes to choose from! Check out the UCC's "Dress The Part" Boards on Pinterest to see what kinds of office style vibes you might want to shop for! 
+
+Not sure what to pick? We'll have volunteers around who can help you pick styles that reflect your individuality & the industry you're wanting to break into. 
+
+Want to volunteer at the pop-up? Reach out to career@uoregon.edu for more info! 
+
+Want to Give $ to support this initiative? Go to https://tinyurl.com/UOGive  under Designations select "I want to give to other" and write in Career Center fund (#4359) and include "Clothing" in the comments before you move on to payment! These funds will help us with additional resources to help make this event successful.
+--------------------------------------------------------------------------------
+Event Title: Jeremiah Public Lecture: "Consent and Sexual Violence in Contemporary Japan: Rethinking Autonomy, Choice, and Equality Under the Law"
+Start Date: 2025-10-27T16:00:00-07:00
+End Date: 2025-10-27T17:30:00-07:00
+Location: Chiles Hall
+Latitude: 44.045873
+Longitude: -123.078347
+Event URL: https://calendar.uoregon.edu/event/involuntary-consent
+Image URL: https://localist-images.azureedge.net/photos/50697326477863/huge/7253845076682e97aac70d5c0e9f19777f7ecb49.jpg
+Description: What does it mean to give consent when social, economic, and institutional pressures make refusal difficult? This talk examines sexual violence in contemporary Japan to challenge liberal ideals of autonomy, choice, and legal equality. Drawing on Involuntary Consent: The Illusion of Choice in Japan’s Adult Video Industry (Stanford, 2023) and new NHK survey data, Takeyama shows how “involuntary consent” emerges through structural inequalities, workplace hierarchies, and gendered expectations like emotional labor. Linking commercial sex work to everyday experiences, she calls for rethinking how law, culture, and power define sexual harm—and for imagining consent that accounts for relational and structural constraints.
+
+Presented by: Akiko Takeyama, PhD, Professor of Women, Gender, and Sexuality Studies, Director of the Center for East Asian Studies, University of Kansas.
+
+Hosted by: Haruka Nagao, PhD, Assistant Professor, Deparmtent of Global Studies, University of Oregon.
+
+Event sponsors: Global Studies Institute, Center for Asian and Pacific Studies.
+--------------------------------------------------------------------------------
+Event Title: MOVED: Handel’s Messiah
+Start Date: 2025-12-11T19:30:00-08:00
+End Date: 2025-12-11
+Location: Beall Concert Hall
+Latitude: 44.040761
+Longitude: -123.078371
+Event URL: https://calendar.uoregon.edu/event/handels-messiah
+Image URL: https://localist-images.azureedge.net/photos/50533412843095/huge/053f878ecaccdf74024990b723fff234f8eb7470.jpg
+Description: This event has been moved to First Congregational Church in Portland and will be produced and ticketed by Portland Baroque Orchestra.
+--------------------------------------------------------------------------------
+Event Title: Joyce Wei-Jo Chen: Grounded Imagination
+Start Date: 2025-10-28T18:00:00-07:00
+End Date: 2025-10-28
+Location: Collier House
+Latitude: 44.045506
+Longitude: -123.073761
+Event URL: https://calendar.uoregon.edu/event/joyce-wei-jo-chen-grounded-imagination
+Image URL: https://localist-images.azureedge.net/photos/51012549946237/huge/8423af00fe1a0db475c64c14ad65abae9f76d403.jpg
+Description: Variation Sets by Frescobaldi and Storace
+--------------------------------------------------------------------------------
+Event Title: Rachel Tobac, Ethical Hacker - Big Ten Panel
+Start Date: 2025-10-29T09:00:00-07:00
+End Date: 2025-10-29T10:00:00-07:00
+Location: No Location
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/rachel-tobac-ethical-hacker-big-ten-panel
+Image URL: https://localist-images.azureedge.net/photos/50878998752454/huge/8f5ea5a31a87dbf7df57e0c4c22d925085e1205c.jpg
+Description: Exploiting Trust: The Human Element of Security
+
+It only takes 1 email, a 30-second call, or 1 social media DM for her to hack you and gain access to your money, data, and systems.
+
+Meet Rachel Tobac, who executes these social engineering attacks for a living and uses her real-life ethical hacking stories to keep organizations up to date on the methods criminals are using to trick people. She'll break down:
+
+Recent cyberattacks in the news.How to defend against the latest hacking methods.When criminals are using AI.Her tales from the field and live hacking demonstrations throughout the presentation are sure to keep you and your team "politely paranoid" to catch the next human hacker in the act.
+
+Part of Cybersecurity Awareness Month 2025.
+--------------------------------------------------------------------------------
+Event Title: Travel and Study Abroad Fair
+Start Date: 2025-10-29T15:30:00-07:00
+End Date: 2025-10-29T17:00:00-07:00
+Location: Allen Hall
+Latitude: 44.046361
+Longitude: -123.075042
+Event URL: https://calendar.uoregon.edu/event/travel-study-abroad-fair
+Image URL: https://localist-images.azureedge.net/photos/51047237351829/huge/f91219ef87c396eba6f40d93cc9d6e70b0afb6e9.jpg
+Description: Discover travel and study abroad opportunities at the School of Journalism and Communication. Speak to faculty leaders for programs such as PR and Advertising in London, Instagramming Amerstam, the New York Advertising Experience, Media in Ghana, just to name a few! Representatives from Global Education Oregon will also be present to talk with you about program dates, deadlines, scholarships, and more.
+--------------------------------------------------------------------------------
+Event Title: Ugo Akabike: Caught Existing Exhibit
+Start Date: 2025-10-27T08:00:00-07:00
+End Date: 2025-10-27T23:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/ugo-akabike-caught-existing-exhibit
+Image URL: https://localist-images.azureedge.net/photos/50659182023991/huge/be64e771d44e4df1dd540e2ac55c3b69c3179557.jpg
+Description: Visit the McMillan Art Gallery from September 25th and October 28th to see work from Ugo Akabike. 
+
+Ugo Akabike is a University of Oregon Alum often thinking about being in a place where the sand is warm, the sky is cerulean blue, and the waves are barreling. Through his photographic endeavors he strives to capture the moments that we often think little of, but remember fondly in reflection. Though often choosing to say little with words, the images he produces announce themselves boldly through their captivating visual nature.
+Ugo would love to hear from you and what you think about his work!
+He challenges you to out to him on Instagram right now just to say hello.
+--------------------------------------------------------------------------------
+Event Title:  On View: Day of the Dead Altares
+Start Date: 2025-10-27T11:00:00-07:00
+End Date: 2025-10-27T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/on-view-day-of-the-dead-altares-6140
+Image URL: https://localist-images.azureedge.net/photos/50719433974748/huge/6def37c345d7c0571ddcf982efbe399717806739.jpg
+Description: Please feel free to bring a photo of a loved one and place it in the altares to honor those who have passed away.
+
+On view during museum hours, not open to the public on Mondays and Tuesdays.
+--------------------------------------------------------------------------------
+Event Title: "Gathering: A Photographer's Collection"  Exhibition 
+Start Date: 2025-10-27T11:00:00-07:00
+End Date: 2025-10-27T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/gathering-a-photographers-collection-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162277011735/huge/ee109100992ca899c35325d2112d2b5538a88aa0.jpg
+Description: Gathering: A Photographer’s Collection presents a wide-ranging selection of photographs from the personal collection of Portland, Oregon-based photographer and curator, Christopher Rauschenberg. Over five decades, Rauschenberg has compiled a truly distinctive archive of photographs encompassing a wide array of themes, styles, uses of the medium, and range of subjects and content. This important resource represents a diverse mix of international and nationally emerging and established photographers.
+
+Rauschenberg typically acquires photographs directly from the artists or from non-profit community-based arts organizations exhibiting or representing their works. Rauschenberg has also traveled extensively and participated for decades as a highly regarded reviewer of photography portfolios at international gatherings of specialists who utilize and support opportunities for working creative photographers.
+
+In Gathering, one will find a wealth of individual points of view that, when engaged, may broaden each of our own visions: whether those considered perspectives are personal, familiar, social, cultural, political, or spiritual.
+--------------------------------------------------------------------------------
+Event Title: "James Lavadour: Land of Origin" Exhibition
+Start Date: 2025-10-27T11:00:00-07:00
+End Date: 2025-10-27T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/james-lavadour-land-of-origin-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162329518533/huge/c670c194617f68ce9d6980347f9464e3af5a786a.jpg
+Description: James Lavadour: Land of Origin presents the most comprehensive survey to date of works by painter and printmaker James Lavadour (Walla Walla). Spanning five decades of work, this national retrospective celebrates Lavadour’s deep connection to the eastern Oregon landscape, particularly the Umatilla Indian Reservation and surrounding Blue Mountains region where the artist has spent most of his life, and recognizes his esteemed place in contemporary American painting. The exhibition includes nearly thirty of Lavadour’s magnificent signature grid paintings, works on individual panels, and prints, most of which have never been exhibited together. It will draw on significant loans from the artist, major museum collections, and private lenders. Recognizing one of Oregon and the nation’s most original and powerful artists, James Lavadour: Land of Origin will also be accompanied by a full catalogue.
+--------------------------------------------------------------------------------
+Event Title: Introduction to R
+Start Date: 2025-10-27T12:00:00-07:00
+End Date: 2025-10-27T13:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/introduction-to-r-6160
+Image URL: https://localist-images.azureedge.net/photos/50896819962974/huge/6e7ff2a5038ea12a803c63a1998aecca1933b32a.jpg
+Description: Are you interested in using R and RStudio but unsure where to start? Learn how to analyze and visualize data in R in this eight-session workshop series. This course is intended for absolute beginners or anyone wanting to review the basics. Register for an online spot to recieve Zoom link. Each session will be an hour in the length and cover the topics described below:
+
+Intro to R and RStudio – October 6Project Management and Help in R – October 8Data Structures in R – October 13Exploring Data – October 15Data Visualization with R and ggplot – October 20Working with Data in R Part 1 – October 22Working with Data in R Part 2 – October 27Reproducible Reports with R and RMarkdown – October 29No prior experience with programming required. The workshop series follows this Carpentries workshop curriculum.
+
+These workshops require you have R and RStudio installed on your computer.
+
+Download and install the latest version of R.Download and install RStudio. RStudio is an application (an integrated development environment or IDE) that facilitates the use of R and offers a number of nice additional features. You will need the free desktop version for your computer.
+--------------------------------------------------------------------------------
+Event Title: SOJC Grab-&-Ghoul Week
+Start Date: 2025-10-27T12:00:00-07:00
+End Date: 2025-10-27T13:00:00-07:00
+Location: Allen Hall
+Latitude: 44.046361
+Longitude: -123.075042
+Event URL: https://calendar.uoregon.edu/event/sojc-grab-ghoul-week-6735
+Image URL: https://localist-images.azureedge.net/photos/51047200719306/huge/da7a61aede6a3621314684bf1317355648679490.jpg
+Description: No tricks, just treats! Swing by the Allen Hall Atrium for free candy and snacks the week of Halloween. You don't want to ghost this event!
+--------------------------------------------------------------------------------
+Event Title: Bioengineering Seminar Series: “Engineering High-Density Implants for Chronic Neural Interfacing” with Felix Deku (Mid-tenure Talk)
+Start Date: 2025-10-27T13:00:00-07:00
+End Date: 2025-10-27T14:00:00-07:00
+Location: Phil and Penny Knight Campus for Accelerating Scientific Impact
+Latitude: 44.046919
+Longitude: -123.070902
+Event URL: https://calendar.uoregon.edu/event/bioengineering-seminar-series-felix-deku-mid-tenure-talk
+Image URL: https://localist-images.azureedge.net/photos/51004847216161/huge/a1977fb73acd4d7369ff6dba86791b2b62b64979.jpg
+Description: Felix Deku, Betsy and Greg Hatton Assistant Professor in Neuroengineering in the Department of Bioengineering, will deliver his mid-tenure talk titled “Engineering High-Density Implants for Chronic Neural Interfacing.” This presentation will explore advances in neuroengineering technologies aimed at improving long-term communication with the nervous system.
+
+Held as part of the 2025–26 Bioengineering Seminar Series, this talk is open to the university community.
+--------------------------------------------------------------------------------
+Event Title: GIS and The Makerspace at UO
+Start Date: 2025-10-27T13:00:00-07:00
+End Date: 2025-10-27T15:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/gis-the-makerspace-uo
+Image URL: https://localist-images.azureedge.net/photos/50897333055069/huge/884a8cf6124a02bfe8487a42e7819c6453114a30.jpg
+Description: GIS and the Makerspace is a two-session workshop covering the basics of working in ArcGIS Pro to create a laser-cut coaster map of the world and a keychain map of Oregon. The first session covers GIS concepts, map projections, and formatting for the laser cutter. The second session introduces the equipment available in the DeArmond makerspace and the laser cutter.
+
+No experience with GIS or the Makerspace is required, and completion of this workshop will certify you to use the laser cutter for your own projects. Register today to learn GIS by making beautiful acrylic maps!
+
+You will need to be a current student, faculty, or staff member to participate in this workshop.
+--------------------------------------------------------------------------------
+Event Title: Pre-Business Requirements Workshop
+Start Date: 2025-10-27T14:30:00-07:00
+End Date: 2025-10-27T15:30:00-07:00
+Location: Justice Bean Hall
+Latitude: 44.041096
+Longitude: -123.068047
+Event URL: https://calendar.uoregon.edu/event/pre-business-requirements-workshop
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: Join advisors from the Lundquist College of Business undergraduate programs for an optional workshop to learn about pre-business and business major requirements. You will have the opportunity to plan your schedule for winter term.
+--------------------------------------------------------------------------------
+Event Title: EMU Duck Scavenger Hunt
+Start Date: 2025-10-27T15:00:00-07:00
+End Date: 2025-10-27T17:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/emu-duck-scavenger-hunt
+Image URL: https://localist-images.azureedge.net/photos/51073405691913/huge/ea2e52fc1ca7bf3a61c77f6e14ba27b278def4af.jpg
+Description: There are five wooden ducks hidden around the building. Find one and bring it to the O Desk to get an EMU-themed prize!
+--------------------------------------------------------------------------------
+Event Title: Language Circles Fall 2025
+Start Date: 2025-10-27T15:00:00-07:00
+End Date: 2025-10-27T19:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/language-circles-fall-2025
+Image URL: https://localist-images.azureedge.net/photos/50588044079153/huge/75e4fe70e17374f0646c7dbd94b3f6044483f2b6.jpg
+Description: Join us for Language Circles this fall term at the Mills International Center every Monday! 
+
+Language Circles are conversation groups led by native and/or proficient speakers. Students of all levels can learn and practice languages through informal conversation. 
+
+Different languages are offered every hour. Stay tuned for our fall 2025 Language Circles schedule! All times will be posted to our Instagram @uomills and in our space, Mills International Center, EMU M102. 
+
+The Mills International Center space is open to ALL students, faculty and guests, U.S. and international!
+--------------------------------------------------------------------------------
+Event Title: Jeremiah Public Lecture: "Consent and Sexual Violence in Contemporary Japan: Rethinking Autonomy, Choice, and Equality Under the Law"
+Start Date: 2025-10-27T16:00:00-07:00
+End Date: 2025-10-27T17:30:00-07:00
+Location: Chiles Hall
+Latitude: 44.045873
+Longitude: -123.078347
+Event URL: https://calendar.uoregon.edu/event/involuntary-consent
+Image URL: https://localist-images.azureedge.net/photos/50697326477863/huge/7253845076682e97aac70d5c0e9f19777f7ecb49.jpg
+Description: What does it mean to give consent when social, economic, and institutional pressures make refusal difficult? This talk examines sexual violence in contemporary Japan to challenge liberal ideals of autonomy, choice, and legal equality. Drawing on Involuntary Consent: The Illusion of Choice in Japan’s Adult Video Industry (Stanford, 2023) and new NHK survey data, Takeyama shows how “involuntary consent” emerges through structural inequalities, workplace hierarchies, and gendered expectations like emotional labor. Linking commercial sex work to everyday experiences, she calls for rethinking how law, culture, and power define sexual harm—and for imagining consent that accounts for relational and structural constraints.
+
+Presented by: Akiko Takeyama, PhD, Professor of Women, Gender, and Sexuality Studies, Director of the Center for East Asian Studies, University of Kansas.
+
+Hosted by: Haruka Nagao, PhD, Assistant Professor, Deparmtent of Global Studies, University of Oregon.
+
+Event sponsors: Global Studies Institute, Center for Asian and Pacific Studies.
+--------------------------------------------------------------------------------
+Event Title: Tuesday Treats
+Start Date: 2025-10-28T11:00:00-07:00
+End Date: 2025-10-28T12:30:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/tuesday-treats-60
+Image URL: https://localist-images.azureedge.net/photos/50217220250086/huge/d3d448bb9c2892489fd2a20b2b3396d5d224fa12.jpg
+Description: Satisfy your sweet tooth every Tuesday at the University of Oregon's "Tuesday Treats" featuring irresistible donut holes. Join us for a tasty break that'll sweeten your Tuesday.
+
+
+As always, our events are FREE for UO students with UOID.
+
+  
+*Dietary substitutions for gluten free and vegan diets will be available.
+--------------------------------------------------------------------------------
+Event Title: Labor Employment Relations Association General Meeting
+Start Date: 2025-10-28T12:00:00-07:00
+End Date: 2025-10-28T13:00:00-07:00
+Location: 242
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/labor-employment-relations-association-general-meeting
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: LERA will meet to continue planning our organizations future, next year&#039;s budget, and the transition to our new name (LELA).
+--------------------------------------------------------------------------------
+Event Title: SOJC Grab-&-Ghoul Week
+Start Date: 2025-10-28T12:00:00-07:00
+End Date: 2025-10-28T13:00:00-07:00
+Location: Allen Hall
+Latitude: 44.046361
+Longitude: -123.075042
+Event URL: https://calendar.uoregon.edu/event/sojc-grab-ghoul-week-6735
+Image URL: https://localist-images.azureedge.net/photos/51047200719306/huge/da7a61aede6a3621314684bf1317355648679490.jpg
+Description: No tricks, just treats! Swing by the Allen Hall Atrium for free candy and snacks the week of Halloween. You don't want to ghost this event!
+--------------------------------------------------------------------------------
+Event Title: Seminar - “A Biophysical Perspective on The Evolution of Multi-Conformation Proteins”
+Start Date: 2025-10-28T12:00:00-07:00
+End Date: 2025-10-28
+Location: Phil and Penny Knight Campus for Accelerating Scientific Impact
+Latitude: 44.046919
+Longitude: -123.070902
+Event URL: https://calendar.uoregon.edu/event/seminar-a-biophysical-perspective-on-the-evolution-of-multi-conformation-proteins
+Image URL: https://localist-images.azureedge.net/photos/51074747120054/huge/3f58ec466db9fd06319808874d89280ff7fa8694.jpg
+Description: UNIVERSITY OF OREGON
+DEPARTMENT OF CHEMISTRY & BIOCHEMISTRY
+Promotion to Full Professor Seminar
+
+Mike Harms
+
+“A Biophysical Perspective on The Evolution of Multi-Conformation Proteins”
+--------------------------------------------------------------------------------
+Event Title: Introduction to High-Performance Computing
+Start Date: 2025-10-28T13:00:00-07:00
+End Date: 2025-10-28T15:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/introduction-to-high-performance-computing
+Image URL: https://localist-images.azureedge.net/photos/50897306335593/huge/799db83909067c0ca1a138047662d78d8e728d8a.jpg
+Description: This comprehensive introduction to high-performance computing prepares attendees to use Talapas, UO's supercomputer. These interactive workshops introduce UNIX commands, Bash scripting, file management, OnDemand, Slurm, JupyterLab integration, and Talapas best practices. Workshops are taught by a team of instructors from UO Libraries, Research Advanced Computer Services (RACS), and the Lewis Center for Neuroimaging. Learn from experts in high performance computing and neuroscience!
+
+No prior experience with the command line or high-performance computing is required, though participants may benefit from knowledge of a programming language like Python or R.
+
+Schedule
+
+Introduction to Bash – October 14, 1:00–3:00 p.m.Bash Scripting on Talapas – October 16, 1:00–3:00 p.m.Talapas Essentials – October 21, 1:00–3:00 p.m.Running Jobs on Talapas with Slurm – October 23, 1:00–3:00 p.m.Advanced Slurm – October 28, 1:00–3:00 p.m.JupyterLab on Talapas – October 30, 1:00–3:00 p.m.Instructors
+
+Bruce Edelman - Research Computing Facilitator, RACSFreddy Lopez - Research Systems Engineer, RACSJolinda Smith - MR Physicist, Lewis Center for NeuroimagingErin M. Winter - Research Data Management Librarian, Data ServicesWilliam Winter - Research Software Engineer, RACSTo make sure participants can access Talapas during in-person workshop sessions, advance registration is required. Priority will be given to students, faculty, and staff with positions in research labs that use (or plan to use) Talapas.
+
+Want to get a sneak peek of the curriculum? Previous sessions are archived on the course website on GitHub. Contact us if you have any questions.
+--------------------------------------------------------------------------------
+Event Title: Introduction to Python
+Start Date: 2025-10-28T13:00:00-07:00
+End Date: 2025-10-28T14:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/introduction-to-python-9546
+Image URL: https://localist-images.azureedge.net/photos/50896731368533/huge/8b8b1a41608ef06c038d57dc62e9c4776c093c21.jpg
+Description: Develop core programming skills that will allow you to write Python scripts for your own work. This free, eight-part workshop series will introduce you to the fundamentals of programming in Python through interactive programming exercises. No experience required!
+
+Topics covered include the following:
+
+Variables and data typesMathematical functionsJupyter notebooksReading data into PythonPlotting data with PandasThis hybrid, interactive course is intended for beginners to programming. Register online for Zoom link. Not sure how to install Python? Our first day will be focused on installing Python and configuring your coding environment.
+
+Our curriculum is adapted from the Software Carpentries Python curriculum. Feel free to contact us if you have any questions.
+--------------------------------------------------------------------------------
+Event Title: Open Enrollment Help Session
+Start Date: 2025-10-28T14:00:00-07:00
+End Date: 2025-10-28T16:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/open-enrollment-help-session-8851
+Image URL: https://localist-images.azureedge.net/photos/50845982907817/huge/4dbfe9cc4b70a72b9a7f2ed7e5b031580bbd487e.jpg
+Description: Open enrollment is the period when benefits-eligible faculty, staff, and officers of administration sign up for or make changes to their insurance and other benefits for the next calendar year via the Public Employees' Benefit Board (PEBB) system. 
+
+The UO Benefits team is offering these sessions for employees to drop in and get help with the process and their questions answered!
+--------------------------------------------------------------------------------
+Event Title: Produce Drop
+Start Date: 2025-10-28T14:45:00-07:00
+End Date: 2025-10-28T17:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/produce-drop
+Image URL: https://localist-images.azureedge.net/photos/51083263364529/huge/132a4aba25b0ea4f1443706c99b9ba4abc1b41a1.jpg
+Description: The Student Sustainability Center and Food for Lane County host the weekly Trillium Produce Plus Produce Drops. These events provide a free farmers market for students to get produce, bread, and toilet paper. Please bring a bag and your UO ID.
+--------------------------------------------------------------------------------
+Event Title: Giant Chess at the O Desk
+Start Date: 2025-10-28T15:00:00-07:00
+End Date: 2025-10-28T17:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/giant-chess-at-the-o-desk
+Image URL: https://localist-images.azureedge.net/photos/51073361242623/huge/bff9b990918fbbb7cb40cb8aa6b34e27b1e2515c.jpg
+Description: Play a game of giant chess near the O Desk. If you win the game, you will be entered into a drawing to win Duck Bucks cards!
+--------------------------------------------------------------------------------
+Event Title: Experiential Learning Opportunity Scholarship Info Session
+Start Date: 2025-10-28T16:00:00-07:00
+End Date: 2025-10-28T17:00:00-07:00
+Location: Willie and Donald Tykeson Hall
+Latitude: 44.045502
+Longitude: -123.075559
+Event URL: https://calendar.uoregon.edu/event/elo-scholarship-info-session
+Image URL: https://localist-images.azureedge.net/photos/50701336217150/huge/684595eb70207dbc4c34c851bf6c377f3ef65b0a.jpg
+Description: ELO Scholarship Info Session: Fund Your Experience! 
+
+Are you planning an internship, research project, study abroad program, or leadership experience, and wondering how to pay for it? The CAS Experiential Learning Opportunity (ELO) Scholarship can help! 
+
+Join us for an info session to learn: 
+
+What counts as an ELO Who’s eligible to apply How to write a strong application When to apply and what to expect You’ll also get your questions answered by CAS CareerLab staff. 
+
+Hosted by: CAS CareerLab 
+Open to: All CAS undergraduates 
+
+Light snacks provided; contact careerlab@uoregon.edu with questions.
+--------------------------------------------------------------------------------
+Event Title: MS in Management Info Session for Honors Students
+Start Date: 2025-10-28T16:00:00-07:00
+End Date: 2025-10-28T17:00:00-07:00
+Location: No Location
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/msm-chc-102825
+Image URL: https://localist-images.azureedge.net/photos/50898068470572/huge/f988ad850b71f18ac4ee310bd25b663f2d5d7be4.jpg
+Description: Qualified Clark Honors College students from all undergraduate majors can take advantage of a clear, structured pathway to earn a Master of Science in Management (MSM) degree immediately after completing their undergraduate studies.
+
+Join admission representatives to learn more about the one-year Master of Science in Management program, admission requirements, and the application process.
+
+To qualify for the guaranteed admission pathway:
+• Submit your MSM program application by March 15 of your fourth year.
+• Participate in a 30-minute interview as part of the application process.
+• Be on track to complete your undergraduate degree before beginning the MSM program.
+• Maintain a minimum 3.60 cumulative GPA at the time of application and through graduation.
+--------------------------------------------------------------------------------
+Event Title: Joyce Wei-Jo Chen: Grounded Imagination
+Start Date: 2025-10-28T18:00:00-07:00
+End Date: 2025-10-28
+Location: Collier House
+Latitude: 44.045506
+Longitude: -123.073761
+Event URL: https://calendar.uoregon.edu/event/joyce-wei-jo-chen-grounded-imagination
+Image URL: https://localist-images.azureedge.net/photos/51012549946237/huge/8423af00fe1a0db475c64c14ad65abae9f76d403.jpg
+Description: Variation Sets by Frescobaldi and Storace
+--------------------------------------------------------------------------------
+Event Title: Trombone Choir Concert
+Start Date: 2025-10-28T19:00:00-07:00
+End Date: 2025-10-28
+Location: Berwick Hall
+Latitude: 44.040578
+Longitude: -123.078094
+Event URL: https://calendar.uoregon.edu/event/trombone-choir-concert
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: More information coming soon.
+--------------------------------------------------------------------------------
+Event Title: EMU 75th Anniversary Show
+Start Date: 2025-10-29T08:00:00-07:00
+End Date: 2025-10-29T23:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/emu-75th-anniversary-show
+Image URL: https://localist-images.azureedge.net/photos/50659831725871/huge/c069367c512fc34b1169304143c15f2f1f723ef0.jpg
+Description: "EMU 75th Anniversary Show" October 28 to December 12.
+
+The EMU celebrates 75 years! The gallery will be hosting an exhibit showcasing the history of the University of Oregon and Erb Memorial Union through pictures, posters and storytelling. Please join us for the reception on November 4, from 6-7pm in the Adell McMillan Gallery!
+
+We hope to see you there!
+--------------------------------------------------------------------------------
+Event Title: Rachel Tobac, Ethical Hacker - Big Ten Panel
+Start Date: 2025-10-29T09:00:00-07:00
+End Date: 2025-10-29T10:00:00-07:00
+Location: No Location
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/rachel-tobac-ethical-hacker-big-ten-panel
+Image URL: https://localist-images.azureedge.net/photos/50878998752454/huge/8f5ea5a31a87dbf7df57e0c4c22d925085e1205c.jpg
+Description: Exploiting Trust: The Human Element of Security
+
+It only takes 1 email, a 30-second call, or 1 social media DM for her to hack you and gain access to your money, data, and systems.
+
+Meet Rachel Tobac, who executes these social engineering attacks for a living and uses her real-life ethical hacking stories to keep organizations up to date on the methods criminals are using to trick people. She'll break down:
+
+Recent cyberattacks in the news.How to defend against the latest hacking methods.When criminals are using AI.Her tales from the field and live hacking demonstrations throughout the presentation are sure to keep you and your team "politely paranoid" to catch the next human hacker in the act.
+
+Part of Cybersecurity Awareness Month 2025.
+--------------------------------------------------------------------------------
+Event Title: Explore Oregon
+Start Date: 2025-10-29T10:00:00-07:00
+End Date: 2025-10-29T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/explore_oregon_9372
+Image URL: https://localist-images.azureedge.net/photos/38891314266760/huge/2ff1e24e0429df59871925d5e00c844757123622.jpg
+Description: Experience the dynamic forces that shape Oregon’s landscapes, climate, and ecosystems. Meet giant salmon, Ice Age sloths, and other amazing animals from across the millennia. Through interactive displays and rare specimens, you’ll go deep into Oregon’s past and join a conversation about our collective future.
+--------------------------------------------------------------------------------
+Event Title: Global Opportunities Fair
+Start Date: 2025-10-29T10:00:00-07:00
+End Date: 2025-10-29T14:30:00-07:00
+Location: Lillis Business Complex
+Latitude: 44.046001
+Longitude: -123.077599
+Event URL: https://calendar.uoregon.edu/event/global-opportunities-fair-cross-disciplinary-networking-career-exploration-day
+Image URL: https://localist-images.azureedge.net/photos/51100658342368/huge/53b3328f08a4dbc3694cce2d5ab0b1145411e500.jpg
+Description: Join the Lundquist College of Business and the Schnitzer School of Global Studies and Languages for a day of cross-disciplinary networking and career exploration.
+
+Recent analysis reveals a rising trend of UO students pursuing interdisciplinary paths that blend business skills with language proficiency and global cultural competence. This event offers opportunities for learning, networking, and career exploration across these dynamic fields.
+
+Engage with representatives from Global Education Oregon, who will share opportunities for international study and cultural exchange.
+ Connect with UO GlobalWorks International Internships and explore internships and work abroad programs that combine business and global studies skills.
+ Visit the UO Career Center and College of Arts and Sciences Advising for tailored advice on leveraging your unique interdisciplinary background in today's competitive job market.
+ Explore resources and meet faculty and staff from the Schnitzer School of Global Studies and Languages at their dedicated tabling area.
+ Explore resources and meet faculty and staff from the Lundquist College of Business.
+ Attend some of the many presentations that will be offered throughout the day. Sign up for individual presentations here.
+ Enjoy light refreshment and enter to try to win raffle prizes.
+ Whether you're a Lundquist College student interested in global markets, or a Schnitzer School student eager to apply your skills in international business contexts, this event is your gateway to cross-pollination of ideas, opportunities, and career pathways.
+--------------------------------------------------------------------------------
+Event Title: Oregon: Where Past Is Present
+Start Date: 2025-10-29T10:00:00-07:00
+End Date: 2025-10-29T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/oregon_where_past_is_present
+Image URL: https://localist-images.azureedge.net/photos/38953944027238/huge/1fa33622872ad17ac6dc89121ba05da9486a8b81.jpg
+Description: Delve into Oregon’s story, from the archaeology of the First Americans to the dynamic cultures of today’s Tribes.
+
+Combining interactive displays with world-class anthropological collections, Oregon—Where Past is Present shares 14,000 years of Oregon stories, and invites you to tell your own. Explore the galleries, try your hand at ancient weaving styles, test your skills as an archaeologist, and much more.
+--------------------------------------------------------------------------------
+Event Title: Roots and Resilience—Chinese American Heritage in Oregon
+Start Date: 2025-10-29T10:00:00-07:00
+End Date: 2025-10-29T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/roots-and-resiliencechinese-american-heritage-in-oregon-4784
+Image URL: https://localist-images.azureedge.net/photos/49331443904698/huge/db05acd040ca881b857672cf1f4ec5e35c7fbcb6.jpg
+Description: Chinese immigrants helped shape Oregon’s history. Come discover the stories and resilience of early Chinese Americans.
+--------------------------------------------------------------------------------
+Event Title: Transgressors
+Start Date: 2025-10-29T10:00:00-07:00
+End Date: 2025-10-29T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/transgressors
+Image URL: https://localist-images.azureedge.net/photos/49712393289242/huge/4a82fbcc87a062039c4c16f65f7aabc90871503a.jpg
+Description: An exhibition presenting now and future Indigiqueer ancestors who move beyond boundaries in life and art. 
+
+Artists: a.c. ramírez de arellaño  |  Evan Benally Atwood  |  Geo Soctomah Neptune   |  Jeffrey Gibson  |  Lehuauakea  |  Qahir-beejee Peco  |  Roin Morigeau  | Steph Littlebird  |  Walter Scott 
+
+Curated by Anthony Hudson and Felix Furby.
+
+Sponsored by Chachalu Tribal Museum and Cultural Center, Native Arts and Cultures Foundation, Oregon Community Foundation, and New Expressive Work.
+--------------------------------------------------------------------------------
+Event Title:  On View: Day of the Dead Altares
+Start Date: 2025-10-29T11:00:00-07:00
+End Date: 2025-10-29T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/on-view-day-of-the-dead-altares-6140
+Image URL: https://localist-images.azureedge.net/photos/50719433974748/huge/6def37c345d7c0571ddcf982efbe399717806739.jpg
+Description: Please feel free to bring a photo of a loved one and place it in the altares to honor those who have passed away.
+
+On view during museum hours, not open to the public on Mondays and Tuesdays.
+--------------------------------------------------------------------------------
+Event Title: "Gathering: A Photographer's Collection"  Exhibition 
+Start Date: 2025-10-29T11:00:00-07:00
+End Date: 2025-10-29T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/gathering-a-photographers-collection-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162277011735/huge/ee109100992ca899c35325d2112d2b5538a88aa0.jpg
+Description: Gathering: A Photographer’s Collection presents a wide-ranging selection of photographs from the personal collection of Portland, Oregon-based photographer and curator, Christopher Rauschenberg. Over five decades, Rauschenberg has compiled a truly distinctive archive of photographs encompassing a wide array of themes, styles, uses of the medium, and range of subjects and content. This important resource represents a diverse mix of international and nationally emerging and established photographers.
+
+Rauschenberg typically acquires photographs directly from the artists or from non-profit community-based arts organizations exhibiting or representing their works. Rauschenberg has also traveled extensively and participated for decades as a highly regarded reviewer of photography portfolios at international gatherings of specialists who utilize and support opportunities for working creative photographers.
+
+In Gathering, one will find a wealth of individual points of view that, when engaged, may broaden each of our own visions: whether those considered perspectives are personal, familiar, social, cultural, political, or spiritual.
+--------------------------------------------------------------------------------
+Event Title: "James Lavadour: Land of Origin" Exhibition
+Start Date: 2025-10-29T11:00:00-07:00
+End Date: 2025-10-29T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/james-lavadour-land-of-origin-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162329518533/huge/c670c194617f68ce9d6980347f9464e3af5a786a.jpg
+Description: James Lavadour: Land of Origin presents the most comprehensive survey to date of works by painter and printmaker James Lavadour (Walla Walla). Spanning five decades of work, this national retrospective celebrates Lavadour’s deep connection to the eastern Oregon landscape, particularly the Umatilla Indian Reservation and surrounding Blue Mountains region where the artist has spent most of his life, and recognizes his esteemed place in contemporary American painting. The exhibition includes nearly thirty of Lavadour’s magnificent signature grid paintings, works on individual panels, and prints, most of which have never been exhibited together. It will draw on significant loans from the artist, major museum collections, and private lenders. Recognizing one of Oregon and the nation’s most original and powerful artists, James Lavadour: Land of Origin will also be accompanied by a full catalogue.
+--------------------------------------------------------------------------------
+Event Title: Cinema Studies Presents: Cinema Gear Demos with B&H and Sony
+Start Date: 2025-10-29T11:00:00-07:00
+End Date: 2025-10-29T15:00:00-07:00
+Location: Villard Hall
+Latitude: 44.035049
+Longitude: -123.047356
+Event URL: https://calendar.uoregon.edu/event/cinema-studies-presents-cinema-gear-demos-with-bh-and-sony
+Image URL: https://localist-images.azureedge.net/photos/50897236632782/huge/4b5f6afba0412deb72992e5d04ad2854a26d9504.jpg
+Description: The Department of Cinema Studies Presents: Cinema Gear Demos with B&H and Sony
+
+Cinema Studies invites students to stop by to test filmmaking equipment with reps from B&H and Sony. Get FREE Discounts! 
+
+Wednesday, October 29, from 11 am to 3 pm (B&H)
+Thursday, October 30, from noon to 4 pm (B&H and Sony)
+
+Free and open to all majors.
+--------------------------------------------------------------------------------
+Event Title: MCC: Sweet Relief Drop-In Edition
+Start Date: 2025-10-29T11:00:00-07:00
+End Date: 2025-10-29T14:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/mcc-sweet-relief-drop-in-edition
+Image URL: https://localist-images.azureedge.net/photos/51099525022488/huge/d3cf29397f39173a8eefddfcfd937a0f18cb0530.jpg
+Description: Join the Multicultural Center as we celebrate the EMU's 75th Anniversary! Each day between October 28 - 30 from 11:00 a.m. - 2:00 p.m., we will have relaxing activities to help you de-stress during midterms. 
+
+Day 1 (10/28): Date with a Book + Bookmark making 
+
+Day 2 (10/29): Decorate your own incense holder
+
+Day 3 (10/30): DIY Moroccan Body Scrub
+
+Visit us at EMU 109 for more information!
+--------------------------------------------------------------------------------
+Event Title: Introduction to R
+Start Date: 2025-10-29T12:00:00-07:00
+End Date: 2025-10-29T13:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/introduction-to-r-6160
+Image URL: https://localist-images.azureedge.net/photos/50896819962974/huge/6e7ff2a5038ea12a803c63a1998aecca1933b32a.jpg
+Description: Are you interested in using R and RStudio but unsure where to start? Learn how to analyze and visualize data in R in this eight-session workshop series. This course is intended for absolute beginners or anyone wanting to review the basics. Register for an online spot to recieve Zoom link. Each session will be an hour in the length and cover the topics described below:
+
+Intro to R and RStudio – October 6Project Management and Help in R – October 8Data Structures in R – October 13Exploring Data – October 15Data Visualization with R and ggplot – October 20Working with Data in R Part 1 – October 22Working with Data in R Part 2 – October 27Reproducible Reports with R and RMarkdown – October 29No prior experience with programming required. The workshop series follows this Carpentries workshop curriculum.
+
+These workshops require you have R and RStudio installed on your computer.
+
+Download and install the latest version of R.Download and install RStudio. RStudio is an application (an integrated development environment or IDE) that facilitates the use of R and offers a number of nice additional features. You will need the free desktop version for your computer.
+--------------------------------------------------------------------------------
+Event Title: Professional Edge Workshop: Work Smarter, Not Harder with PowerPoint
+Start Date: 2025-10-29T12:00:00-07:00
+End Date: 2025-10-29T13:00:00-07:00
+Location: Chiles Hall
+Latitude: 44.045873
+Longitude: -123.078347
+Event URL: https://calendar.uoregon.edu/event/work-smarter-not-harder-with-powerpoint
+Image URL: https://localist-images.azureedge.net/photos/50827429120145/huge/44c05f1b7afcd739ae6dc7cbef41d63659f05045.jpg
+Description: Think PowerPoint is just for bullet points and slide transitions? Think again. In this fast-paced, hands-on workshop, "Unlock the Power of PowerPoint: Design Smarter, Present Better," you'll discover the powerful features that can elevate your presentations from basic to brilliant.
+
+Whether you're building decks for meetings, events, or instruction, this session will introduce you to the tools that make your slides more engaging, professional, and easier to manage. This workshop isn't about adding animations or picking a font, it's about mastering the design and organizational features that save time and make your message shine.
+ 
+
+What You'll Learn
+
+Slide Master and layouts demystified – Learn how to create consistent, professional slide designs using Slide Master and custom layouts. No more formatting each slide manually.
+ Themes and variants – Discover how to apply and customize themes to give your presentation a cohesive, polished look.
+ Smart organization with sections – Use sections to structure your presentation for easier navigation and editing.
+ Precision design tools – Get hands-on with smart guides, gridlines, and Designer to align content and create visually appealing slides effortlessly.
+ Infographics made easy – Explore how to use shapes, icons, and built-in tools to create compelling visual stories without needing graphic design software.
+ Presenter view and slide notes – Learn how to use presenter view to stay on track during delivery and leverage notes for smoother presentations.
+ Quick access toolbar customization – Speed up your workflow by tailoring your toolbar with the tools you use most.
+ Templates and reusability – Understand how to build and reuse templates that save time and ensure consistency across presentations.
+ This workshop is perfect for anyone who uses Microsoft PowerPoint regularly but suspects they're missing out on features that could make their work easier, faster, and more professional. Discover what you've been missing!
+--------------------------------------------------------------------------------
+Event Title: SOJC Grab-&-Ghoul Week
+Start Date: 2025-10-29T12:00:00-07:00
+End Date: 2025-10-29T13:00:00-07:00
+Location: Allen Hall
+Latitude: 44.046361
+Longitude: -123.075042
+Event URL: https://calendar.uoregon.edu/event/sojc-grab-ghoul-week-6735
+Image URL: https://localist-images.azureedge.net/photos/51047200719306/huge/da7a61aede6a3621314684bf1317355648679490.jpg
+Description: No tricks, just treats! Swing by the Allen Hall Atrium for free candy and snacks the week of Halloween. You don't want to ghost this event!
+--------------------------------------------------------------------------------
+Event Title: GIS and The Makerspace at UO
+Start Date: 2025-10-29T13:00:00-07:00
+End Date: 2025-10-29T15:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/gis-the-makerspace-uo
+Image URL: https://localist-images.azureedge.net/photos/50897333055069/huge/884a8cf6124a02bfe8487a42e7819c6453114a30.jpg
+Description: GIS and the Makerspace is a two-session workshop covering the basics of working in ArcGIS Pro to create a laser-cut coaster map of the world and a keychain map of Oregon. The first session covers GIS concepts, map projections, and formatting for the laser cutter. The second session introduces the equipment available in the DeArmond makerspace and the laser cutter.
+
+No experience with GIS or the Makerspace is required, and completion of this workshop will certify you to use the laser cutter for your own projects. Register today to learn GIS by making beautiful acrylic maps!
+
+You will need to be a current student, faculty, or staff member to participate in this workshop.
+--------------------------------------------------------------------------------
+Event Title: Chill in the Mills
+Start Date: 2025-10-29T14:00:00-07:00
+End Date: 2025-10-29T16:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/chill-in-the-mills-1186
+Image URL: https://localist-images.azureedge.net/photos/50667167638128/huge/d8b8f1549cb02dbb22360f72b356e0da0421d720.jpg
+Description: Want a place to relax, get creative, and meet new people in between classes? Come Chill in the Mills!
+ 
+Chill in the Mills is a weekly event where the Mills International Center hosts a new craft activity every Wednesday from 2-4pm this fall 2025. All supplies are FREE and provided by the Mills! Refreshments also provided.
+
+Keep an eye out for the schedule posted in the Mills Center space and on our Instagram (https://www.instagram.com/uomills/) to make sure you don’t miss out on any exciting crafts!
+ 
+The Mills International Center and its events are open to all UO students, faculty, staff, and community members. We hope to see you there!
+--------------------------------------------------------------------------------
+Event Title: Sustainable Labs Program Tabling
+Start Date: 2025-10-29T14:00:00-07:00
+End Date: 2025-10-29T16:00:00-07:00
+Location: Willamette Hall
+Latitude: 44.045895
+Longitude: -123.072777
+Event URL: https://calendar.uoregon.edu/event/sustainable-labs-program-tabling
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: Come by to enjoy some snacks and light refreshments and learn more about our new sustainable labs program. Available to all public.
+--------------------------------------------------------------------------------
+Event Title: Wingspan Tabletop Game Workshop
+Start Date: 2025-10-29T15:00:00-07:00
+End Date: 2025-10-29T16:00:00-07:00
+Location: Allan Price Science Commons and Research Library
+Latitude: 44.046311
+Longitude: -123.073062
+Event URL: https://calendar.uoregon.edu/event/wingspan-tabletop-game-workshop
+Image URL: https://localist-images.azureedge.net/photos/50728920319955/huge/18cb7793cfb8471120ca3024b6ab189d48b2e1fe.jpg
+Description: Take Flight with Wingspan: Strategic Bird Collection Game
+
+Discover one of the most acclaimed board games of recent years with this hands-on workshop featuring Wingspan, available for checkout from the Price Sciences Library's extensive tabletop game collection. This award-winning engine-building game, designed by Elizabeth Hargrave, combines beautiful artwork with educational content as players compete to attract diverse bird species to their wildlife preserves. Through guided gameplay, you'll learn the core mechanics of resource management, strategic planning, and combo-building while exploring real bird facts and behaviors integrated seamlessly into the game design.
+
+Participants will develop practical skills in strategic thinking, resource allocation, and long-term planning while enjoying a relaxing, nature-themed gaming experience. You'll leave understanding why Wingspan has become a gateway game for newcomers to modern board gaming and a favorite among experienced players.
+
+No prior gaming experience necessary - just bring your curiosity about birds, strategy, or both! After the workshop, you'll be ready to check out Wingspan and dozens of other tabletop games from our Price Sciences Library collection, which offers something for every interest and skill level. Perfect for students, faculty, staff, and community members looking to expand their recreational horizons or find new ways to connect with friends and family.
+--------------------------------------------------------------------------------
+Event Title: Travel and Study Abroad Fair
+Start Date: 2025-10-29T15:30:00-07:00
+End Date: 2025-10-29T17:00:00-07:00
+Location: Allen Hall
+Latitude: 44.046361
+Longitude: -123.075042
+Event URL: https://calendar.uoregon.edu/event/travel-study-abroad-fair
+Image URL: https://localist-images.azureedge.net/photos/51047237351829/huge/f91219ef87c396eba6f40d93cc9d6e70b0afb6e9.jpg
+Description: Discover travel and study abroad opportunities at the School of Journalism and Communication. Speak to faculty leaders for programs such as PR and Advertising in London, Instagramming Amerstam, the New York Advertising Experience, Media in Ghana, just to name a few! Representatives from Global Education Oregon will also be present to talk with you about program dates, deadlines, scholarships, and more.
+--------------------------------------------------------------------------------
+Event Title: ECM Student Food Pantry
+Start Date: 2025-10-29T16:00:00-07:00
+End Date: 2025-10-29T18:00:00-07:00
+Location: 710 E. 17th Ave
+Latitude: 44.040827
+Longitude: -123.081782
+Event URL: https://calendar.uoregon.edu/event/the-ecm-student-food-pantry-5976
+Image URL: https://localist-images.azureedge.net/photos/50472680018292/huge/0a5fce8dca52383deea20e328d3e9a0cce39ad62.jpg
+Description: The ECM Student Food Pantry is open to all college students in the greater Eugene area. The pantry provides free supplemental food for college students. Depending on availability, this may include canned fruits and vegetables, frozen and fresh vegetables; bread, rice, pasta, and cereal; canned beans, soups and other protein sources; dairy products, frozen means and meat substitues. 
+
+Hours: Wednesdays and Thursdays during fall term (closed when classes are not in session), 4:00-6:00pm.
+
+Bring: Bag for food.
+
+A physical student ID is not needed, but be sure to know your student ID number (95# for UO students).
+
+Enter from alley, accessible via 17th Avenue between Alder and Hilyard streets. Free parking and bike racks available during pantry hours.
+--------------------------------------------------------------------------------
+Event Title: Creative Writing Reading Series Presents:  Brian Trapp, Fiction
+Start Date: 2025-10-29T16:30:00-07:00
+End Date: 2025-10-29
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/creative-writing-reading-series-presents-brian-trapp-fiction
+Image URL: https://localist-images.azureedge.net/photos/50818200475040/huge/3410edba839bc9db51c1debd3054985ff3290233.jpg
+Description: The Creative Writing Program invites you to a fiction reading with Brian Trapp.
+
+Trapp directs both disability studies and the Kidd Program at the UO, where he also teaches fiction and nonfiction. His debut novel, Range of Motion, is out now from Acre Books. His work as been published in the Kenyon Review, Southern Review, Longreads, Brevity, and elsewhere. He has received a Steinbeck Fellowship, an Oregon Arts Fellowship, and a Taft Fellowship from the University of Cincinnati, where he completed his PhD. He grew up in Cleveland, Ohio, with his twin brother, Danny. For more information, visit Brian Trapp's website.  
+
+Free and open to the public. 
+
+For more information about the Creative Writing Reading Series, please visit https://humanities.uoregon.edu/creative-writing/reading-series
+--------------------------------------------------------------------------------
+Event Title: Financing the Future of Housing: How Infrastructure Supports Communities of All Sizes
+Start Date: 2025-10-29T17:00:00-07:00
+End Date: 2025-10-29T18:00:00-07:00
+Location: Ford Alumni Center
+Latitude: 44.045494
+Longitude: -123.067879
+Event URL: https://calendar.uoregon.edu/event/financing-the-future-of-housing-how-infrastructure-supports-communities-of-all-sizes
+Image URL: https://localist-images.azureedge.net/photos/51021718950632/huge/28aa4dbff0ab0d6312c2ac0c2aa47cfd2ec0f22b.jpg
+Description: Free to attend keynote, presented by Brookings Senior Fellow Adie Tomer. Adie's presentation is titled “Financing the Future of Housing: How Infrastructure Supports Communities of All Sizes” and will build off the themes and work conducted earlier in the day.
+--------------------------------------------------------------------------------
+Event Title: Oregon Consulting Group Information Session and Case Workshop
+Start Date: 2025-10-29T18:00:00-07:00
+End Date: 2025-10-29T20:00:00-07:00
+Location: Lillis Business Complex
+Latitude: 44.046001
+Longitude: -123.077599
+Event URL: https://calendar.uoregon.edu/event/oregon-consulting-group-recruitment-live-application
+Image URL: https://localist-images.azureedge.net/photos/51022556566496/huge/15836b035bceca907675d1b324c0073d021f6f54.jpg
+Description: The Oregon Consulting Group is hosting an information session and case workshop designed to help prospective members learn more about our group, meet current group members, understand the group's offerings, and learn the basics of a case.
+--------------------------------------------------------------------------------
+Event Title: Real Estate Investment Group Meeting
+Start Date: 2025-10-29T18:00:00-07:00
+End Date: 2025-10-29T19:30:00-07:00
+Location: Lillis Business Complex
+Latitude: 44.046001
+Longitude: -123.077599
+Event URL: https://calendar.uoregon.edu/event/real-estate-investment-group-meeting
+Image URL: https://localist-images.azureedge.net/photos/50940775378293/huge/d30b9e14c41cf60f67568e049158f6023befbdc4.jpg
+Description: Join the UO Real Estate Investment Group for our weekly club meeting! Meetings are open to all: no dues, no application, no interviews.
+--------------------------------------------------------------------------------
+Event Title: Trivia in the EMU
+Start Date: 2025-10-29T18:00:00-07:00
+End Date: 2025-10-29T19:30:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/trivia-in-the-emu-388
+Image URL: https://localist-images.azureedge.net/photos/51004708704087/huge/3a3d2c260ea14952d81833cae0dbe6cfbd30ce22.jpg
+Description: 🎉 Trivia Nights are back at the EMU this Fall! 🎉 Get ready for tons of fun and a chance to show off your brainpower. Grab a friend (or three) and join the competition—every round your team wins scores each member $5! Are you up for the challenge?
+
+Bring a team or come and join a new team.
+
+Can't stay for all 4 rounds, no problem. stop in for 1, 2, 3 or 4 rounds, your choice!
+
+FREE- Every Wednesday in the EMU 
+
+Speical Halloween themed trivia on October 29 and Video Game themed trivia November 19!
+--------------------------------------------------------------------------------
+Event Title: Glitterfox
+Start Date: 2025-10-29T20:00:00-07:00
+End Date: 2025-10-29
+Location: WOW Hall
+Latitude: 44.051186
+Longitude: -123.097078
+Event URL: https://calendar.uoregon.edu/event/glitterfox
+Image URL: https://localist-images.azureedge.net/photos/50641037260648/huge/d69c6021d8689c2e6ee8bf51b1f2917988e1e16e.jpg
+Description: ON SALE AT THE UO TICKET OFFICE IN THE EMU
+
+Many bands chase fame through a triangulation of aspirational branding, music production software, and social media prowess. But like the countless troubadours and punk rockers who’ve inspired them, the indie rock group Glitterfox values authenticity over algorithm. Their ascent has been remarkably uncomplicated: Get in the van, play unforgettable shows in town after town, make a bunch of friends. As Solange Igoa (they/ them), the band’s effervescent frontperson, jokes, “We have always been driven by this kind of blind faith and delusional confidence.”
+
+This has culminated in Glitterfox’s first full-length, decoder (out August 22, Jealous Butcher Records), a jubilant explosion of tracks that synthesizes the two songwriters’ garage rock, new wave, southern Americana and dance music influences into a sound that is singularly, inimitably Glitterfox.
+--------------------------------------------------------------------------------
+Event Title: Oregon Build Hour: A Creative Space for Entrepreneurs and Innovators
+Start Date: 2025-10-30
+End Date: 2025-10-30
+Location: Lillis Business Complex
+Latitude: 44.046001
+Longitude: -123.077599
+Event URL: https://calendar.uoregon.edu/event/build-night-free-pizza-drinks-a-creative-space-for-entrepreneurs-innovators
+Image URL: https://localist-images.azureedge.net/photos/50899298375242/huge/f856dc59ef925688e4033e9ef76229ef69b9d0fe.jpg
+Description: Oregon Build Hour is a new weekly event where student creators, entrepreneurs, and innovators collaborate, experiment, and build the next big thing. Think of it as a hackathon for entrepreneurship, but without the rules—an unfiltered space to turn ideas into real businesses, products, or partnerships.
+
+What to expect – Open collaboration! Connect with students from diverse backgrounds such as tech, business, design, and more. Whether you're working on a product, a business plan, or a fresh idea, you'll find like-minded collaborators here.
+ Expert mentorship – Get feedback and guidance from successful entrepreneurs and industry leaders. Ask questions, receive advice, and sharpen your ideas with real-world insights.
+ Real results – This is more than just brainstorming; real projects are born here. By the end of each session, you'll have made tangible progress toward building something impactful.
+ Creative freedom – No limits, no boundaries, just pure creativity. Whether you're at the idea stage or refining an existing project, Oregon Build Hour gives you the space to experiment and grow in a collaborative environment.
+ Questions? Email UOEntrepreneurship@uoregon.edu.
+--------------------------------------------------------------------------------
+Event Title: EMU 75th Anniversary Show
+Start Date: 2025-10-30T08:00:00-07:00
+End Date: 2025-10-30T23:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/emu-75th-anniversary-show
+Image URL: https://localist-images.azureedge.net/photos/50659831725871/huge/c069367c512fc34b1169304143c15f2f1f723ef0.jpg
+Description: "EMU 75th Anniversary Show" October 28 to December 12.
+
+The EMU celebrates 75 years! The gallery will be hosting an exhibit showcasing the history of the University of Oregon and Erb Memorial Union through pictures, posters and storytelling. Please join us for the reception on November 4, from 6-7pm in the Adell McMillan Gallery!
+
+We hope to see you there!
+--------------------------------------------------------------------------------
+Event Title: Oregon MBA Application Masterclass
+Start Date: 2025-10-30T09:00:00-07:00
+End Date: 2025-10-30T09:45:00-07:00
+Location: No Location
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/oregon-mba-masterclass-103025
+Image URL: https://localist-images.azureedge.net/photos/50411541169729/huge/33c272d75d8137a5496a0a6b4f2a79405139ead4.jpg
+Description: Join our 45-minute webinar for insider tips on applying to the Oregon MBA before the first 2026 application deadline of November 15! Our admissions team will guide you through the application process, covering requirements, statement of purpose, and recommendations. Discover how to showcase your strengths and stand out as a competitive applicant and take the first step towards your MBA journey!
+--------------------------------------------------------------------------------
+Event Title: Explore Oregon
+Start Date: 2025-10-30T10:00:00-07:00
+End Date: 2025-10-30T20:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/explore_oregon_9372
+Image URL: https://localist-images.azureedge.net/photos/38891314266760/huge/2ff1e24e0429df59871925d5e00c844757123622.jpg
+Description: Experience the dynamic forces that shape Oregon’s landscapes, climate, and ecosystems. Meet giant salmon, Ice Age sloths, and other amazing animals from across the millennia. Through interactive displays and rare specimens, you’ll go deep into Oregon’s past and join a conversation about our collective future.
+--------------------------------------------------------------------------------
+Event Title: Oregon: Where Past Is Present
+Start Date: 2025-10-30T10:00:00-07:00
+End Date: 2025-10-30T20:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/oregon_where_past_is_present
+Image URL: https://localist-images.azureedge.net/photos/38953944027238/huge/1fa33622872ad17ac6dc89121ba05da9486a8b81.jpg
+Description: Delve into Oregon’s story, from the archaeology of the First Americans to the dynamic cultures of today’s Tribes.
+
+Combining interactive displays with world-class anthropological collections, Oregon—Where Past is Present shares 14,000 years of Oregon stories, and invites you to tell your own. Explore the galleries, try your hand at ancient weaving styles, test your skills as an archaeologist, and much more.
+--------------------------------------------------------------------------------
+Event Title: Roots and Resilience—Chinese American Heritage in Oregon
+Start Date: 2025-10-30T10:00:00-07:00
+End Date: 2025-10-30T20:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/roots-and-resiliencechinese-american-heritage-in-oregon-4784
+Image URL: https://localist-images.azureedge.net/photos/49331443904698/huge/db05acd040ca881b857672cf1f4ec5e35c7fbcb6.jpg
+Description: Chinese immigrants helped shape Oregon’s history. Come discover the stories and resilience of early Chinese Americans.
+--------------------------------------------------------------------------------
+Event Title: Transgressors
+Start Date: 2025-10-30T10:00:00-07:00
+End Date: 2025-10-30T20:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/transgressors-9305
+Image URL: https://localist-images.azureedge.net/photos/49712481706182/huge/5e8ecd625404c330a15ed86b3a40fa36df2ccd46.jpg
+Description: An exhibition presenting now and future Indigiqueer ancestors who move beyond boundaries in life and art. 
+
+Artists: a.c. ramírez de arellaño  |  Evan Benally Atwood  |  Geo Soctomah Neptune   |  Jeffrey Gibson  |  Lehuauakea  |  Qahir-beejee Peco  |  Roin Morigeau  | Steph Littlebird  |  Walter Scott 
+
+Curated by Anthony Hudson and Felix Furby.
+
+Sponsored by Chachalu Tribal Museum and Cultural Center, Native Arts and Cultures Foundation, Oregon Community Foundation, and New Expressive Work.
+--------------------------------------------------------------------------------
+Event Title:  On View: Day of the Dead Altares
+Start Date: 2025-10-30T11:00:00-07:00
+End Date: 2025-10-30T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/on-view-day-of-the-dead-altares-6140
+Image URL: https://localist-images.azureedge.net/photos/50719433974748/huge/6def37c345d7c0571ddcf982efbe399717806739.jpg
+Description: Please feel free to bring a photo of a loved one and place it in the altares to honor those who have passed away.
+
+On view during museum hours, not open to the public on Mondays and Tuesdays.
+--------------------------------------------------------------------------------
+Event Title: "Gathering: A Photographer's Collection"  Exhibition 
+Start Date: 2025-10-30T11:00:00-07:00
+End Date: 2025-10-30T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/gathering-a-photographers-collection-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162277011735/huge/ee109100992ca899c35325d2112d2b5538a88aa0.jpg
+Description: Gathering: A Photographer’s Collection presents a wide-ranging selection of photographs from the personal collection of Portland, Oregon-based photographer and curator, Christopher Rauschenberg. Over five decades, Rauschenberg has compiled a truly distinctive archive of photographs encompassing a wide array of themes, styles, uses of the medium, and range of subjects and content. This important resource represents a diverse mix of international and nationally emerging and established photographers.
+
+Rauschenberg typically acquires photographs directly from the artists or from non-profit community-based arts organizations exhibiting or representing their works. Rauschenberg has also traveled extensively and participated for decades as a highly regarded reviewer of photography portfolios at international gatherings of specialists who utilize and support opportunities for working creative photographers.
+
+In Gathering, one will find a wealth of individual points of view that, when engaged, may broaden each of our own visions: whether those considered perspectives are personal, familiar, social, cultural, political, or spiritual.
+--------------------------------------------------------------------------------
+Event Title: "James Lavadour: Land of Origin" Exhibition
+Start Date: 2025-10-30T11:00:00-07:00
+End Date: 2025-10-30T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/james-lavadour-land-of-origin-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162329518533/huge/c670c194617f68ce9d6980347f9464e3af5a786a.jpg
+Description: James Lavadour: Land of Origin presents the most comprehensive survey to date of works by painter and printmaker James Lavadour (Walla Walla). Spanning five decades of work, this national retrospective celebrates Lavadour’s deep connection to the eastern Oregon landscape, particularly the Umatilla Indian Reservation and surrounding Blue Mountains region where the artist has spent most of his life, and recognizes his esteemed place in contemporary American painting. The exhibition includes nearly thirty of Lavadour’s magnificent signature grid paintings, works on individual panels, and prints, most of which have never been exhibited together. It will draw on significant loans from the artist, major museum collections, and private lenders. Recognizing one of Oregon and the nation’s most original and powerful artists, James Lavadour: Land of Origin will also be accompanied by a full catalogue.
+--------------------------------------------------------------------------------
+Event Title: MCC: Sweet Relief Drop-In Edition
+Start Date: 2025-10-30T11:00:00-07:00
+End Date: 2025-10-30T14:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/mcc-sweet-relief-drop-in-edition
+Image URL: https://localist-images.azureedge.net/photos/51099525022488/huge/d3cf29397f39173a8eefddfcfd937a0f18cb0530.jpg
+Description: Join the Multicultural Center as we celebrate the EMU's 75th Anniversary! Each day between October 28 - 30 from 11:00 a.m. - 2:00 p.m., we will have relaxing activities to help you de-stress during midterms. 
+
+Day 1 (10/28): Date with a Book + Bookmark making 
+
+Day 2 (10/29): Decorate your own incense holder
+
+Day 3 (10/30): DIY Moroccan Body Scrub
+
+Visit us at EMU 109 for more information!
+--------------------------------------------------------------------------------
+Event Title: Cinema Studies Presents: Cinema Gear Demos with B&H and Sony
+Start Date: 2025-10-30T12:00:00-07:00
+End Date: 2025-10-30T16:00:00-07:00
+Location: Villard Hall
+Latitude: 44.035049
+Longitude: -123.047356
+Event URL: https://calendar.uoregon.edu/event/cinema-studies-presents-cinema-gear-demos-with-bh-and-sony-9379
+Image URL: https://localist-images.azureedge.net/photos/50897246934913/huge/6b481b4e3fb608aebdda45c7bf88fd9d9edab1cf.jpg
+Description: The Department of Cinema Studies Presents: Cinema Gear Demos with B&H and Sony
+
+Cinema Studies invites students to stop to test filmmaking equipment with reps from B&H and Sony. Get FREE Discounts!
+
+Wednesday, October 29, from 11 am to 3 pm (B&H)
+Thursday, October 30, from noon to 4 pm (B&H and Sony)
+
+Free and open to all majors.
+--------------------------------------------------------------------------------
+Event Title: SOJC Grab-&-Ghoul Week
+Start Date: 2025-10-30T12:00:00-07:00
+End Date: 2025-10-30T13:00:00-07:00
+Location: Allen Hall
+Latitude: 44.046361
+Longitude: -123.075042
+Event URL: https://calendar.uoregon.edu/event/sojc-grab-ghoul-week-6735
+Image URL: https://localist-images.azureedge.net/photos/51047200719306/huge/da7a61aede6a3621314684bf1317355648679490.jpg
+Description: No tricks, just treats! Swing by the Allen Hall Atrium for free candy and snacks the week of Halloween. You don't want to ghost this event!
+--------------------------------------------------------------------------------
+Event Title: Surprise Pop-Up
+Start Date: 2025-10-30T12:00:00-07:00
+End Date: 2025-10-30T13:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/surprise-pop-up-1543
+Image URL: https://localist-images.azureedge.net/photos/50976135436276/huge/7442255cd4eda192d3170071721a79a47deb3312.jpg
+Description: Surprise Pop-Up! 🎉 Each week, we’re serving up a brand-new mystery gift! Join us for some fun, grab the featured gift, and enjoy the surprise! Be sure to follow @uo.sab on Instagram to catch the weekly surprise reveal! (until supplies last)
+
+As always, our events are FREE for UO students. Don’t miss out on this fun-filled event! 
+
+Each Thursday throughout the term, from noon – 1:00 p.m.
+
+At the EMU O Desk.
+--------------------------------------------------------------------------------
+Event Title: Introduction to High-Performance Computing
+Start Date: 2025-10-30T13:00:00-07:00
+End Date: 2025-10-30T15:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/introduction-to-high-performance-computing
+Image URL: https://localist-images.azureedge.net/photos/50897306335593/huge/799db83909067c0ca1a138047662d78d8e728d8a.jpg
+Description: This comprehensive introduction to high-performance computing prepares attendees to use Talapas, UO's supercomputer. These interactive workshops introduce UNIX commands, Bash scripting, file management, OnDemand, Slurm, JupyterLab integration, and Talapas best practices. Workshops are taught by a team of instructors from UO Libraries, Research Advanced Computer Services (RACS), and the Lewis Center for Neuroimaging. Learn from experts in high performance computing and neuroscience!
+
+No prior experience with the command line or high-performance computing is required, though participants may benefit from knowledge of a programming language like Python or R.
+
+Schedule
+
+Introduction to Bash – October 14, 1:00–3:00 p.m.Bash Scripting on Talapas – October 16, 1:00–3:00 p.m.Talapas Essentials – October 21, 1:00–3:00 p.m.Running Jobs on Talapas with Slurm – October 23, 1:00–3:00 p.m.Advanced Slurm – October 28, 1:00–3:00 p.m.JupyterLab on Talapas – October 30, 1:00–3:00 p.m.Instructors
+
+Bruce Edelman - Research Computing Facilitator, RACSFreddy Lopez - Research Systems Engineer, RACSJolinda Smith - MR Physicist, Lewis Center for NeuroimagingErin M. Winter - Research Data Management Librarian, Data ServicesWilliam Winter - Research Software Engineer, RACSTo make sure participants can access Talapas during in-person workshop sessions, advance registration is required. Priority will be given to students, faculty, and staff with positions in research labs that use (or plan to use) Talapas.
+
+Want to get a sneak peek of the curriculum? Previous sessions are archived on the course website on GitHub. Contact us if you have any questions.
+--------------------------------------------------------------------------------
+Event Title: Introduction to Python
+Start Date: 2025-10-30T13:00:00-07:00
+End Date: 2025-10-30T14:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/introduction-to-python-9546
+Image URL: https://localist-images.azureedge.net/photos/50896731368533/huge/8b8b1a41608ef06c038d57dc62e9c4776c093c21.jpg
+Description: Develop core programming skills that will allow you to write Python scripts for your own work. This free, eight-part workshop series will introduce you to the fundamentals of programming in Python through interactive programming exercises. No experience required!
+
+Topics covered include the following:
+
+Variables and data typesMathematical functionsJupyter notebooksReading data into PythonPlotting data with PandasThis hybrid, interactive course is intended for beginners to programming. Register online for Zoom link. Not sure how to install Python? Our first day will be focused on installing Python and configuring your coding environment.
+
+Our curriculum is adapted from the Software Carpentries Python curriculum. Feel free to contact us if you have any questions.
+--------------------------------------------------------------------------------
+Event Title: Douglass Room Album Listening Sessions
+Start Date: 2025-10-30T14:00:00-07:00
+End Date: 2025-10-30T15:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/douglass-room-album-listening-sessions
+Image URL: https://localist-images.azureedge.net/photos/50729011990177/huge/883c178716b6801453ac2605e3cce1388a7db47b.jpg
+Description: Deep Listening: Classic Albums from Our Collection
+
+Join UO Libraries weekly in the comfortable Douglass Room lounge for an immersive journey through landmark recordings from Knight Library's extensive audio collection. Each session focuses on a single classic album, providing historical context, artistic background, and guided listening that reveals the craftsmanship behind these influential works. From jazz masterpieces and classical recordings to groundbreaking rock albums and world music treasures, we'll explore how these recordings shaped musical history and continue to influence artists today. Each album will be introduced with insights into the recording process, cultural impact, and musical innovations before we settle in for focused, uninterrupted listening.
+
+This workshop offers a rare opportunity to experience music as it was intended - as a complete artistic statement rather than isolated tracks. Participants will develop deeper appreciation for album construction, production techniques, and the art of active listening while discovering gems from our collection they might never have encountered otherwise. Whether you're a casual music fan looking to expand your horizons or a serious listener seeking new perspectives on familiar works, you'll leave each session with enhanced understanding of how great albums achieve their lasting power. The relaxed lounge setting encourages reflection and discussion, making this both an educational and meditative experience perfect for busy students, faculty, and community members seeking a weekly respite through transformative music.
+--------------------------------------------------------------------------------
+Event Title: Job Search Strategy for International Students
+Start Date: 2025-10-30T14:00:00-07:00
+End Date: 2025-10-30T15:00:00-07:00
+Location: No Location
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/job-search-strategy-for-international-students-5317
+Image URL: https://localist-images.azureedge.net/photos/50232660357014/huge/a4dfb5852f80930b77b6414d7d2edb2f7268c5d1.jpg
+Description: This workshop, intended for international graduate students, introduces well-established processes for positioning onerself to execute a focused and successful US-based job search. Take away a four-step framework to optimize your job search game plan. Learn how to:
+
+Efficiently target companies that sponsor H-1B visas and hire international studentsCultivate professional connections through strategic networking and informational interviewsLeverage your story, skills, expertise, your university network, and brand to achieve your goalsPractice how to use your cultural diversity as an advantageRegister for this workshop, offered by Interstride, at https://us02web.zoom.us/webinar/register/WN_6ghm-LvNQBaeJ6hixWcjyw#/registration
+--------------------------------------------------------------------------------
+Event Title: 75th Anniversary Prize Wheel
+Start Date: 2025-10-30T15:00:00-07:00
+End Date: 2025-10-30T17:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/75th-anniversary-prize-wheel
+Image URL: https://localist-images.azureedge.net/photos/51073380585805/huge/99b2c596fda8804c8e398e9d4a5f02a7482fbf6d.jpg
+Description: Spin the wheel at the O Desk for a chance to win EMU-themed prizes and Duck Bucks cards!
+--------------------------------------------------------------------------------
+Event Title: Knight Campus Undergraduate Scholars Program Info Session for Clark Honors College Students
+Start Date: 2025-10-30T15:30:00-07:00
+End Date: 2025-10-30T16:30:00-07:00
+Location: No Location
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/knight-campus-undergraduate-scholars-program-info-session-for-chc-students-5610
+Image URL: https://localist-images.azureedge.net/photos/51038571802163/huge/912c99541fd7541d23843bfdc5d51df8feee02ca.jpg
+Description: Join representatives from the Clark Honors College and the UO’s Knight Campus for Accelerating Scientific Impact to learn about the Knight Campus Undergraduate Scholars Program. Through this program, students with sophomore or junior standing who are majoring in a natural science field are offered a mentored research opportunity (along with $16,000 of funding!) in a Knight Campus lab in 2026. Attend this Zoom info session to learn more about how to apply!
+--------------------------------------------------------------------------------
+Event Title: ECM Student Food Pantry
+Start Date: 2025-10-30T16:00:00-07:00
+End Date: 2025-10-30T18:00:00-07:00
+Location: 710 E. 17th Ave
+Latitude: 44.040827
+Longitude: -123.081782
+Event URL: https://calendar.uoregon.edu/event/the-ecm-student-food-pantry-5976
+Image URL: https://localist-images.azureedge.net/photos/50472680018292/huge/0a5fce8dca52383deea20e328d3e9a0cce39ad62.jpg
+Description: The ECM Student Food Pantry is open to all college students in the greater Eugene area. The pantry provides free supplemental food for college students. Depending on availability, this may include canned fruits and vegetables, frozen and fresh vegetables; bread, rice, pasta, and cereal; canned beans, soups and other protein sources; dairy products, frozen means and meat substitues. 
+
+Hours: Wednesdays and Thursdays during fall term (closed when classes are not in session), 4:00-6:00pm.
+
+Bring: Bag for food.
+
+A physical student ID is not needed, but be sure to know your student ID number (95# for UO students).
+
+Enter from alley, accessible via 17th Avenue between Alder and Hilyard streets. Free parking and bike racks available during pantry hours.
+--------------------------------------------------------------------------------
+Event Title: Fred H. C. Liang: "Shadows of Time" - Gilkey Foundation Lecture
+Start Date: 2025-10-30T16:00:00-07:00
+End Date: 2025-10-30
+Location: Lawrence Hall
+Latitude: 44.047367
+Longitude: -123.07431
+Event URL: https://calendar.uoregon.edu/event/fred-h-c-liangs-shadows-of-time-gilkey-foundation-lecture
+Image URL: https://localist-images.azureedge.net/photos/50772949886951/huge/a17eb4f7a4ee4d21bc2f642405bed1387737021b.jpg
+Description: University of Oregon 2025-26 Visiting Artist Lecture Series
+Presented by the Department of Art and Center for Art Research
+
+Fred H. C. Liang’s recent work combines jianzhi (traditional Chinese paper cutting) with porcelain to explore cultural exchange between East and West. His installations investigate how ideas and people are disseminated, appropriated, and transformed through global encounters. Liang excavates buried histories to uncover hidden narratives that continue to shape identity and aesthetics. He invites viewers down a rabbit hole of historical and contemporary events, where unexpected connections emerge and alternate realities unfold. Rooted in materials often associated with craft and domesticity, Liang’s immersive, three-dimensional environments made from pliable paper and ceramic reimagine familiar forms. Through this process, he bridges memory and material, creating space for reflection on how rituals, traditions, and iconography are inherited and reshaped across time and culture. His work prompts a visual dialogue on the fragility and impermanence of personal and collective histories, ultimately deconstructing and re-contextualizing cultural forms to illuminate the invisible structures that govern our lives.
+
+Fred H. C. Liang is a Boston-based artist and professor at Massachusetts College of Art and Design. He holds a BFA from the University of Manitoba and an MFA from Yale University. Liang’s work, which explores cultural exchange through printmaking, paper cutting, and ceramics, has been exhibited nationally and internationally, including at the ICA Boston, Inside Out Museum (Beijing), Currier Museum of Art, and Milwaukee Art Museum. His work is held in public and private collections such as Fidelity, the Gund Collection, the Addison Museum of American Art, and the Rose Art Museum. Liang has been recognized with grants from the Massachusetts Cultural Council, the Joan Mitchell Foundation (2020), and the Boston Foundation’s Brother Thomas Fellowship (2021). He has completed residencies at the Museo de Arte Contemporáneo (Santiago, Chile) and the Swatch Art Peace Hotel (Shanghai). His work has been featured in HuffPost, WBUR Open Studio, and The Boston Globe.
+
+This lecture is made possible by the Gilkey Foundation Fund.
+--------------------------------------------------------------------------------
+Event Title: Oregon Law Artist Reception
+Start Date: 2025-10-30T17:00:00-07:00
+End Date: 2025-10-30T18:30:00-07:00
+Location: Commons &amp; Courtyard,
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/oregon-law-artist-reception
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: Join Oregon Law for a public artist reception celebrating the artwork currently on display throughout the Knight Law Center. The Law Duck by artist Chelsea Lovejoy, O Law wood art by Wayne Espinola, and Pacific Crest Trail photography by Edward J. Pabor.
+Guests are invited to explore the exhibits located on the first and third floors of the law school, meet the artists, and enjoy light refreshments.
+This event is free and open to the public.
+--------------------------------------------------------------------------------
+Event Title: Professional Edge Training: Developing Business Value Through AI - Registration Deadline
+Start Date: 2025-10-30T17:00:00-07:00
+End Date: 2025-10-30
+Location: No Location
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/registration-deadline-developing-business-value-through-ai-training-7239
+Image URL: https://localist-images.azureedge.net/photos/50694206394105/huge/6071dd0b24c9ac59c0cd63e0b918cb6238198987.jpg
+Description: What if you could turn an innovative idea into a powerful AI-driven product that solves real business challenges? Explore the possibilities of generative AI, learn to design impactful, ethical AI solutions, and communicate their value in business contexts during this hands-on Professional Edge training.
+
+You'll gain practical experience in designing AI products that can address complex problems, support rapid innovation, and encourage responsible development while developing a portfolio piece to showcase your expertise.
+
+Whether you're familiar with AI basics or new to the field, this course guides you through each step, from understanding core AI principles to creating your own AI-driven product that meets real-world needs.
+
+REGISTER ONLINE
+ 
+
+What You'll Gain
+
+Real-world product development – Leave with experience in taking an AI product from concept to design.
+ Technical and strategic skills – Gain knowledge in AI fundamentals and practical applications that will be valuable across business functions.
+ Ethical frameworks – Understand responsible AI practices that align with business values and societal impact.
+ Schedule
+
+Friday, October 31, 9:00 a.m.–1:00 p.m. (in-person in Chiles 326)Friday, November 7, 9:00 a.m.–1:00 p.m. (in-person in Chiles 326)Participants who attend both days of this program and fulfill all requirements are eligible to earn a digital microcredential, validating your newly acquired skills. Microcredentials are portable, verifiable credentials that can be shared on platforms like LinkedIn, showcasing your expertise to potential employers and offering tangible proof of in-demand competencies.
+ 
+
+About the Instructor
+
+Christopher Lundy, founder of FindInfinite Labs, is an expert in AI and quantum computing and a researcher in quantum cosmology and astrophysics. He develops AI training programs to equip organizations and individuals with the skills to harness AI's potential, transforming industries and preparing leaders for a technology-driven future. He also leads the biopharma and life sciences industry in applying innovation to complex problems that affect people in a tangible way.
+--------------------------------------------------------------------------------
+Event Title: Net Impact Undergraduate Club Weekly Meeting
+Start Date: 2025-10-30T18:00:00-07:00
+End Date: 2025-10-30T19:00:00-07:00
+Location: Lillis Business Complex
+Latitude: 44.046001
+Longitude: -123.077599
+Event URL: https://calendar.uoregon.edu/event/net-impact-undergraduate-weekly-meeting
+Image URL: https://localist-images.azureedge.net/photos/50897672504496/huge/568d8217bb0b1a5b29ab2888f7b24522941578cb.jpg
+Description: Net Impact is a sustainable business club empowering students to leverage business as a force for social and environmental good.
+--------------------------------------------------------------------------------
+Event Title: Women Composers Piano Concert
+Start Date: 2025-10-30T18:00:00-07:00
+End Date: 2025-10-30
+Location: Beall Concert Hall
+Latitude: 44.040761
+Longitude: -123.078371
+Event URL: https://calendar.uoregon.edu/event/women-composers-piano-concert
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: More information coming soon.
+--------------------------------------------------------------------------------
+Event Title: Smarty Pies Weekly Trivia: EMU 75th Edition
+Start Date: 2025-10-30T18:30:00-07:00
+End Date: 2025-10-30
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/smarty-pies-weekly-trivia-emu-75th-edition
+Image URL: https://localist-images.azureedge.net/photos/51010836408497/huge/ffbe1c8ba9eb8ec490202211fffd47928b3fa735.jpg
+Description: Waddle down and outsmart the flock at our weekly trivia game themed especially for the EMU's birthday! Test your smarts about local culture, UO, the building itself and lots more!
+--------------------------------------------------------------------------------
+Event Title: Live Lit West
+Start Date: 2025-10-30T19:00:00-07:00
+End Date: 2025-10-30
+Location: Tsunami Books
+Latitude: 44.030829
+Longitude: -123.090355
+Event URL: https://calendar.uoregon.edu/event/live-lit-west
+Image URL: https://localist-images.azureedge.net/photos/50967787536674/huge/a4aa1c2eacc973bc2166a32909101631e02976b4.jpg
+Description: Please join us for our first Live Lit West event of the fall season! Live Lit West is the University of Oregon MFA program’s annual graduate student reading. We hope to see you there!
+
+The event is free and open to public.
+--------------------------------------------------------------------------------
+Event Title: Horror Classics: Movie Marathon
+Start Date: 2025-10-30T19:15:00-07:00
+End Date: 2025-10-30T23:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/horror-classics-movie-marathon
+Image URL: https://localist-images.azureedge.net/photos/51028279389831/huge/f27901db5c5a1e0327bb3649dc2e8985f3dd85c5.jpg
+Description: Ready to be spooked? Join Ducks After Dark with SAB as we host a horror movie classic marathon. Follow @uo.sab to stay updated with the marathon line up. We hope to see you there!
+
+Free with UO Student ID
+
+Doors at 7:15pm, movies start at 8:00pm
+--------------------------------------------------------------------------------
+Event Title: EMU 75th Anniversary Show
+Start Date: 2025-10-31T08:00:00-07:00
+End Date: 2025-10-31T23:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/emu-75th-anniversary-show
+Image URL: https://localist-images.azureedge.net/photos/50659831725871/huge/c069367c512fc34b1169304143c15f2f1f723ef0.jpg
+Description: "EMU 75th Anniversary Show" October 28 to December 12.
+
+The EMU celebrates 75 years! The gallery will be hosting an exhibit showcasing the history of the University of Oregon and Erb Memorial Union through pictures, posters and storytelling. Please join us for the reception on November 4, from 6-7pm in the Adell McMillan Gallery!
+
+We hope to see you there!
+--------------------------------------------------------------------------------
+Event Title: Duck Nest Gentle Yoga
+Start Date: 2025-10-31T09:00:00-07:00
+End Date: 2025-10-31T09:45:00-07:00
+Location: Living-Learning Center North
+Latitude: 44.044145
+Longitude: -123.071715
+Event URL: https://calendar.uoregon.edu/event/duck-nest-gentle-yoga-9923
+Image URL: https://localist-images.azureedge.net/photos/51100786316341/huge/5f536ffb59b36b61776056135dd422505935cca8.jpg
+Description: Join us for this free weekly gentle yoga class for students (Weeks 1-10)! Located in Living Learning Center 123N (The Hub). 
+
+No experience with yoga necessary. We can provide yoga mats--or bring your own. 
+
+These classes can be adapted to your accessibility needs. You can sign up for any class throughout the term (you don't need to commit to coming weekly).
+
+You can sign up here: https://calendly.com/ducknest/duck-nest-yoga-fall-2025
+
+You may also drop in (as long as there is space available).
+--------------------------------------------------------------------------------
+Event Title: Explore Oregon
+Start Date: 2025-10-31T10:00:00-07:00
+End Date: 2025-10-31T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/explore_oregon_9372
+Image URL: https://localist-images.azureedge.net/photos/38891314266760/huge/2ff1e24e0429df59871925d5e00c844757123622.jpg
+Description: Experience the dynamic forces that shape Oregon’s landscapes, climate, and ecosystems. Meet giant salmon, Ice Age sloths, and other amazing animals from across the millennia. Through interactive displays and rare specimens, you’ll go deep into Oregon’s past and join a conversation about our collective future.
+--------------------------------------------------------------------------------
+Event Title: Oregon Consulting Group Coffee Chats
+Start Date: 2025-10-31T10:00:00-07:00
+End Date: 2025-10-31T13:00:00-07:00
+Location: Peterson Hall
+Latitude: 44.045756
+Longitude: -123.077976
+Event URL: https://calendar.uoregon.edu/event/oregon-consulting-group-coffee-chats
+Image URL: https://localist-images.azureedge.net/photos/51022589247042/huge/b8d0059ef135e54eb7b69da45e96e22b42933e52.jpg
+Description: The Oregon Consulting Group is hosting coffee chats with prospective members. Coffee chats are a great way to meet current members and learn about their unique experiences in a more personal setting. Students of all majors and backgrounds are encouraged to stop by!
+--------------------------------------------------------------------------------
+Event Title: Oregon: Where Past Is Present
+Start Date: 2025-10-31T10:00:00-07:00
+End Date: 2025-10-31T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/oregon_where_past_is_present
+Image URL: https://localist-images.azureedge.net/photos/38953944027238/huge/1fa33622872ad17ac6dc89121ba05da9486a8b81.jpg
+Description: Delve into Oregon’s story, from the archaeology of the First Americans to the dynamic cultures of today’s Tribes.
+
+Combining interactive displays with world-class anthropological collections, Oregon—Where Past is Present shares 14,000 years of Oregon stories, and invites you to tell your own. Explore the galleries, try your hand at ancient weaving styles, test your skills as an archaeologist, and much more.
+--------------------------------------------------------------------------------
+Event Title: Plant Club
+Start Date: 2025-10-31T10:00:00-07:00
+End Date: 2025-10-31T11:00:00-07:00
+Location: UO Research Greenhouse
+Latitude: 44.049142
+Longitude: -123.071184
+Event URL: https://calendar.uoregon.edu/event/plant-club-first-meeting
+Image URL: https://localist-images.azureedge.net/photos/50818098776646/huge/6e3be5b619d786a92bd142cf9e66302f22b34f03.jpg
+Description: UO Research Greenhouses is hosting a brand new Plant Club!
+
+Open to any UO student of all experience levels to get hands-on playing with plants. Design a garden, learn propogation, plant seeds, or just relax and hang out with cool, interesting plants. 
+
+Club meets every other Friday from 10-11am at the UO Research Greenhouse. (Club canceled during holidays and when school is not in session). First meeting Friday Oct. 17.
+
+email: uogreenhouses@uoregon.edu for questions.
+--------------------------------------------------------------------------------
+Event Title: Roots and Resilience—Chinese American Heritage in Oregon
+Start Date: 2025-10-31T10:00:00-07:00
+End Date: 2025-10-31T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/roots-and-resiliencechinese-american-heritage-in-oregon-4784
+Image URL: https://localist-images.azureedge.net/photos/49331443904698/huge/db05acd040ca881b857672cf1f4ec5e35c7fbcb6.jpg
+Description: Chinese immigrants helped shape Oregon’s history. Come discover the stories and resilience of early Chinese Americans.
+--------------------------------------------------------------------------------
+Event Title: Transgressors
+Start Date: 2025-10-31T10:00:00-07:00
+End Date: 2025-10-31T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/transgressors
+Image URL: https://localist-images.azureedge.net/photos/49712393289242/huge/4a82fbcc87a062039c4c16f65f7aabc90871503a.jpg
+Description: An exhibition presenting now and future Indigiqueer ancestors who move beyond boundaries in life and art. 
+
+Artists: a.c. ramírez de arellaño  |  Evan Benally Atwood  |  Geo Soctomah Neptune   |  Jeffrey Gibson  |  Lehuauakea  |  Qahir-beejee Peco  |  Roin Morigeau  | Steph Littlebird  |  Walter Scott 
+
+Curated by Anthony Hudson and Felix Furby.
+
+Sponsored by Chachalu Tribal Museum and Cultural Center, Native Arts and Cultures Foundation, Oregon Community Foundation, and New Expressive Work.
+--------------------------------------------------------------------------------
+Event Title:  On View: Day of the Dead Altares
+Start Date: 2025-10-31T11:00:00-07:00
+End Date: 2025-10-31T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/on-view-day-of-the-dead-altares-6140
+Image URL: https://localist-images.azureedge.net/photos/50719433974748/huge/6def37c345d7c0571ddcf982efbe399717806739.jpg
+Description: Please feel free to bring a photo of a loved one and place it in the altares to honor those who have passed away.
+
+On view during museum hours, not open to the public on Mondays and Tuesdays.
+--------------------------------------------------------------------------------
+Event Title: "Gathering: A Photographer's Collection"  Exhibition 
+Start Date: 2025-10-31T11:00:00-07:00
+End Date: 2025-10-31T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/gathering-a-photographers-collection-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162277011735/huge/ee109100992ca899c35325d2112d2b5538a88aa0.jpg
+Description: Gathering: A Photographer’s Collection presents a wide-ranging selection of photographs from the personal collection of Portland, Oregon-based photographer and curator, Christopher Rauschenberg. Over five decades, Rauschenberg has compiled a truly distinctive archive of photographs encompassing a wide array of themes, styles, uses of the medium, and range of subjects and content. This important resource represents a diverse mix of international and nationally emerging and established photographers.
+
+Rauschenberg typically acquires photographs directly from the artists or from non-profit community-based arts organizations exhibiting or representing their works. Rauschenberg has also traveled extensively and participated for decades as a highly regarded reviewer of photography portfolios at international gatherings of specialists who utilize and support opportunities for working creative photographers.
+
+In Gathering, one will find a wealth of individual points of view that, when engaged, may broaden each of our own visions: whether those considered perspectives are personal, familiar, social, cultural, political, or spiritual.
+--------------------------------------------------------------------------------
+Event Title: "James Lavadour: Land of Origin" Exhibition
+Start Date: 2025-10-31T11:00:00-07:00
+End Date: 2025-10-31T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/james-lavadour-land-of-origin-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162329518533/huge/c670c194617f68ce9d6980347f9464e3af5a786a.jpg
+Description: James Lavadour: Land of Origin presents the most comprehensive survey to date of works by painter and printmaker James Lavadour (Walla Walla). Spanning five decades of work, this national retrospective celebrates Lavadour’s deep connection to the eastern Oregon landscape, particularly the Umatilla Indian Reservation and surrounding Blue Mountains region where the artist has spent most of his life, and recognizes his esteemed place in contemporary American painting. The exhibition includes nearly thirty of Lavadour’s magnificent signature grid paintings, works on individual panels, and prints, most of which have never been exhibited together. It will draw on significant loans from the artist, major museum collections, and private lenders. Recognizing one of Oregon and the nation’s most original and powerful artists, James Lavadour: Land of Origin will also be accompanied by a full catalogue.
+--------------------------------------------------------------------------------
+Event Title: FYI Fridays: Global Engagement, Local Procedures: Export Controls at the UO
+Start Date: 2025-10-31T11:00:00-07:00
+End Date: 2025-10-31T12:00:00-07:00
+Location: TBA
+Latitude: No Latitude
+Longitude: No Longitude
+Event URL: https://calendar.uoregon.edu/event/fyi-fridays-global-engagement-local-procedures-export-controls-at-the-uo
+Image URL: https://localist-images.azureedge.net/photos/50757062610271/huge/90b5f6c312ea2f07c2c2c0b0469ae53a2939b80e.jpg
+Description: In this interactive presentation, attendees will learn how federal export control regulations affect their work at the UO, and review the university’s procedures for compliance and support of international engagement.
+
+Designed for administrators and unit leaders, this session is especially relevant for departments and centers engaged in international research, scholarship, or creative activities; hiring international employees; hosting international scholars; traveling abroad; or shipping materials internationally.
+
+Through an engaging role-play scenario, attendees will work in teams to make decisions, explore potential outcomes, and deepen their understanding of how export control regulations apply to real-world situations.
+
+Register in MyTrack to confirm attendance and receive location information.
+--------------------------------------------------------------------------------
+Event Title: Trick or Treat in the EMU: Hosted by Student Activities Board
+Start Date: 2025-10-31T11:00:00-07:00
+End Date: 2025-10-31T15:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/trick-or-treat-in-the-emu-hosted-by-student-activities-board
+Image URL: https://localist-images.azureedge.net/photos/50579671555339/huge/09b3ffa74b36b00398619f4cc0e527903310629e.jpg
+Description: Tick or Treat time- costumes incouraged but not required!
+
+Join us for a fun time in exploring the EMU while you visit different centers for treats. Bring a friend or three!
+
+Get a list of participating programs and offices by the EMU O Desk.
+
+Follow @uo.sab to stay updated with the marathon line up. We hope to see you there!
+--------------------------------------------------------------------------------
+Event Title: Digital Concert Hall Live Concert Watch Party: Halloween with the Berlin Philharmonic
+Start Date: 2025-10-31T12:00:00-07:00
+End Date: 2025-10-31T13:30:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/digital-concert-hall-live-concert-watch-party-halloween-with-the-berlin-philharmonic
+Image URL: https://localist-images.azureedge.net/photos/50729039031824/huge/a165328e1ee847b40c11bff647593fda580cc242.jpg
+Description: Join UO Libraries for a spine-tingling Halloween evening as we connect live to the Berlin Philharmonic's Digital Concert Hall for an unforgettable shared listening experience. Broadcasting directly from Berlin with concert-quality sound and video, this special watch party features Chief Conductor Kirill Petrenko leading three haunting 20th-century dance works perfect for the season. We'll experience Béla Bartók's expressionistic The Miraculous Mandarin, with its razor-sharp orchestration depicting the brutal realities of urban life, Igor Stravinsky's beloved Petrushka - the bittersweet puppet love story set against a chaotic fairground - and Leoš Janáček's folk-inspired Lachian Dances, celebrating the melancholy beauty of Czech musical traditions.
+
+This inclusive event welcomes students, faculty, and community members to experience world-class orchestral music in a relaxed, communal setting where live classical performance meets the accessibility of our library space. No formal concert attire or prior classical music knowledge required - just bring your curiosity and prepare to be transported by some of the most evocative orchestral music ever written. The Digital Concert Hall's professional multi-camera production and pristine audio quality will make you feel like you have the best seats in Berlin's legendary concert hall, while our comfortable Knight Library setting encourages the kind of shared discovery that makes live music so powerful. Perfect for classical newcomers and seasoned listeners alike seeking an alternative Halloween experience through transformative music.
+--------------------------------------------------------------------------------
+Event Title: Freebie Friday: Scratch Halloween Masks
+Start Date: 2025-10-31T12:00:00-07:00
+End Date: 2025-10-31T14:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/freebie-friday-scratch-halloween-masks
+Image URL: https://localist-images.azureedge.net/photos/50604276301549/huge/7529983620f3bc5c065c001fd67130c0a1b2a4ca.jpg
+Description: 📅 Friday, October 31 | ⏰ 12–2 PM | 📍 Craft Center
+This week’s craft: scratch art Halloween masks! Get festive with spooky (or silly) scratch art designs that you can cut into wearable masks—just in time for Halloween. All supplies are provided.
+
+Freebie Friday – Drop In & Get Creative!
+Looking for a fun, free way to unwind and make something awesome? Freebie Friday is your chance to explore a new craft every week—totally free! No registration, no experience needed—just drop in, grab some supplies, and get creative.
+--------------------------------------------------------------------------------
+Event Title: Research Talk: Deportation, Legal Violence, and Migration to the US
+Start Date: 2025-10-31T12:00:00-07:00
+End Date: 2025-10-31T13:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/research-talk-deportation-legal-violence-and-migration-to-the-us
+Image URL: https://localist-images.azureedge.net/photos/51031929652198/huge/a6eddc117004e3127db183ac2a89389f794a83b8.jpg
+Description: Presented By Michael Aguilera and Brandon Folse (Sociology)
+
+Join us for a compelling research talk with Michael Aguilera and Brandon Folse as they uncover the surprising realities behind US deportation policy. Using data from the Mexican Migration Project, their study reveals how deportation—often seen as a deterrent—can actually deepen migrants’ ties to the United States. Deported individuals frequently remigrate and ultimately spend more total time in the US than those who were never deported.
+
+By framing deportation as a form of legal violence, Aguilera and Folse shed light on how migrants adapt, resist, and rebuild in the face of systemic barriers—offering new perspectives on migration, belonging, and resilience.
+
+Co-sponsored by the Center for Latino/a and Latin American Studies (CLLAS) and the Department of Sociology at the University of Oregon.
+--------------------------------------------------------------------------------
+Event Title: SOJC Grab-&-Ghoul Week
+Start Date: 2025-10-31T12:00:00-07:00
+End Date: 2025-10-31T13:00:00-07:00
+Location: Allen Hall
+Latitude: 44.046361
+Longitude: -123.075042
+Event URL: https://calendar.uoregon.edu/event/sojc-grab-ghoul-week-6735
+Image URL: https://localist-images.azureedge.net/photos/51047200719306/huge/da7a61aede6a3621314684bf1317355648679490.jpg
+Description: No tricks, just treats! Swing by the Allen Hall Atrium for free candy and snacks the week of Halloween. You don't want to ghost this event!
+--------------------------------------------------------------------------------
+Event Title: Coffee & Code
+Start Date: 2025-10-31T13:00:00-07:00
+End Date: 2025-10-31T14:00:00-07:00
+Location: Knight Library
+Latitude: 44.043178
+Longitude: -123.077726
+Event URL: https://calendar.uoregon.edu/event/coffee-code
+Image URL: https://localist-images.azureedge.net/photos/50896789338196/huge/605e9bdfce9b4163b24ecbf81ce2d417a8ce4e4f.jpg
+Description: Join us every other week for Coffee & Code, a welcoming space where anyone working with data can connect, collaborate, and learn. Whether you're analyzing spreadsheets, visualizing datasets, or writing code, this inclusive community event is for you.
+
+What to Expect:
+
+Short showcase of interesting projects and techniquesNetworking with fellow data enthusiasts across campusCoffee and refreshments providedRegister once for the entire term and attend the sessions that interest you. Join us in the DREAM Lab sofa area or hop in via Zoom.
+
+October 3: Meet Data Services
+
+Ease into the new academic year and chat with the members of Data Services over coffee and cookies. Interested in programming, statistics, or geospatial data? Connect with us and the larger UO data science community.
+
+October 17: Analyzing Library Data with Python and Quarto (Undergraduate Project Spotlight)
+
+Data science major and Data Services intern Calista Gerard will give a short talk on their Python data processing project for analyzing library data followed by a question and answer session. Learn how to go from API query to dashboard.
+--------------------------------------------------------------------------------
+Event Title: University of Oregon Law School Fair
+Start Date: 2025-10-31T13:00:00-07:00
+End Date: 2025-10-31T16:00:00-07:00
+Location: William W. Knight Law Center
+Latitude: 44.043144
+Longitude: -123.069603
+Event URL: https://calendar.uoregon.edu/event/university-of-oregon-law-school-fair
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: The UO Law School Fair connects around 50 law schools from throughout the country with hundreds of interested, prospective law students from the University of Oregon. Admissions representatives from several top law schools will be in attendance and ready to describe the many aspects of their schools, discuss admissions criteria, and answer your questions.
+--------------------------------------------------------------------------------
+Event Title: Allen Hall Trick-or-Treat
+Start Date: 2025-10-31T14:00:00-07:00
+End Date: 2025-10-31T16:00:00-07:00
+Location: Allen Hall
+Latitude: 44.046361
+Longitude: -123.075042
+Event URL: https://calendar.uoregon.edu/event/allen-hall-trick-or-treat
+Image URL: https://localist-images.azureedge.net/photos/51065597597846/huge/d63ec0fea82da9b6ecdc7fe2d6425f51447cd40d.jpg
+Description: Bring your little ones to Allen Hall for an afternoon of trick-or-treating! Participating offices in the building will have a pumpkin sign on the door or window. A list of participating offices will be added here the day before the event. This event is open to SOJC faculty, staff, and students with children. 
+
+If you would like your office to participate, email sojcfacultyservices@uoregon.edu by Wednesday, October 29.
+--------------------------------------------------------------------------------
+Event Title: CSWS Open House & Dark Academia Party
+Start Date: 2025-10-31T15:00:00-07:00
+End Date: 2025-10-31T17:00:00-07:00
+Location: Hendricks Hall
+Latitude: 44.044685
+Longitude: -123.0746
+Event URL: https://calendar.uoregon.edu/event/csws-open-house-dark-academia-party
+Image URL: https://localist-images.azureedge.net/photos/50881588342905/huge/7b2a61b33d08b306154cbaa05cbbd68b43137a82.jpg
+Description: Join the Center for the Study of Women in Society for a Halloween Open House!.
+
+Come dressed in your best Dark Academia outfit. (Think Hogwarts or Wednesday Adams) 
+
+Treats are on us!
+--------------------------------------------------------------------------------
+Event Title: Halloween Night at the Aquarium
+Start Date: 2025-10-31T16:00:00-07:00
+End Date: 2025-10-31T19:00:00-07:00
+Location: Charleston Marine Life Center
+Latitude: 43.339451
+Longitude: -124.324384
+Event URL: https://calendar.uoregon.edu/event/halloween-night-at-the-aquarium
+Image URL: https://localist-images.azureedge.net/photos/50925015586217/huge/c7d71ad35ae178a9acda3ad2b77687e74239f759.jpg
+Description: Enjoy spooky decor, Halloween crafts, costume parades, face painting, photo booth.
+
+Free family event at the UO's Charleston Marine Life Center.
+--------------------------------------------------------------------------------
+Event Title: Haunted Campus Tour
+Start Date: 2025-10-31T18:30:00-07:00
+End Date: 2025-10-31T19:15:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/haunted-campus-tour-3092
+Image URL: https://localist-images.azureedge.net/photos/51011063204393/huge/321de48636ad7822f7907af467598e5ee1add607.jpg
+Description: Join the UO Ambassadors to see the spookiest areas on campus. Learn about Oregon history, legends, and ghost stories. Tours will be offered at 6:30 p.m. and last approximately 45 minutes. 
+
+Registration is required. Space is limited!
+--------------------------------------------------------------------------------
+Event Title: Cancelled: Eduardo Moreira, piano
+Start Date: 2025-10-31T19:00:00-07:00
+End Date: 2025-10-31
+Location: Beall Concert Hall
+Latitude: 44.040761
+Longitude: -123.078371
+Event URL: https://calendar.uoregon.edu/event/guest-artist-recital-eduardo-moreira-piano
+Image URL: https://localist-images.azureedge.net/photos/32867608624917/huge/10ea9d5a26921d113429574618965490373448ec.jpg
+Description: This event has been cancelled.
+--------------------------------------------------------------------------------
+Event Title: Halloween Hullabaloo
+Start Date: 2025-10-31T19:30:00-07:00
+End Date: 2025-10-31
+Location: WOW Hall
+Latitude: 44.051186
+Longitude: -123.097078
+Event URL: https://calendar.uoregon.edu/event/halloween-hullabaloo
+Image URL: https://localist-images.azureedge.net/photos/50835113616127/huge/52ea1e3e2f6bbd2c6882c4fc4b10074e3f3acbea.jpg
+Description: ON SALE AT THE UO TICKET OFFICE IN THE EMU
+--------------------------------------------------------------------------------
+Event Title: EMU 75th Anniversary Show
+Start Date: 2025-11-01T08:00:00-07:00
+End Date: 2025-11-01T23:00:00-07:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/emu-75th-anniversary-show
+Image URL: https://localist-images.azureedge.net/photos/50659831725871/huge/c069367c512fc34b1169304143c15f2f1f723ef0.jpg
+Description: "EMU 75th Anniversary Show" October 28 to December 12.
+
+The EMU celebrates 75 years! The gallery will be hosting an exhibit showcasing the history of the University of Oregon and Erb Memorial Union through pictures, posters and storytelling. Please join us for the reception on November 4, from 6-7pm in the Adell McMillan Gallery!
+
+We hope to see you there!
+--------------------------------------------------------------------------------
+Event Title: Modern China Through Literature: Cultural Roots, Contemporary Outcomes
+Start Date: 2025-11-01T09:30:00-07:00
+End Date: 2025-11-01T12:00:00-07:00
+Location: Baker Downtown Center
+Latitude: 44.04908
+Longitude: -123.088112
+Event URL: https://calendar.uoregon.edu/event/modern-china-through-literature-cultural-roots-contemporary-outcomes
+Image URL: https://localist-images.azureedge.net/photos/50889007175375/huge/d083975998b35742e0efab345a53973f2929222f.jpg
+Description: This seminar surveys China’s cultural history through brief excerpts of significant literature well known to Chinese, and key to understanding the context of current Chinese thought. The student will acquire a knowledge of and appreciation for major literature from critical periods of Chinese history that shape or reflect the thinking of contemporary educated Chinese. The classical period set patterns of hierarchy, as well as the role of personal meditation, attachment to place and social networks. Revolutionary period work reflected the struggles of encounters with the West and national identity adjustments, from self-mocking pain at foreign repression to assertive nationalism. The major work of Mao (a classically trained librarian) continues the transitional struggle in both a practical and more strategically violent way, echoing some of the hubris of a legendary semi-hero. The final globally distinguished selections combine major elements of this literary heritage playing out in the present.
+
+ABOUT THE INSTRUCTOR
+
+Dr. Susan Walcott has a BA in History from Swarthmore College, an MA in Chinese history from Rutgers University, a PhD in Geography from Indiana University, and was a Ford Foundation scholar in Chinese at Princeton University. She headed the China Specialty Group of the American Association of Geographers and founded Asia Research Centers at two universities. She is now a Professor of Geography Emerita at the University of North Carolina-Greensboro. Her principal research interests concern regional economic development, particularly in rapidly transitioning areas throughout Asia. Books, numerous chapters and articles from grant-supported overseas research focusing on high technology parks and industry clusters (life science, furniture, tea) across the U.S. and China, modernization in Bhutan, and immigrant entrepreneurs. Active in many aspects of OLLI, she finds that giving presentations is the most fun.
+
+ABOUT CONTINUING EDUCATION SEMINARS
+
+These courses are for people eager to engage in a studious seminar format. Each in-person only seminar meets weekly, over four sessions. The seminars are led by current and retired professors who provide formal study guides and lead college-level discussions, with participants actively contributing to each session. Seminars are noncredit and ungraded but include challenging homework. 
+
+Participation is open to all adults; no previous affiliation with UO is required. Osher Lifelong Learning Institute (OLLI) membership is not required, however, active OLLI members may register at a reduced fee.
+--------------------------------------------------------------------------------
+Event Title: Explore Oregon
+Start Date: 2025-11-01T10:00:00-07:00
+End Date: 2025-11-01T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/explore_oregon_9372
+Image URL: https://localist-images.azureedge.net/photos/38891314266760/huge/2ff1e24e0429df59871925d5e00c844757123622.jpg
+Description: Experience the dynamic forces that shape Oregon’s landscapes, climate, and ecosystems. Meet giant salmon, Ice Age sloths, and other amazing animals from across the millennia. Through interactive displays and rare specimens, you’ll go deep into Oregon’s past and join a conversation about our collective future.
+--------------------------------------------------------------------------------
+Event Title: Oregon: Where Past Is Present
+Start Date: 2025-11-01T10:00:00-07:00
+End Date: 2025-11-01T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/oregon_where_past_is_present
+Image URL: https://localist-images.azureedge.net/photos/38953944027238/huge/1fa33622872ad17ac6dc89121ba05da9486a8b81.jpg
+Description: Delve into Oregon’s story, from the archaeology of the First Americans to the dynamic cultures of today’s Tribes.
+
+Combining interactive displays with world-class anthropological collections, Oregon—Where Past is Present shares 14,000 years of Oregon stories, and invites you to tell your own. Explore the galleries, try your hand at ancient weaving styles, test your skills as an archaeologist, and much more.
+--------------------------------------------------------------------------------
+Event Title: Roots and Resilience—Chinese American Heritage in Oregon
+Start Date: 2025-11-01T10:00:00-07:00
+End Date: 2025-11-01T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/roots-and-resiliencechinese-american-heritage-in-oregon-4784
+Image URL: https://localist-images.azureedge.net/photos/49331443904698/huge/db05acd040ca881b857672cf1f4ec5e35c7fbcb6.jpg
+Description: Chinese immigrants helped shape Oregon’s history. Come discover the stories and resilience of early Chinese Americans.
+--------------------------------------------------------------------------------
+Event Title: Transgressors
+Start Date: 2025-11-01T10:00:00-07:00
+End Date: 2025-11-01T17:00:00-07:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/transgressors
+Image URL: https://localist-images.azureedge.net/photos/49712393289242/huge/4a82fbcc87a062039c4c16f65f7aabc90871503a.jpg
+Description: An exhibition presenting now and future Indigiqueer ancestors who move beyond boundaries in life and art. 
+
+Artists: a.c. ramírez de arellaño  |  Evan Benally Atwood  |  Geo Soctomah Neptune   |  Jeffrey Gibson  |  Lehuauakea  |  Qahir-beejee Peco  |  Roin Morigeau  | Steph Littlebird  |  Walter Scott 
+
+Curated by Anthony Hudson and Felix Furby.
+
+Sponsored by Chachalu Tribal Museum and Cultural Center, Native Arts and Cultures Foundation, Oregon Community Foundation, and New Expressive Work.
+--------------------------------------------------------------------------------
+Event Title:  On View: Day of the Dead Altares
+Start Date: 2025-11-01T11:00:00-07:00
+End Date: 2025-11-01T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/on-view-day-of-the-dead-altares-6140
+Image URL: https://localist-images.azureedge.net/photos/50719433974748/huge/6def37c345d7c0571ddcf982efbe399717806739.jpg
+Description: Please feel free to bring a photo of a loved one and place it in the altares to honor those who have passed away.
+
+On view during museum hours, not open to the public on Mondays and Tuesdays.
+--------------------------------------------------------------------------------
+Event Title: "Gathering: A Photographer's Collection"  Exhibition 
+Start Date: 2025-11-01T11:00:00-07:00
+End Date: 2025-11-01T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/gathering-a-photographers-collection-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162277011735/huge/ee109100992ca899c35325d2112d2b5538a88aa0.jpg
+Description: Gathering: A Photographer’s Collection presents a wide-ranging selection of photographs from the personal collection of Portland, Oregon-based photographer and curator, Christopher Rauschenberg. Over five decades, Rauschenberg has compiled a truly distinctive archive of photographs encompassing a wide array of themes, styles, uses of the medium, and range of subjects and content. This important resource represents a diverse mix of international and nationally emerging and established photographers.
+
+Rauschenberg typically acquires photographs directly from the artists or from non-profit community-based arts organizations exhibiting or representing their works. Rauschenberg has also traveled extensively and participated for decades as a highly regarded reviewer of photography portfolios at international gatherings of specialists who utilize and support opportunities for working creative photographers.
+
+In Gathering, one will find a wealth of individual points of view that, when engaged, may broaden each of our own visions: whether those considered perspectives are personal, familiar, social, cultural, political, or spiritual.
+--------------------------------------------------------------------------------
+Event Title: "James Lavadour: Land of Origin" Exhibition
+Start Date: 2025-11-01T11:00:00-07:00
+End Date: 2025-11-01T17:00:00-07:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/james-lavadour-land-of-origin-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162329518533/huge/c670c194617f68ce9d6980347f9464e3af5a786a.jpg
+Description: James Lavadour: Land of Origin presents the most comprehensive survey to date of works by painter and printmaker James Lavadour (Walla Walla). Spanning five decades of work, this national retrospective celebrates Lavadour’s deep connection to the eastern Oregon landscape, particularly the Umatilla Indian Reservation and surrounding Blue Mountains region where the artist has spent most of his life, and recognizes his esteemed place in contemporary American painting. The exhibition includes nearly thirty of Lavadour’s magnificent signature grid paintings, works on individual panels, and prints, most of which have never been exhibited together. It will draw on significant loans from the artist, major museum collections, and private lenders. Recognizing one of Oregon and the nation’s most original and powerful artists, James Lavadour: Land of Origin will also be accompanied by a full catalogue.
+--------------------------------------------------------------------------------
+Event Title: Patos Alumni Network Happy Hour + JSMA -- Dia De Los Muertos Celebration
+Start Date: 2025-11-01T15:00:00-07:00
+End Date: 2025-11-01T20:00:00-07:00
+Location: Provisions 13
+Latitude: 44.045618
+Longitude: -123.079315
+Event URL: https://calendar.uoregon.edu/event/patos-alumni-network-happy-hour-jsma-dia-de-los-muertos-celebration
+Image URL: https://localist-images.azureedge.net/photos/50914614974198/huge/83ca18b51253c84bb9aba549af87c3a04c7c8998.jpg
+Description: Celebrate Dia de los Muertos with your Patos alumni community! 
+
+
+
+Celebrate the beloved Mexican holiday, Dia de los Muertos, with your UO Patos Alumni Network community. We’ll gather for a happy hour at Provisions 13, where you can connect with fellow Patos over delicious food and drinks. Then, we’ll head to the Jordan Schnitzer Museum of Art (JSMA) for a night of incredible performances as part of their annual Dia de los Muertos event. Prepare to be wowed by Mexican musical group Hermanos Herrera and celebrate the occasion with singing, dancing, and ofrendas.  
+
+The Patos Alumni Network is committed to building a strong community with events that connect Latine alumni. More opportunities to participate and volunteer are coming soon, so come find out what's in the works and discover how we can support current UO students.
+
+Registration
+
+Registration includes hosted appetizers and two drinks per person. Additional food and beverage will be available for purchase.
+
+$10 for UOAA members
+$15 for nonmembers
+Free for recent grads (2024, 2025) but registration is required.
+
+Locations
+
+Provisions 13 (3:00–5:00 p.m.)
+871 East 13th Avenue
+Eugene, OR 97401
+
+Jordan Schnitzer Museum of Art (5:30 p.m.)
+1430 Johnson Lane
+Eugene, OR 97403
+
+We will walk to the JSMA at 5:00 p.m. Seating at the JSMA event is limited and first-come, first-served.
+
+Questions?
+
+For questions or to request accommodations, please email Deshna Shine or call 541-346-5656.
+
+
+
+JSMA Dia De Los Muertos event
+
+ 
+
+
+
+JSMA Dia De Los Muertos event
+--------------------------------------------------------------------------------
+Event Title: 44th Annual Celebration of Day of the Dead
+Start Date: 2025-11-01T18:00:00-07:00
+End Date: 2025-11-01
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/44th-annual-celebration-of-day-of-the-dead
+Image URL: https://localist-images.azureedge.net/photos/50968044093830/huge/58c7ce0fe8247b75fedfcabda1086b60df89f520.jpg
+Description: 44° Celebración Anual del Día de los Muertos
+
+Celebra el día de los muertos en el museo y disfruta de una noche de arte, manualidades, danza y música con la presentación especial del grupo mexicano Hermanos Herrera.
+
+Celebrate the Day of the Dead at the museum and enjoy an evening of art and crafts, music, and dance featuring performances from the Mexican musical group Hermanos Herrera.
+--------------------------------------------------------------------------------
+Event Title: THE ANNUAL WITCHES’ COSTUME BALL
+Start Date: 2025-11-01T19:00:00-07:00
+End Date: 2025-11-01
+Location: WOW Hall
+Latitude: 44.051186
+Longitude: -123.097078
+Event URL: https://calendar.uoregon.edu/event/the-annual-witches-costume-ball
+Image URL: https://localist-images.azureedge.net/photos/51065619445249/huge/36032e2a5ee11c516a9ddf31defdebbc898c88af.jpg
+Description: ON SALE AT THE UO TICKET OFFICE IN THE EMU
+
+Three talented DJs, mixing old school, funk, hip-hop, world, afro/latin house and more! All mixed in with local performers and enticing vendors, including tarot and psychic readers, tea bar, costume contest and more – with a Ritual honoring our sacred beloveds who have passed, by local pagan circle, Sophia’s Sanctuary. A magical night of true connection to the spirit and traditions this sacred Hallows time! Costumes seriously encouraged!
+--------------------------------------------------------------------------------
+Event Title: EMU 75th Anniversary Show
+Start Date: 2025-11-02T10:00:00-08:00
+End Date: 2025-11-02T21:00:00-08:00
+Location: Erb Memorial Union (EMU)
+Latitude: 44.044662
+Longitude: -123.073987
+Event URL: https://calendar.uoregon.edu/event/emu-75th-anniversary-show
+Image URL: https://localist-images.azureedge.net/photos/50659831725871/huge/c069367c512fc34b1169304143c15f2f1f723ef0.jpg
+Description: "EMU 75th Anniversary Show" October 28 to December 12.
+
+The EMU celebrates 75 years! The gallery will be hosting an exhibit showcasing the history of the University of Oregon and Erb Memorial Union through pictures, posters and storytelling. Please join us for the reception on November 4, from 6-7pm in the Adell McMillan Gallery!
+
+We hope to see you there!
+--------------------------------------------------------------------------------
+Event Title: Explore Oregon
+Start Date: 2025-11-02T10:00:00-08:00
+End Date: 2025-11-02T17:00:00-08:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/explore_oregon_9372
+Image URL: https://localist-images.azureedge.net/photos/38891314266760/huge/2ff1e24e0429df59871925d5e00c844757123622.jpg
+Description: Experience the dynamic forces that shape Oregon’s landscapes, climate, and ecosystems. Meet giant salmon, Ice Age sloths, and other amazing animals from across the millennia. Through interactive displays and rare specimens, you’ll go deep into Oregon’s past and join a conversation about our collective future.
+--------------------------------------------------------------------------------
+Event Title: Oregon: Where Past Is Present
+Start Date: 2025-11-02T10:00:00-08:00
+End Date: 2025-11-02T17:00:00-08:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/oregon_where_past_is_present
+Image URL: https://localist-images.azureedge.net/photos/38953944027238/huge/1fa33622872ad17ac6dc89121ba05da9486a8b81.jpg
+Description: Delve into Oregon’s story, from the archaeology of the First Americans to the dynamic cultures of today’s Tribes.
+
+Combining interactive displays with world-class anthropological collections, Oregon—Where Past is Present shares 14,000 years of Oregon stories, and invites you to tell your own. Explore the galleries, try your hand at ancient weaving styles, test your skills as an archaeologist, and much more.
+--------------------------------------------------------------------------------
+Event Title: Roots and Resilience—Chinese American Heritage in Oregon
+Start Date: 2025-11-02T10:00:00-08:00
+End Date: 2025-11-02T17:00:00-08:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/roots-and-resiliencechinese-american-heritage-in-oregon-4784
+Image URL: https://localist-images.azureedge.net/photos/49331443904698/huge/db05acd040ca881b857672cf1f4ec5e35c7fbcb6.jpg
+Description: Chinese immigrants helped shape Oregon’s history. Come discover the stories and resilience of early Chinese Americans.
+--------------------------------------------------------------------------------
+Event Title: Transgressors
+Start Date: 2025-11-02T10:00:00-08:00
+End Date: 2025-11-02T17:00:00-08:00
+Location: Museum of Natural and Cultural History
+Latitude: 44.042918
+Longitude: -123.06807
+Event URL: https://calendar.uoregon.edu/event/transgressors
+Image URL: https://localist-images.azureedge.net/photos/49712393289242/huge/4a82fbcc87a062039c4c16f65f7aabc90871503a.jpg
+Description: An exhibition presenting now and future Indigiqueer ancestors who move beyond boundaries in life and art. 
+
+Artists: a.c. ramírez de arellaño  |  Evan Benally Atwood  |  Geo Soctomah Neptune   |  Jeffrey Gibson  |  Lehuauakea  |  Qahir-beejee Peco  |  Roin Morigeau  | Steph Littlebird  |  Walter Scott 
+
+Curated by Anthony Hudson and Felix Furby.
+
+Sponsored by Chachalu Tribal Museum and Cultural Center, Native Arts and Cultures Foundation, Oregon Community Foundation, and New Expressive Work.
+--------------------------------------------------------------------------------
+Event Title:  On View: Day of the Dead Altares
+Start Date: 2025-11-02T11:00:00-08:00
+End Date: 2025-11-02T17:00:00-08:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/on-view-day-of-the-dead-altares-6140
+Image URL: https://localist-images.azureedge.net/photos/50719433974748/huge/6def37c345d7c0571ddcf982efbe399717806739.jpg
+Description: Please feel free to bring a photo of a loved one and place it in the altares to honor those who have passed away.
+
+On view during museum hours, not open to the public on Mondays and Tuesdays.
+--------------------------------------------------------------------------------
+Event Title: "Gathering: A Photographer's Collection"  Exhibition 
+Start Date: 2025-11-02T11:00:00-08:00
+End Date: 2025-11-02T17:00:00-08:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/gathering-a-photographers-collection-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162277011735/huge/ee109100992ca899c35325d2112d2b5538a88aa0.jpg
+Description: Gathering: A Photographer’s Collection presents a wide-ranging selection of photographs from the personal collection of Portland, Oregon-based photographer and curator, Christopher Rauschenberg. Over five decades, Rauschenberg has compiled a truly distinctive archive of photographs encompassing a wide array of themes, styles, uses of the medium, and range of subjects and content. This important resource represents a diverse mix of international and nationally emerging and established photographers.
+
+Rauschenberg typically acquires photographs directly from the artists or from non-profit community-based arts organizations exhibiting or representing their works. Rauschenberg has also traveled extensively and participated for decades as a highly regarded reviewer of photography portfolios at international gatherings of specialists who utilize and support opportunities for working creative photographers.
+
+In Gathering, one will find a wealth of individual points of view that, when engaged, may broaden each of our own visions: whether those considered perspectives are personal, familiar, social, cultural, political, or spiritual.
+--------------------------------------------------------------------------------
+Event Title: "James Lavadour: Land of Origin" Exhibition
+Start Date: 2025-11-02T11:00:00-08:00
+End Date: 2025-11-02T17:00:00-08:00
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/james-lavadour-land-of-origin-exhibition
+Image URL: https://localist-images.azureedge.net/photos/50162329518533/huge/c670c194617f68ce9d6980347f9464e3af5a786a.jpg
+Description: James Lavadour: Land of Origin presents the most comprehensive survey to date of works by painter and printmaker James Lavadour (Walla Walla). Spanning five decades of work, this national retrospective celebrates Lavadour’s deep connection to the eastern Oregon landscape, particularly the Umatilla Indian Reservation and surrounding Blue Mountains region where the artist has spent most of his life, and recognizes his esteemed place in contemporary American painting. The exhibition includes nearly thirty of Lavadour’s magnificent signature grid paintings, works on individual panels, and prints, most of which have never been exhibited together. It will draw on significant loans from the artist, major museum collections, and private lenders. Recognizing one of Oregon and the nation’s most original and powerful artists, James Lavadour: Land of Origin will also be accompanied by a full catalogue.
+--------------------------------------------------------------------------------
+Event Title: Grove Garden Weekly Work Parties
+Start Date: 2025-11-02T14:00:00-08:00
+End Date: 2025-11-02T16:00:00-08:00
+Location: Grove Community Garden 
+Latitude: 44.039989
+Longitude: -123.066121
+Event URL: https://calendar.uoregon.edu/event/grove-garden-weekly-work-parties
+Image URL: https://localist-images.azureedge.net/photos/50977336070731/huge/d405652360a8c8c8737a07aea317a8c1aceaef27.jpg
+Description: The Grove Garden is the student run community garden on campus. We tend to the garden together as a group and all produce is free to take home. No gardening experince is needed, we will teach you everything you need to know. Join us every Sunday 2-4pm at the Grove Garden (1801 Moss St)! At the work parties we plant seeds, harvest crops, and weed the garden. We also like to craft together and hangout in the beautiful space. If you want to grow a specific fruit/vegetable/flower or other plant, come talk to us and we can make that happen!
+--------------------------------------------------------------------------------
+Event Title: Doctoral Recital: Oliver Kwapis, Data-Driven Instruments
+Start Date: 2025-11-02T17:00:00-08:00
+End Date: 2025-11-02T18:00:00-08:00
+Location: Frohnmayer Music Building
+Latitude: 44.040043
+Longitude: -123.078384
+Event URL: https://calendar.uoregon.edu/event/doctoral-recital-oliver-kwapis-data-driven-instruments
+Image URL: https://localist-images.azureedge.net/photos/51039012980982/huge/a5e21b44779827d96602ceb96109eefa64dcb3a1.jpg
+Description: Six works for data-driven instruments composed and performed by Oliver Kwapis.
+--------------------------------------------------------------------------------
+Event Title: 44th Annual Celebration of Day of the Dead
+Start Date: 2025-11-02T18:00:00-08:00
+End Date: 2025-11-02
+Location: Jordan Schnitzer Museum of Art (JSMA)
+Latitude: 44.044315
+Longitude: -123.076986
+Event URL: https://calendar.uoregon.edu/event/44th-annual-celebration-of-day-of-the-dead
+Image URL: https://localist-images.azureedge.net/photos/50968044093830/huge/58c7ce0fe8247b75fedfcabda1086b60df89f520.jpg
+Description: 44° Celebración Anual del Día de los Muertos
+
+Celebra el día de los muertos en el museo y disfruta de una noche de arte, manualidades, danza y música con la presentación especial del grupo mexicano Hermanos Herrera.
+
+Celebrate the Day of the Dead at the museum and enjoy an evening of art and crafts, music, and dance featuring performances from the Mexican musical group Hermanos Herrera.
+--------------------------------------------------------------------------------
+162
