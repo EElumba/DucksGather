@@ -4,16 +4,53 @@ Defines ORM models for all database tables.
 """
 
 from sqlalchemy import (
-    Column, Integer, String, Text, Date, Time, Boolean, 
+    Column, Integer, String, Text, Date, Time, Boolean,
     TIMESTAMP, ForeignKey, CheckConstraint, UniqueConstraint,
     DECIMAL, func
 )
-from sqlalchemy.dialects.postgresql import UUID, JSONB
+from sqlalchemy.dialects.postgresql import UUID as PG_UUID, JSONB
+from sqlalchemy import JSON as SA_JSON
+from sqlalchemy.types import TypeDecorator, CHAR
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
 
 from backend.src.db.db_init import Base
+
+
+# Cross-dialect GUID/UUID type: uses native UUID on Postgres, CHAR(36) on SQLite
+class GUID(TypeDecorator):
+    impl = CHAR
+    cache_ok = True
+
+    def load_dialect_impl(self, dialect):
+        if dialect.name == 'postgresql':
+            return dialect.type_descriptor(PG_UUID(as_uuid=True))
+        return dialect.type_descriptor(CHAR(36))
+
+    def process_bind_param(self, value, dialect):
+        if value is None:
+            return value
+        if dialect.name == 'postgresql':
+            return value
+        if isinstance(value, uuid.UUID):
+            return str(value)
+        return str(uuid.UUID(value))
+
+    def process_result_value(self, value, dialect):
+        if value is None:
+            return value
+        return uuid.UUID(value)
+
+class JSONType(TypeDecorator):
+    """Cross-dialect JSON type: JSONB on Postgres, JSON elsewhere."""
+    impl = SA_JSON
+    cache_ok = True
+
+    def load_dialect_impl(self, dialect):
+        if dialect.name == 'postgresql':
+            return dialect.type_descriptor(JSONB(astext_type=Text()))
+        return dialect.type_descriptor(SA_JSON())
 
 
 class Organization(Base):
@@ -86,12 +123,13 @@ class User(Base):
     """Model for users table."""
     __tablename__ = 'users'
     
-    user_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(GUID(), primary_key=True, default=uuid.uuid4)
     email = Column(String(255), nullable=False, unique=True)
     full_name = Column(String(255))
     role = Column(String(50), default='user')
     major = Column(String(255))
-    preferences = Column(JSONB)
+    # Cross-dialect JSON (JSONB on Postgres, JSON elsewhere)
+    preferences = Column(JSONType())
     created_at = Column(TIMESTAMP, default=datetime.utcnow)
     updated_at = Column(TIMESTAMP, default=datetime.utcnow, onupdate=datetime.utcnow)
     
@@ -135,7 +173,7 @@ class Event(Base):
     external_url = Column(String(500))
     organization_id = Column(Integer, ForeignKey('organizations.organization_id', ondelete='SET NULL'))
     location_id = Column(Integer, ForeignKey('locations.location_id', ondelete='SET NULL'))
-    created_by = Column(UUID(as_uuid=True), ForeignKey('users.user_id', ondelete='SET NULL'))
+    created_by = Column(GUID(), ForeignKey('users.user_id', ondelete='SET NULL'))
     is_scraped = Column(Boolean, default=False)
     created_at = Column(TIMESTAMP, default=datetime.utcnow)
     updated_at = Column(TIMESTAMP, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -222,7 +260,7 @@ class UserEvent(Base):
     """Model for user_events junction table."""
     __tablename__ = 'user_events'
     
-    user_id = Column(UUID(as_uuid=True), ForeignKey('users.user_id', ondelete='CASCADE'), primary_key=True)
+    user_id = Column(GUID(), ForeignKey('users.user_id', ondelete='CASCADE'), primary_key=True)
     event_id = Column(Integer, ForeignKey('events.event_id', ondelete='CASCADE'), primary_key=True)
     saved_at = Column(TIMESTAMP, default=datetime.utcnow)
     reminder_sent = Column(Boolean, default=False)
