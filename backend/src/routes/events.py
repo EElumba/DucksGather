@@ -88,6 +88,7 @@ def create_event():
     db = get_db()
     try:
         data = request.get_json(force=True)
+        # Only core fields are required; organization/location are optional
         required = ["title", "category", "date", "start_time", "end_time"]
         missing = [k for k in required if not data.get(k)]
         if missing:
