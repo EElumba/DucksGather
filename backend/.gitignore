@@ -1,0 +1,10 @@
+.env
+.env.*
+# Virtual environments
+venv/
+__pycache__/
+sample_data.sql
+schema.sql
+backend/src/services
+docs/
+.DS_Store
