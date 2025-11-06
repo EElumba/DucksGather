@@ -1,2 +1,8 @@
-Flask
-Python
+flask
+supabase
+python-dotenv
+sqlalchemy
+psycopg2-binary
+PyJWT
+pytest
+requests
