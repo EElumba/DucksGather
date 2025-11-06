@@ -7,3 +7,4 @@ sample_data.sql
 schema.sql
 backend/src/services
 docs/
+.DS_Store
