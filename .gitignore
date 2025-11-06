@@ -5,3 +5,4 @@ venv/
 __pycache__/
 sample_data.sql
 schema.sql
+backend/src/services
