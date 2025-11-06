@@ -41,9 +41,14 @@ def list_events():
     try:
         q = db.query(Event)
 
-        category = request.args.get("category")
-        if category:
-            q = q.filter(Event.category == category)
+       # Collect categories from repeatable params or comma-separated fallback (can now accept many categories)
+        raw_list = request.args.getlist("category")  # ?category=a&category=b
+        single = request.args.get("category")        # ?category=a or ?category=a,b
+        categories = raw_list or ([s.strip() for s in single.split(",")] if single else [])
+        # De-dup and drop empties
+        cats = [c for c in dict.fromkeys(categories) if c]
+        if cats:
+            q = q.filter(Event.category.in_(cats))
 
         from_str = request.args.get("from")
         to_str = request.args.get("to")
