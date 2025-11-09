@@ -1,0 +1,97 @@
+/* ExploreNavbar.css */
+/* Custom navigation bar styling for the Explore page with Oregon theme */
+
+/* Oregon theme colors */
+:root {
+  --oregon-green: #154733;
+  --oregon-yellow: #FEE123;
+  --oregon-light-green: rgba(21, 71, 51, 0.9);
+  --oregon-hover-green: rgba(21, 71, 51, 0.7);
+}
+
+/* Main navigation container */
+.explore-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem; /* Increased padding for larger navbar */
+  background: #154733; /* Fully transparent background */
+  z-index: 1000;
+  height: 80px; /* Fixed height for consistent spacing */
+  box-sizing: border-box;
+}
+
+/* Logo section styling */
+.explore-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(252, 252, 252);
+  gap: 0.5rem;
+}
+
+.explore-logo-icon {
+  width: 45px; /* Increased size */
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore-logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.explore-brand-text {
+  font-size: 1.5rem; /* Larger text */
+  font-weight: bold;
+  color: #154733;
+  background: rgb(255, 255, 255); /*DucksGather NavBar*/
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation links container */
+.explore-nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Unified navigation button styling for all nav elements */
+.explore-nav-link,
+.explore-nav-button {
+  color: #154733; /* Oregon green */
+  background: rgb(249, 249, 249);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Active state for navigation links */
+.explore-nav-link.active {
+  background: rgb(249, 249, 249);
+  color: #154733;
+  font-weight: 700;
+}
+
+/* Hover state for all navigation elements */
+.explore-nav-link:hover,
+.explore-nav-button:hover {
+  background: rgb(255, 255, 255);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+

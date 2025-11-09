@@ -1,0 +1,80 @@
+/* NotFound.css */
+/* Styling for 404 error page */
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  background: #f8f9fa;
+}
+
+.not-found-container h1 {
+  color: #154733; /* Oregon green */
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.not-found-container p {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.valid-routes {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.valid-routes h2 {
+  color: #154733;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.valid-routes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.valid-routes li {
+  margin: 0.5rem 0;
+}
+
+.valid-routes a {
+  color: #154733;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.valid-routes a:hover {
+  background: rgba(21, 71, 51, 0.1);
+}
+
+.home-button {
+  background: #154733;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.home-button:hover {
+  background: #1a5940;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
