@@ -119,6 +119,8 @@ const ExploreEvents = () => {
   });
   const [selectedEvent, setSelectedEvent] = useState(null);
   const mapRef = useRef(null);
+  // Store refs to marker elements for popup control
+  const markerRefs = useRef({});
 
   // Sample events data - replace with your actual events
   // Sample events data - replace images and update details as needed
@@ -193,7 +195,10 @@ const ExploreEvents = () => {
 
   const handleEventSelect = (event) => {
     setSelectedEvent(event);
+    // Center the map on the selected event
     mapRef.current?.setView(event.position, 15);
+    // Open the popup for the selected event's marker
+    markerRefs.current[event.id]?.openPopup();
   };
 
   const handleFilterChange = (filterType, value) => {
@@ -211,7 +216,7 @@ const ExploreEvents = () => {
         {/* Left sidebar with event listings */}
         <div className="sidebar">
           <FilterBar filters={filters} onFilterChange={handleFilterChange} />
-          <EventList events={events} onEventSelect={handleEventSelect} />
+          <EventList events={events} selectedEvent={selectedEvent} onEventSelect={handleEventSelect} />
         </div>
 
         {/* Main map container */}
@@ -235,9 +240,19 @@ const ExploreEvents = () => {
               eventHandlers={{
                 click: () => handleEventSelect(event)
               }}
+              ref={(ref) => markerRefs.current[event.id] = ref}
             >
-              <Popup closeButton={false} className="event-popup">
-                <h3>{event.name}</h3>
+              <Popup 
+                closeButton={false} 
+                className="event-popup"
+                eventHandlers={{
+                  click: () => handleEventSelect(event)
+                }}
+              >
+                <div onClick={() => handleEventSelect(event)} style={{ cursor: 'pointer' }}>
+                  <h3>{event.name}</h3>
+                  <p>{event.description}</p>
+                </div>
               </Popup>
             </Marker>
           ))}
