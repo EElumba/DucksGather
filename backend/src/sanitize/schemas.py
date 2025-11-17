@@ -1,29 +1,34 @@
-import bleach
-import unicodedata
+from pydantic import BaseModel, Field, EmailStr, AnyUrl, field_validator
+from datetime import datetime
+import re
 
-ALLOWED_TAGS = ["b", "i", "u", "em", "strong", "a", "p", "br", "ul", "ol", "li"]
-ALLOWED_ATTRIBUTES = {"a": ["href", "title", "target"]}
-ALLOWED_PROTOCOLS = ["http", "https", "mailto"]
+SAFE_TITLE = re.compile(r"^[\w\s\-.,'!()]{1,100}$") # Alphanumeric, spaces, and some punctuation, max length 100
 
-def normalize_whitespace(s: str | None) -> str | None:
-    if s is None: return None
-    # Collapse multiple spaces and trim leading/trailing whitespace
-    s = unicodedata.normalize("NFKC", s)
-    return " ".join(s.split())
-"""
-def clip(s: str | None, maxlen: int) -> str | None:
-    if s is None: return None
-    return s[:maxlen]
-"""
-    
-def clean_html(s: str | None, allow_basic_formatting: bool = True) -> str | None:
-    if not s: return s
-    if allow_basic_formatting:
-        return bleach.clean(
-            text=s,
-            tags=ALLOWED_TAGS,
-            attributes=ALLOWED_ATTRIBUTES,
-            protocols=ALLOWED_PROTOCOLS,
-            strip=True,
-        )
-    return bleach.clean(text=s, tags=[], attributes={}, strip=True)
+class EventCreate(BaseModel):
+    title: str = Field("", min_length=1, max_length=100)
+    description: str = Field("", max_length=1000)
+    start_at: datetime
+    ends_at: datetime
+    location: str = Field("", min_length=1, max_length=200)
+    address: str = Field("", min_length=1, max_length=100)
+    website: AnyUrl | None = None
+    latitude: float | None = None
+    longitude: float | None = None
+    image: AnyUrl | None = None
+
+
+    @field_validator("title")
+    @classmethod
+    def title_chars(cls, v: str) -> str:
+        if not SAFE_TITLE.match(v):
+            raise ValueError("Title contains invalid characters.")
+        return v
+
+   
+    @field_validator("ends_at")
+    @classmethod
+    def ends_after_start(cls, v: datetime, info):
+        start_at = info.data.get("start_at")
+        if start_at and v <= start_at:
+            raise ValueError("Event end time must be after start time.")
+        return v
