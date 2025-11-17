@@ -4,10 +4,11 @@ from datetime import date, time, datetime
 from typing import Optional
 
 from flask import Blueprint, jsonify, request, g
+import os
 
 from backend.src.db.db_init import get_db
 from backend.src.models.models import Event, User, UserEvent
-from backend.src.auth.jwt import require_auth
+from backend.src.auth.jwt import require_auth, require_app_user
 
 bp = Blueprint("events", __name__, url_prefix="/api/events")
 
@@ -34,32 +35,95 @@ def parse_time(value: str) -> time:
 
 @bp.get("/")
 def list_events():
-    """Public: list upcoming events (optionally filter by category/date).
-    Query params: category, from, to
+    """Public: list events with optional filtering & pagination.
+
+    Query params:
+      category (repeatable or comma list)
+      from (date >=)
+      to (date <=)
+      q (search in title/description, case-insensitive)
+      page (1-based)
+      page_size (default 20, max 100)
+
+    Response: { items: [...], page, page_size, total }
     """
     db = get_db()
+    debug = os.getenv('EVENTS_DEBUG') == '1'
+    if debug:
+        print('[events] list_events request args:', dict(request.args))
     try:
         q = db.query(Event)
 
-       # Collect categories from repeatable params or comma-separated fallback (can now accept many categories)
-        raw_list = request.args.getlist("category")  # ?category=a&category=b
-        single = request.args.get("category")        # ?category=a or ?category=a,b
+        # Categories filter
+        raw_list = request.args.getlist("category")
+        single = request.args.get("category")
         categories = raw_list or ([s.strip() for s in single.split(",")] if single else [])
-        # De-dup and drop empties
         cats = [c for c in dict.fromkeys(categories) if c]
         if cats:
             q = q.filter(Event.category.in_(cats))
 
+        # Date range
         from_str = request.args.get("from")
         to_str = request.args.get("to")
         if from_str:
-            q = q.filter(Event.date >= parse_date(from_str))
+            try:
+                q = q.filter(Event.date >= parse_date(from_str))
+            except ValueError:
+                return jsonify({"error": "Invalid 'from' date"}), 400
         if to_str:
-            q = q.filter(Event.date <= parse_date(to_str))
+            try:
+                q = q.filter(Event.date <= parse_date(to_str))
+            except ValueError:
+                return jsonify({"error": "Invalid 'to' date"}), 400
 
-        q = q.order_by(Event.date, Event.start_time)
+        # Text search
+        search = request.args.get("q")
+        if search:
+            pattern = f"%{search.strip()}%"
+            from sqlalchemy import or_, func  # local import to keep top clean and optional in tests
+            if db.bind.dialect.name == 'postgresql':
+                q = q.filter(or_(Event.title.ilike(pattern), Event.description.ilike(pattern)))
+            else:
+                lower_pat = pattern.lower()
+                q = q.filter(
+                    or_(func.lower(Event.title).like(lower_pat), func.lower(Event.description).like(lower_pat))
+                )
+
+        # Total before pagination
+        total = q.count()
+
+        # Pagination
+        try:
+            page = int(request.args.get("page", "1"))
+            page_size = int(request.args.get("page_size", "20"))
+        except ValueError:
+            return jsonify({"error": "page and page_size must be integers"}), 400
+        if page < 1:
+            page = 1
+        if page_size < 1:
+            page_size = 1
+        if page_size > 100:
+            page_size = 100
+        offset = (page - 1) * page_size
+
+        q = q.order_by(Event.date, Event.start_time).offset(offset).limit(page_size)
         items = [e.to_dict() for e in q.all()]
-        return jsonify(items), 200
+        total_pages = (total + page_size - 1) // page_size
+        resp = {
+            "items": items,
+            "page": page,
+            "page_size": page_size,
+            "total": total,
+            "total_pages": total_pages
+        }
+        if debug:
+            print('[events] list_events response meta:', {"count": len(items), "page": page, "page_size": page_size, "total": total, "total_pages": total_pages})
+        return jsonify(resp), 200
+    except Exception as e:
+        # Emit structured JSON error instead of HTML 500 page
+        if debug:
+            print('[events] ERROR list_events ->', repr(e))
+        return jsonify({"error": "internal", "detail": str(e)}), 500
     finally:
         db.close()
 
@@ -83,7 +147,7 @@ def get_event(event_id: int):
 
 
 @bp.post("/")
-@require_auth(require_uo_domain=False)
+@require_app_user(require_uo_domain=True)
 def create_event():
     """Authenticated: create an event.
     Body JSON: title, description?, category, date (YYYY-MM-DD), start_time, end_time,
@@ -91,6 +155,10 @@ def create_event():
     created_by is taken from the JWT (g.user_id).
     """
     db = get_db()
+
+    if g.app_user.role != 'coordinator' and g.app_user.role != 'admin':
+        return jsonify({"error": "Insufficient permissions to create events"}), 403
+    
     try:
         data = request.get_json(force=True)
         # Only core fields are required; organization/location are optional
@@ -135,7 +203,7 @@ def create_event():
 
 @bp.put("/<int:event_id>")
 @bp.patch("/<int:event_id>")
-@require_auth()
+@require_app_user()
 def update_event(event_id: int):
     """Authenticated: update fields of an event I own."""
     db = get_db()
@@ -143,7 +211,11 @@ def update_event(event_id: int):
         ev = db.query(Event).filter(Event.event_id == event_id).first()
         if not ev:
             return jsonify({"error": "Not found"}), 404
-        if not ev.created_by or ev.created_by != g.user_id:
+        # Authorization: creator OR admin may update.
+        # Normalize types (GUID may be uuid.UUID; g.user_id is str)
+        if not ev.created_by:
+            return jsonify({"error": "Forbidden"}), 403
+        if str(ev.created_by) != str(g.user_id) and g.app_user.role != 'admin':
             return jsonify({"error": "Forbidden"}), 403
 
         data = request.get_json(force=True)
@@ -177,7 +249,7 @@ def update_event(event_id: int):
 
 
 @bp.delete("/<int:event_id>")
-@require_auth()
+@require_app_user()
 def delete_event(event_id: int):
     """Authenticated: delete an event I own."""
     db = get_db()
@@ -185,7 +257,7 @@ def delete_event(event_id: int):
         ev = db.query(Event).filter(Event.event_id == event_id).first()
         if not ev:
             return jsonify({"error": "Not found"}), 404
-        if not ev.created_by or ev.created_by != g.user_id:
+        if not ev.created_by or str(ev.created_by) != str(g.user_id):
             return jsonify({"error": "Forbidden"}), 403
         db.delete(ev)
         db.commit()
@@ -199,24 +271,11 @@ def delete_event(event_id: int):
 
 # Interest (save/unsave) endpoints
 
-def _ensure_user(db) -> User:
-    """Ensure a User row exists for the authenticated subject.
-    Supabase provides the user id (sub) and email in the JWT. If the user row
-    doesn't exist yet (first action in our DB), create it.
-    """
-    uid = g.user_id
-    email = g.get("email")
-    user = db.query(User).filter(User.user_id == uid).first()
-    if user:
-        return user
-    user = User(user_id=uid, email=email)
-    db.add(user)
-    db.commit()
-    return user
+# _ensure_user removed; handled by @require_app_user decorator.
 
 
 @bp.post("/<int:event_id>/save")
-@require_auth()
+@require_app_user()
 def save_event(event_id: int):
     """Authenticated: save (show interest in) an event for the current user."""
     db = get_db()
@@ -226,8 +285,7 @@ def save_event(event_id: int):
         if not ev:
             return jsonify({"error": "Not found"}), 404
 
-        # Ensure user row exists
-        _ensure_user(db)
+    # App user already ensured by decorator (g.app_user)
 
         # Upsert into user_events
         existing = (
@@ -248,7 +306,7 @@ def save_event(event_id: int):
 
 
 @bp.delete("/<int:event_id>/save")
-@require_auth()
+@require_app_user()
 def unsave_event(event_id: int):
     """Authenticated: remove saved event for the current user."""
     db = get_db()
@@ -271,7 +329,7 @@ def unsave_event(event_id: int):
 
 
 @bp.get("/saved")
-@require_auth()
+@require_app_user()
 def list_saved_events():
     """Authenticated: list my saved events."""
     db = get_db()

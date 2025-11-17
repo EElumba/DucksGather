@@ -2,7 +2,7 @@
 /* Styles for the login button and modal with Oregon theme */
 
 :root {
-  --oregon-green: #154733;
+  --oregon-green: rgba(21, 71, 51, 0.7);;
   --oregon-yellow: #FEE123;
   --oregon-light-green: rgba(21, 71, 51, 0.9);
   --oregon-hover-green: rgba(21, 71, 51, 0.7);
@@ -10,22 +10,34 @@
 
 /* Login button styling */
 .login-button {
-  background: var(--oregon-green);
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 20px;
-  border: none;
+  color: #154733; /* Oregon green */
+  background: rgb(249, 249, 249);
+  text-decoration: none;
   font-weight: 600;
-  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
   transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+
 }
 
 
 /*Make button interactive*/
 
 .login-button:hover {
-  outline: 6px solid yellow;
+  background: rgb(255, 255, 255);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
+
 
 /* Modal overlay */
 .modal-overlay {
@@ -146,7 +158,7 @@
 }
 
 .login-button.active{
- color: #154733; /* Oregon green */
+ color: rgba(21, 71, 51, 0.7); /* Oregon green */
   background: rgb(249, 249, 249);
   text-decoration: none;
   font-weight: 600;

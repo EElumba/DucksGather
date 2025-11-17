@@ -4,7 +4,7 @@ import NotFound from './components/NotFound';
 import './App.css';
 import HomePage from './components/HomePage';
 import ExploreEvents from './components/ExploreEvents';
-
+import CreateEvent from './components/CreateEvent';
 /**
  * Valid routes configuration
  * Add new routes here to make them accessible
@@ -26,7 +26,7 @@ function App() {
         {/* Define valid routes */}
         <Route path={VALID_ROUTES.HOME} element={<HomePage />} />
         <Route path={VALID_ROUTES.EXPLORE} element={<ExploreEvents />} />
-        <Route path={VALID_ROUTES.CREATE} element={<div>Create Event Page (Coming Soon)</div>} />
+        <Route path={VALID_ROUTES.CREATE} element={<CreateEvent />} />
         
         {/* 404 handling */}
         <Route path="/404" element={<NotFound />} />

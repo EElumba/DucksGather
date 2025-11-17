@@ -1,12 +1,15 @@
-from flask import Flask
-from flask_cors import CORS
 from dotenv import load_dotenv
+load_dotenv()  # Load env early so db_init sees DATABASE_URL
+
+from flask import Flask, request
+from flask_cors import CORS
 import os
 from backend.src.routes.events import bp as events_bp
+from backend.src.routes.users import bp as users_bp
+from backend.src.db.db_init import ensure_auth_fk, create_tables_if_needed
 
 def create_app() -> Flask:
 	'''Create and configure application instance'''
-	load_dotenv()  # Load environment variables from .env file
 
 	app = Flask(__name__)
 	# Enable CORS for frontend dev (CRA on localhost:3000)
@@ -19,10 +22,22 @@ def create_app() -> Flask:
 		}},
 	)
 	try:
+		# Optional dev schema creation
+		create_tables_if_needed()
+		# Attempt to enforce FK integrity to Supabase auth.users if using Postgres
+		ensure_auth_fk()
 		app.register_blueprint(events_bp)
-
+		app.register_blueprint(users_bp)
 	except Exception as e:
-		print(f"Error registering blueprint for events: {e}")
+		print(f"Error registering blueprints: {e}")
+
+	# (Removed experimental DB_DEBUG and fallback env loading per user request)
+
+	# Lightweight request tracing for events endpoints when EVENTS_DEBUG=1
+	@app.before_request
+	def _trace_events_requests():
+		if os.getenv("EVENTS_DEBUG") == "1" and request.path.startswith("/api/events"):
+			print(f"[trace] {request.method} {request.path} args={dict(request.args)} auth={'Authorization' in request.headers}")
 
 	# Health endpoint for readiness checks and tests (no extra deps)
 	@app.get("/health")

@@ -24,8 +24,7 @@ const ExploreNavbar = () => {
       {/* Navigation links */}
       <div className="explore-nav-links">
         <Link to="/explore" className="explore-nav-link active">Explore</Link>
-        <Link to="/create" className="explore-nav-link">Create Event</Link>
-        <Link to="/login" className="explore-nav-link">Login</Link>
+        <Link to="/create" className="explore-nav-link active">Create Event</Link>
         <LoginButton />
       </div>
     </nav>
