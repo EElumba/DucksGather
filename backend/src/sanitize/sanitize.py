@@ -10,11 +10,12 @@ def normalize_whitespace(s: str | None) -> str | None:
     # Collapse multiple spaces and trim leading/trailing whitespace
     s = unicodedata.normalize("NFKC", s)
     return " ".join(s.split())
-
+"""
 def clip(s: str | None, maxlen: int) -> str | None:
     if s is None: return None
     return s[:maxlen]
-
+"""
+    
 def clean_html(s: str | None, allow_basic_formatting: bool = True) -> str | None:
     if not s: return s
     if allow_basic_formatting:
