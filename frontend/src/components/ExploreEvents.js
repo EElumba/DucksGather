@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import ExploreNavbar from './ExploreNavbar';
+import EventList from './EventList';
 import 'leaflet/dist/leaflet.css';
 import '../styles/ExploreEvents.css';
 import L from 'leaflet';
@@ -60,46 +61,6 @@ const FilterBar = ({ filters, onFilterChange }) => (
             <option key={option} value={option}>{option}</option>
           ))}
         </select>
-      </div>
-    ))}
-  </div>
-);
-
-/**
- * Component for displaying the list of events
- * Handles image loading and fallback
- * @param {Object} props - Component props
- * @param {Array} props.events - List of events to display
- * @param {Function} props.onEventSelect - Event selection handler
- */
-const EventList = ({ events, selectedEvent, onEventSelect }) => (
-  <div className="event-list">
-    {events.map(event => (
-      <div 
-        key={event.id} 
-        className={`event-card ${selectedEvent?.id === event.id ? 'highlighted' : ''}`}
-        onClick={() => onEventSelect(event)}
-        ref={selectedEvent?.id === event.id ? (el) => el?.scrollIntoView({ behavior: 'smooth', block: 'center' }) : null}
-      >
-        <div className="event-image">
-          <img 
-            src={getEventImage(event.image)}
-            alt={event.name || IMAGE_CONFIG.DEFAULT_ALT_TEXT}
-            onError={(e) => {
-              // If image fails to load, use default image
-              e.target.onerror = null; // Prevent infinite loop
-              e.target.src = IMAGE_CONFIG.DEFAULT_EVENT_IMAGE;
-            }}
-            loading="lazy" // Add lazy loading for better performance
-          />
-        </div>
-        <div className="event-info">
-          <h3>{event.name}</h3>
-          <p className="event-location">{event.location}</p>
-          <p className="event-details">
-            {event.date} • {event.duration} • {event.difficulty}
-          </p>
-        </div>
       </div>
     ))}
   </div>
@@ -291,7 +252,8 @@ const ExploreEvents = () => {
         <div className="sidebar">
           <h2 className="filter-heading">Filter Event by Type</h2>
           <FilterBar filters={filters} onFilterChange={handleFilterChange} />
-          <EventList events={events} onEventSelect={handleEventSelect} />
+          {/* Backend-driven global EventList; map click-to-select later if desired */}
+          <EventList />
         </div>
 
         {/* Main map container */}

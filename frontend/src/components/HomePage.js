@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from './SearchBar';
-import Navbar from './ExploreNavbar';
+import Navbar from './Navbar';
 import '../styles/HomePage.css';
+import EventList from "./EventList";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -26,6 +27,10 @@ const HomePage = () => {
             </button>
           </div>
         </div>
+      </div>
+      
+      <div className="events-section">
+        <EventList />
       </div>
     </> 
   );
