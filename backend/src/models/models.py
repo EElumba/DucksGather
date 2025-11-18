@@ -40,7 +40,10 @@ class GUID(TypeDecorator):
     def process_result_value(self, value, dialect):
         if value is None:
             return value
-        return uuid.UUID(value)
+        # psycopg2 with PG_UUID(as_uuid=True) can already give us a uuid.UUID instance
+        if isinstance(value, uuid.UUID):
+            return value
+        return uuid.UUID(str(value))
 
 class JSONType(TypeDecorator):
     """Cross-dialect JSON type: JSONB on Postgres, JSON elsewhere."""
