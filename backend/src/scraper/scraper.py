@@ -193,7 +193,8 @@ def process_and_validate(event_data: dict) -> dict | None:
 
 # --- Main Orchestration ---
 
-def crawl(url: str, out_csv: str):
+#def crawl(url: str, out_csv: str):
+def crawl(url: str):
     
     #Runs the scraping process: fetches the page, parses the data, 
     #and writes the results to a CSV file.
@@ -233,6 +234,7 @@ def crawl(url: str, out_csv: str):
                     validated_events.append(validated_event)
 
             print(f"-> Validated {len(validated_events)} events on this page.")
+            return validated_events
             
 
         if page_counter >= MAX_PAGES:
@@ -244,11 +246,12 @@ def crawl(url: str, out_csv: str):
             print(f"An unexpected error occurred during crawl: {e}")
 
             
-    # Final CSV Writing
+    
     if not validated_events:
         print("No events were extracted during the entire crawl.")
         return
-
+    
+    """
     try:
         # Write data to CSV
         with open(out_csv, "w", newline="", encoding="utf-8") as f:
@@ -262,6 +265,7 @@ def crawl(url: str, out_csv: str):
 
     except IOError as e:
         print(f"Error writing to CSV file: {e}")
+    """
 
 
 if __name__ == "__main__":
@@ -271,4 +275,4 @@ if __name__ == "__main__":
                 #validated_event = process_and_validate(raw_event)
                 #print(validated_event)
     
-    crawl(TARGET_URL, OUTPUT_FILE)
+    crawl(TARGET_URL) 
