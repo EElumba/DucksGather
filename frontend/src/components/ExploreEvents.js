@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import ExploreNavbar from './ExploreNavbar';
+import EventList from './EventList';
 import 'leaflet/dist/leaflet.css';
 import '../styles/ExploreEvents.css';
 import L from 'leaflet';
@@ -65,54 +66,14 @@ const FilterBar = ({ filters, onFilterChange }) => (
   </div>
 );
 
-/**
- * Component for displaying the list of events
- * Handles image loading and fallback
- * @param {Object} props - Component props
- * @param {Array} props.events - List of events to display
- * @param {Function} props.onEventSelect - Event selection handler
- */
-const EventList = ({ events, selectedEvent, onEventSelect }) => (
-  <div className="event-list">
-    {events.map(event => (
-      <div 
-        key={event.id} 
-        className={`event-card ${selectedEvent?.id === event.id ? 'highlighted' : ''}`}
-        onClick={() => onEventSelect(event)}
-        ref={selectedEvent?.id === event.id ? (el) => el?.scrollIntoView({ behavior: 'smooth', block: 'center' }) : null}
-      >
-        <div className="event-image">
-          <img 
-            src={getEventImage(event.image)}
-            alt={event.name || IMAGE_CONFIG.DEFAULT_ALT_TEXT}
-            onError={(e) => {
-              // If image fails to load, use default image
-              e.target.onerror = null; // Prevent infinite loop
-              e.target.src = IMAGE_CONFIG.DEFAULT_EVENT_IMAGE;
-            }}
-            loading="lazy" // Add lazy loading for better performance
-          />
-        </div>
-        <div className="event-info">
-          <h3>{event.name}</h3>
-          <p className="event-location">{event.location}</p>
-          <p className="event-details">
-            {event.date} • {event.duration} • {event.difficulty}
-          </p>
-        </div>
-      </div>
-    ))}
-  </div>
-);
-
 // TO DO: Add filter functionality
 // TO DO: add how to handle population of events from webscaper
 
 
 
 const ExploreEvents = () => {
-  // State management for filters, selected event, and map reference
-  const [filters, setFilters] = useState({
+  // Static filter options
+  const [filters] = useState({
     'Distance away': ['< 1 mile', '< 5 miles', '< 10 miles'],
     'Activity': ['Social', 'Sports', 'Academic', 'Cultural'],
     'Length': ['>30mins', '>1hour', '>1.5hours', '>2hours'],
@@ -197,7 +158,23 @@ const ExploreEvents = () => {
     'Women, Gender & Sexuality Studies'],
   });
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const mapRef = useRef(null);
+
+  const handleFilterChange = (filterType, value) => {
+    const normalized = value || "";
+
+    // Map front-end filters to backend query fields
+    if (filterType === "Activity" || filterType === "Major") {
+      // Both Activity and Major feed into backend category filter
+      setActiveCategory(normalized);
+    }
+
+    if (filterType === "Search") {
+      setSearchQuery(normalized);
+    }
+  };
 
   // Sample events data - replace with your actual events
   // Sample events data - replace images and update details as needed
@@ -275,10 +252,7 @@ const ExploreEvents = () => {
     mapRef.current?.setView(event.position, 15);
   };
 
-  const handleFilterChange = (filterType, value) => {
-    // Implement filter logic here
-    console.log(`Filter ${filterType} changed to ${value}`);
-  };
+  // NOTE: handleFilterChange is defined above, wired to activeCategory/searchQuery
 
   return (
     <div className="explore-events-container">
@@ -291,7 +265,8 @@ const ExploreEvents = () => {
         <div className="sidebar">
           <h2 className="filter-heading">Filter Event by Type</h2>
           <FilterBar filters={filters} onFilterChange={handleFilterChange} />
-          <EventList events={events} onEventSelect={handleEventSelect} />
+          {/* Backend-driven global EventList wired to filters */}
+          <EventList category={activeCategory} q={searchQuery} />
         </div>
 
         {/* Main map container */}

@@ -54,13 +54,15 @@ def list_events():
     try:
         q = db.query(Event)
 
-        # Categories filter
+        # Categories filter (case-insensitive, normalized to lowercase)
+        from sqlalchemy import func  # local import to avoid global dependency when unused
+
         raw_list = request.args.getlist("category")
         single = request.args.get("category")
         categories = raw_list or ([s.strip() for s in single.split(",")] if single else [])
-        cats = [c for c in dict.fromkeys(categories) if c]
+        cats = [c.lower().strip() for c in dict.fromkeys(categories) if c]
         if cats:
-            q = q.filter(Event.category.in_(cats))
+            q = q.filter(func.lower(Event.category).in_(cats))
 
         # Date range
         from_str = request.args.get("from")
@@ -174,10 +176,14 @@ def create_event():
         if et <= st:
             return jsonify({"error": "end_time must be after start_time"}), 400
 
+        # Normalize category to a canonical lowercase form for consistent filtering
+        raw_category = data["category"]
+        category = raw_category.lower().strip() if isinstance(raw_category, str) else raw_category
+
         ev = Event(
             title=data["title"],
             description=data.get("description"),
-            category=data["category"],
+            category=category,
             date=d,
             start_time=st,
             end_time=et,
@@ -222,7 +228,10 @@ def update_event(event_id: int):
         # Apply only known fields
         for key in ["title", "description", "category", "image_url", "external_url"]:
             if key in data:
-                setattr(ev, key, data[key])
+                if key == "category" and isinstance(data[key], str):
+                    setattr(ev, key, data[key].lower().strip())
+                else:
+                    setattr(ev, key, data[key])
         if "date" in data:
             ev.date = parse_date(data["date"])
         if "start_time" in data:
