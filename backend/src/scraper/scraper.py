@@ -187,6 +187,10 @@ def process_and_validate(event_data: dict) -> dict | None:
         if isinstance(start_at, str) and len(start_at) == 10:
             start_at = f"{start_at}T00:00:00-08:00"
 
+        if not sanitize.is_future_event(start_at):
+            print(f"Discarding event '{event_data.get('title')}' because it is in the past.")
+            return None
+
         # Prepare validated input; optional fields should be None when missing/empty
         validated_input = {
             "title": final_title,
@@ -271,7 +275,7 @@ def crawl(url: str):
                     validated_events.append(validated_event)
 
             print(f"-> Validated {len(validated_events)} events on this page.")
-            #print(validated_events)
+            pprint.pprint(validated_events)
             
 
         if page_counter >= MAX_PAGES:
