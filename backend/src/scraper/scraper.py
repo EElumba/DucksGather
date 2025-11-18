@@ -71,6 +71,7 @@ HEADERS = {
     wait=wait_exponential(multiplier=1, min=0.5, max=8),
     retry=retry_if_exception_type((requests.RequestException,))
 )
+
 def fetch_html(url: str) -> str:
     """
     Fetches HTML content from a URL with robust error handling and exponential backoff.
@@ -161,85 +162,10 @@ def parse_listing(html: str, base_url: str) -> list[dict]:
     print(f"\nFinished parsing scripts. Total events found: {len(rows)}")
     #pprint.pprint(rows)
     return rows
-    """
-    Finds and parses Schema.org Event JSON-LD data from script tags.
-    This is the most reliable method when data is available in this format.
-    
-    soup = BeautifulSoup(html, "lxml")
-    rows = []
-    
-    # Target specific script tags used for JSON-LD (Schema.org data)
-    # The UO calendar uses <script type="application/ld+json"> for its event data.
-    target_scripts = soup.find_all("script", {"type": "application/ld+json"})
-    
-    if not target_scripts:
-        print("Warning: Could not find any script tags with type='application/ld+json'.")
-
-    for script_tag in target_scripts:
-        script_text = script_tag.string
-        if not script_text:
-            continue
-            
-        try:
-            # The entire script content is a clean JSON payload
-            data = json.loads(script_text)
-
-            # Normalize data: It can be a single dict or a list of dicts
-            events = []
-            if isinstance(data, list):
-                events.extend(data)
-            elif isinstance(data, dict):
-                events.append(data)
-                
-            for event in events:
-                # Filter to ensure we only process actual "Event" objects based on Schema.org rules
-                if isinstance(event, dict) and event.get("@type") == "Event":
-                    
-                    # Extract fields using .get() for safe access
-                    title = event.get("name", "")
-                    start_time = event.get("startDate", "")
-                    end_time = event.get("endDate", "")
-                    raw_link = event.get("url", "")
-                    link = urljoin( base_url, raw_link)
-                    description = event.get("description", "")
-                    image = event.get("image", "")  
-
-                    location = event.get("location", {})
-                    if isinstance(location, dict):
-                        loc_name = location.get("name", "")
-                        address = location.get("address", "")
-
-                    geocoordinates = location.get("geo", {})
-                    if isinstance(geocoordinates, dict):
-                        latitude = geocoordinates.get("latitude", "")
-                        longitude = geocoordinates.get("longitude", "")                           
-                    
-                    rows.append({
-                        "title": title,
-                        "start_at": start_time,
-                        "ends_at": end_time,
-                        "location": loc_name,
-                        "address": address,
-                        "latitude": latitude,
-                        "longitude": longitude,
-                        "description": description,
-                        "image": image,
-                        "website": link
-                    })
-            
-        except json.JSONDecodeError:
-            # Silently ignore script tags that fail to parse as JSON
-            pass
-
-    print(f"\nFinished parsing scripts. Total events found: {len(rows)}")
-    #print(rows)
-    return rows
-"""
 
 # --- Sanitization and Validation Logic ---
 def process_and_validate(event_data: dict) -> dict | None:
     try: 
-        cleaned_data = {}
         
         raw_description = event_data.get("description", "")
         cleaned_description = sanitize.clean_html(raw_description)
@@ -250,9 +176,6 @@ def process_and_validate(event_data: dict) -> dict | None:
 
 
         event_data["description"] = final_description
-
-        cleaned_title = sanitize.normalize_whitespace(event_data.get("title"))
-        cleaned_location = sanitize.normalize_whitespace(event_data.get("location"))
 
         start_at = event_data.get("start_at")
         ends_at = event_data.get("ends_at")
@@ -294,20 +217,7 @@ def process_and_validate(event_data: dict) -> dict | None:
                 try:
                     validated_input[coord] = float(str(raw_value))
                 except (ValueError, TypeError):
-                    validated_input[coord] = None
-
-        
-
-           
-
-            """    
-            # Use raw data for optional fields, converting "" to None for Pydantic
-            "location": cleaned_location or None, 
-            "address": event_data.get("address") or None,
-            "latitude": event_data.get("latitude") or None,
-            "longitude": event_data.get("longitude") or None,
-            """
-            
+                    validated_input[coord] = None            
         
 
         validated_model = schemas.EventCreate(**validated_input)
@@ -317,42 +227,11 @@ def process_and_validate(event_data: dict) -> dict | None:
         print(f"Validation failed for event: {event_data.get('title')}. Error: {e}")
         return None
 
-    """
-    #Sanitizes and validates event data using the sanitize module.
-    try:
-        cleaned_data = {}
-
-        cleaned_data["title"] = sanitize.normalize_whitespace(event_data.get("title"))
-        cleaned_data["location"] = sanitize.normalize_whitespace(event_data.get("location"))
-        cleaned_data["description"] = sanitize.clean_html(event_data.get("description"))
-
-        validated_input = {
-            "title": cleaned_data["title"],
-            "description": cleaned_data["description"],
-            "start_at": event_data.get("start_at"),
-            "ends_at": event_data.get("ends_at"),
-            "location": cleaned_data["location"] or None,
-            "website": event_data.get("website") or None,
-            "address": event_data.get("address") or None,
-            "latitude": event_data.get("latitude") or None,
-            "longitude": event_data.get("longitude") or None,
-            "image": event_data.get("image") or None,
-        }
-
-        validated_model = schemas.EventCreate(**validated_input)
-        return validated_model.model_dump()
-    
-    except (ValidationError, ValueError, TypeError) as e:
-        print(f"Validation failed for event: {event_data.get('title')}. Error: {e}")
-        return None
-    """
-
-    
 
 # --- Main Orchestration ---
 
-def crawl(url: str, out_csv: str):
-#def crawl(url: str):
+# def crawl(url: str, out_csv: str):
+def crawl(url: str):
     
     #Runs the scraping process: fetches the page, parses the data, 
     #and writes the results to a CSV file.
@@ -392,7 +271,7 @@ def crawl(url: str, out_csv: str):
                     validated_events.append(validated_event)
 
             print(f"-> Validated {len(validated_events)} events on this page.")
-            #return validated_events
+            #print(validated_events)
             
 
         if page_counter >= MAX_PAGES:
@@ -403,13 +282,12 @@ def crawl(url: str, out_csv: str):
     except Exception as e:
             print(f"An unexpected error occurred during crawl: {e}")
 
-            
     
     if not validated_events:
         print("No events were extracted during the entire crawl.")
         return
     
-    
+    """
     try:
         # Write data to CSV
         with open(out_csv, "w", newline="", encoding="utf-8") as f:
@@ -423,20 +301,23 @@ def crawl(url: str, out_csv: str):
 
     except IOError as e:
         print(f"Error writing to CSV file: {e}")
+    """
     
 
 
 if __name__ == "__main__":
-    
+    #crawl(TARGET_URL, OUTPUT_FILE) 
+    crawl(TARGET_URL)
+
+    """
     html = fetch_html(TARGET_URL)
     events = parse_listing(html, base_url=TARGET_URL)
     for raw_event in events:
                 validated_event = process_and_validate(raw_event)
                 if validated_event:
                     pprint.pprint(validated_event)
+    """
 
 
-
-    #crawl(TARGET_URL, OUTPUT_FILE) 
-    #crawl(TARGET_URL) 
+     
     
