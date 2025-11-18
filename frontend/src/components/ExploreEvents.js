@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import ExploreNavbar from './ExploreNavbar';
 import 'leaflet/dist/leaflet.css';
@@ -72,7 +73,7 @@ const FilterBar = ({ filters, onFilterChange }) => (
  * @param {Array} props.events - List of events to display
  * @param {Function} props.onEventSelect - Event selection handler
  */
-const EventList = ({ events, selectedEvent, onEventSelect }) => (
+const EventList = ({ events, selectedEvent, onEventSelect, onViewDetails }) => (
   <div className="event-list">
     {events.map(event => (
       <div 
@@ -99,18 +100,23 @@ const EventList = ({ events, selectedEvent, onEventSelect }) => (
           <p className="event-details">
             {event.date} • {event.duration} • {event.difficulty}
           </p>
+          <button 
+            className="view-details-btn" 
+            onClick={(e) => {
+              e.stopPropagation();
+              onViewDetails(event.id);
+            }}
+          >
+            View Details
+          </button>
         </div>
       </div>
     ))}
   </div>
 );
 
-// TO DO: Add filter functionality
-// TO DO: add how to handle population of events from webscaper
-
-
-
-const ExploreEvents = () => {
+const ExploreEvents = ({ events }) => {
+  const navigate = useNavigate();
   // State management for filters, selected event, and map reference
   const [filters, setFilters] = useState({
     'Distance away': ['< 1 mile', '< 5 miles', '< 10 miles'],
@@ -121,77 +127,6 @@ const ExploreEvents = () => {
   const mapRef = useRef(null);
   // Store refs to marker elements for popup control
   const markerRefs = useRef({});
-
-  // Sample events data - replace with your actual events
-  // Sample events data - replace images and update details as needed
-  const events = [
-    {
-      id: 1,
-      name: 'Campus Tour Social',
-      location: 'University of Oregon',
-      position: [44.04503839053625, -123.07256258731347],
-      date: 'Nov 10, 2023',
-      duration: '1 hour',
-      difficulty: 'Easy',
-      image: '/event-images/campus-tour.jpg',
-      description: 'Join us for a social campus tour!'
-    },
-    {
-      id: 2,
-      name: 'Knight Library Study Group',
-      location: 'Knight Library',
-      position: [44.04328239297166, -123.07772853393564],
-      date: 'Nov 12, 2023',
-      duration: '2 hours',
-      difficulty: 'Moderate',
-      image: '/event-images/library-study.jpg',
-      description: 'Group study session for finals'
-    },
-    {
-      id: 3,
-      name: 'Science Fair Prep',
-      location: 'Price Science Library',
-      position: [44.04624536232639, -123.07218013034097],
-      date: 'Nov 15, 2023',
-      duration: '3 hours',
-      difficulty: 'Challenging',
-      image: '/event-images/science-fair.jpg',
-      description: 'Prepare for the upcoming science fair'
-    },
-    {
-      id: 4,
-      name: 'CS Club Meeting',
-      location: 'UO Department of Computer Science',
-      position: [44.046025617673784, -123.07108679685953],
-      date: 'Nov 11, 2023',
-      duration: '1.5 hours',
-      difficulty: 'Easy',
-      image: '/event-images/cs-club.jpg',
-      description: 'Weekly CS club meeting - all welcome!'
-    },
-    {
-      id: 5,
-      name: 'Basketball Tournament',
-      location: 'Matthew Knight Arena',
-      position: [44.044952954092054, -123.06631965565566],
-      date: 'Nov 18, 2023',
-      duration: '4 hours',
-      difficulty: 'Challenging',
-      image: '/event-images/basketball.jpg',
-      description: 'Inter-department basketball tournament'
-    },
-    {
-      id: 6,
-      name: 'Basketball Tournament',
-      location: 'Matthew Knight Arena',
-      position: [44.044952954092054, -123.06631965565566],
-      date: 'Nov 18, 2023',
-      duration: '4 hours',
-      difficulty: 'Challenging',
-      image: '/event-images/basketball.j',
-      description: 'Inter-department basketball tournament'
-    }
-  ];
 
   const handleEventSelect = (event) => {
     setSelectedEvent(event);
@@ -216,7 +151,12 @@ const ExploreEvents = () => {
         {/* Left sidebar with event listings */}
         <div className="sidebar">
           <FilterBar filters={filters} onFilterChange={handleFilterChange} />
-          <EventList events={events} selectedEvent={selectedEvent} onEventSelect={handleEventSelect} />
+          <EventList 
+            events={events} 
+            selectedEvent={selectedEvent} 
+            onEventSelect={handleEventSelect}
+            onViewDetails={(id) => navigate(`/event/${id}`)} 
+          />
         </div>
 
         {/* Main map container */}
@@ -252,6 +192,15 @@ const ExploreEvents = () => {
                 <div onClick={() => handleEventSelect(event)} style={{ cursor: 'pointer' }}>
                   <h3>{event.name}</h3>
                   <p>{event.description}</p>
+                  <button 
+                    className="view-details-btn" 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/event/${event.id}`);
+                    }}
+                  >
+                    View Details
+                  </button>
                 </div>
               </Popup>
             </Marker>
