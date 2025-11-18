@@ -72,8 +72,8 @@ const FilterBar = ({ filters, onFilterChange }) => (
 
 
 const ExploreEvents = () => {
-  // State management for filters, selected event, and map reference
-  const [filters, setFilters] = useState({
+  // Static filter options
+  const [filters] = useState({
     'Distance away': ['< 1 mile', '< 5 miles', '< 10 miles'],
     'Activity': ['Social', 'Sports', 'Academic', 'Cultural'],
     'Length': ['>30mins', '>1hour', '>1.5hours', '>2hours'],
@@ -158,7 +158,23 @@ const ExploreEvents = () => {
     'Women, Gender & Sexuality Studies'],
   });
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const mapRef = useRef(null);
+
+  const handleFilterChange = (filterType, value) => {
+    const normalized = value || "";
+
+    // Map front-end filters to backend query fields
+    if (filterType === "Activity" || filterType === "Major") {
+      // Both Activity and Major feed into backend category filter
+      setActiveCategory(normalized);
+    }
+
+    if (filterType === "Search") {
+      setSearchQuery(normalized);
+    }
+  };
 
   // Sample events data - replace with your actual events
   // Sample events data - replace images and update details as needed
@@ -236,10 +252,7 @@ const ExploreEvents = () => {
     mapRef.current?.setView(event.position, 15);
   };
 
-  const handleFilterChange = (filterType, value) => {
-    // Implement filter logic here
-    console.log(`Filter ${filterType} changed to ${value}`);
-  };
+  // NOTE: handleFilterChange is defined above, wired to activeCategory/searchQuery
 
   return (
     <div className="explore-events-container">
@@ -252,8 +265,8 @@ const ExploreEvents = () => {
         <div className="sidebar">
           <h2 className="filter-heading">Filter Event by Type</h2>
           <FilterBar filters={filters} onFilterChange={handleFilterChange} />
-          {/* Backend-driven global EventList; map click-to-select later if desired */}
-          <EventList />
+          {/* Backend-driven global EventList wired to filters */}
+          <EventList category={activeCategory} q={searchQuery} />
         </div>
 
         {/* Main map container */}

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { listEvents } from "../api/client";
 import "../styles/ExploreEvents.css";
 
-export default function EventList() {
+export default function EventList({ category, date, q }) {
   const [events, setEvents] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -16,7 +16,13 @@ export default function EventList() {
   useEffect(() => {
     async function fetchEvents() {
       try {
-        const response = await listEvents({ page: 1, page_size: 20 });
+        const response = await listEvents({
+          page: 1,
+          page_size: 20,
+          category: category || undefined,
+          date: date || undefined,
+          q: q || undefined,
+        });
         const items = Array.isArray(response?.items) ? response.items : [];
         setEvents(items);
         itemRefs.current = [];
@@ -26,7 +32,7 @@ export default function EventList() {
     }
 
     fetchEvents();
-  }, []);
+  }, [category, date, q]);
 
   const handleListKeyDown = (e) => {
     if (events.length === 0) return;
