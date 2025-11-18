@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import EventDetails from "./EventDetails";
+//import EventDetails from "./EventDetails";
+import { listEvents } from "../api/client";
+import "../styles/ExploreEvents.css";
 
-export default function EventList() {
+export default function EventList({ category, date, q }) {
   const [events, setEvents] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -10,16 +12,27 @@ export default function EventList() {
   const itemRefs = useRef([]);
   const lastFocusedIndexRef = useRef(0);
 
-  // Fetch events from backend
+  // Fetch events from backend using centralized client (matches /api/events/ response shape)
   useEffect(() => {
-    fetch("/api/events")
-      .then((res) => res.json())
-      .then((data) => {
-        setEvents(data);
+    async function fetchEvents() {
+      try {
+        const response = await listEvents({
+          page: 1,
+          page_size: 20,
+          category: category || undefined,
+          date: date || undefined,
+          q: q || undefined,
+        });
+        const items = Array.isArray(response?.items) ? response.items : [];
+        setEvents(items);
         itemRefs.current = [];
-      })
-      .catch((err) => console.error("Error fetching events:", err));
-  }, []);
+      } catch (err) {
+        console.error("Error fetching events:", err);
+      }
+    }
+
+    fetchEvents();
+  }, [category, date, q]);
 
   const handleListKeyDown = (e) => {
     if (events.length === 0) return;
@@ -48,51 +61,58 @@ export default function EventList() {
   };
 
   return (
-    <div className="event-container">
-      {/* Accessible event list */}
+    <div className="event-list">
+      {/* Accessible event list with cards matching ExploreEvents style */}
       <div
         ref={listRef}
         role="listbox"
         aria-activedescendant={`event-${events[activeIndex]?.event_id}`}
         tabIndex={0}
         onKeyDown={handleListKeyDown}
-        style={{
-          maxHeight: "400px",
-          overflowY: "auto",
-          border: "1px solid #ccc",
-          padding: "0.5rem",
-          borderRadius: "6px",
-        }}
       >
-        {events.map((event, i) => (
-          <div
-            key={event.event_id}
-            id={`event-${event.event_id}`}
-            ref={(el) => (itemRefs.current[i] = el)}
-            role="option"
-            aria-selected={activeIndex === i}
-            tabIndex={activeIndex === i ? 0 : -1}
-            onFocus={() => setActiveIndex(i)}
-            onClick={() => {
-              lastFocusedIndexRef.current = i;
-              setSelectedEvent(event);
-            }}
-            onKeyDown={(e) => handleItemKeyDown(e, i)}
-            style={{
-              padding: "0.5rem",
-              borderRadius: "4px",
-              background: activeIndex === i ? "#dfefff" : "transparent",
-              cursor: "pointer",
-              outline: "none",
-            }}
-          >
-            <strong>{event.title}</strong>
-            {event.date ? <> — {event.date}</> : null}
-          </div>
-        ))}
+        {events.map((event, i) => {
+          const imageUrl = event.image_url || "/campus-hero.jpg";
+          const location = event.location || "University of Oregon";
+          const date = event.date || "TBD";
+          return (
+            <div
+              key={event.event_id}
+              id={`event-${event.event_id}`}
+              ref={(el) => (itemRefs.current[i] = el)}
+              role="option"
+              aria-selected={activeIndex === i}
+              tabIndex={activeIndex === i ? 0 : -1}
+              onFocus={() => setActiveIndex(i)}
+              onClick={() => {
+                lastFocusedIndexRef.current = i;
+                setSelectedEvent(event);
+              }}
+              onKeyDown={(e) => handleItemKeyDown(e, i)}
+              className={`event-card ${activeIndex === i ? "highlighted" : ""}`}
+            >
+              <div className="event-image">
+                <img
+                  src={imageUrl}
+                  alt={event.title || "Event"}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "/campus-hero.jpg";
+                  }}
+                  loading="lazy"
+                />
+              </div>
+              <div className="event-info">
+                <h3>{event.title}</h3>
+                <p className="event-location">{location}</p>
+                <p className="event-details">{date}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
-      {/* Popup */}
+      {/* Popup (temporarily disabled until EventDetails exists) */}
+      {/**
       {selectedEvent && (
         <EventDetails
           event={selectedEvent}
@@ -103,6 +123,7 @@ export default function EventList() {
           }}
         />
       )}
+      */}
     </div>
   );
 }

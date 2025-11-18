@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from pydantic import ValidationError
 import sys
+import pprint
 from pathlib import Path
 
 # Add parent directories to path to allow imports
@@ -70,6 +71,7 @@ HEADERS = {
     wait=wait_exponential(multiplier=1, min=0.5, max=8),
     retry=retry_if_exception_type((requests.RequestException,))
 )
+
 def fetch_html(url: str) -> str:
     """
     Fetches HTML content from a URL with robust error handling and exponential backoff.
@@ -84,25 +86,20 @@ def fetch_html(url: str) -> str:
 # --- Parsing Logic (Targeting JSON-LD) ---
 
 def parse_listing(html: str, base_url: str) -> list[dict]:
-    """
-    Finds and parses Schema.org Event JSON-LD data from script tags.
-    This is the most reliable method when data is available in this format.
-    """
     soup = BeautifulSoup(html, "lxml")
     rows = []
-    
-    # Target specific script tags used for JSON-LD (Schema.org data)
-    # The UO calendar uses <script type="application/ld+json"> for its event data.
+
     target_scripts = soup.find_all("script", {"type": "application/ld+json"})
     
     if not target_scripts:
         print("Warning: Could not find any script tags with type='application/ld+json'.")
 
+
     for script_tag in target_scripts:
         script_text = script_tag.string
         if not script_text:
             continue
-            
+
         try:
             # The entire script content is a clean JSON payload
             data = json.loads(script_text)
@@ -113,20 +110,28 @@ def parse_listing(html: str, base_url: str) -> list[dict]:
                 events.extend(data)
             elif isinstance(data, dict):
                 events.append(data)
-                
+            
             for event in events:
-                # Filter to ensure we only process actual "Event" objects based on Schema.org rules
                 if isinstance(event, dict) and event.get("@type") == "Event":
-                    
+                
+                    # --- Location Variable Initialization ---
+                    loc_name = ""
+                    address = ""
+                    latitude = ""
+                    longitude = "" 
+                
                     # Extract fields using .get() for safe access
                     title = event.get("name", "")
-                    start_time = event.get("startDate", "")
-                    end_time = event.get("endDate", "")
+                
+                    
+                    start_at = event.get("startDate", "") 
+                    ends_at = event.get("endDate", "")   
+                
                     raw_link = event.get("url", "")
-                    link = urljoin( base_url, raw_link)
+                    website = urljoin(base_url, raw_link) 
                     description = event.get("description", "")
-                    image = event.get("image", "")  
-
+                    image = event.get("image", "")
+                
                     location = event.get("location", {})
                     if isinstance(location, dict):
                         loc_name = location.get("name", "")
@@ -134,53 +139,86 @@ def parse_listing(html: str, base_url: str) -> list[dict]:
 
                     geocoordinates = location.get("geo", {})
                     if isinstance(geocoordinates, dict):
-                        latitude = geocoordinates.get("latitude", "")
-                        longitude = geocoordinates.get("longitude", "")                           
-                    
+                        latitude = geocoordinates.get("latitude", latitude) 
+                        longitude = geocoordinates.get("longitude", longitude)  
+                        
                     rows.append({
                         "title": title,
-                        "start_at": start_time,
-                        "ends_at": end_time,
+                        "start_at": start_at,  
+                        "ends_at": ends_at,    
                         "location": loc_name,
                         "address": address,
                         "latitude": latitude,
                         "longitude": longitude,
                         "description": description,
                         "image": image,
-                        "website": link
+                        "website": website     
                     })
-            
+                
         except json.JSONDecodeError:
             # Silently ignore script tags that fail to parse as JSON
             pass
 
     print(f"\nFinished parsing scripts. Total events found: {len(rows)}")
-    #print(rows)
+    #pprint.pprint(rows)
     return rows
-
 
 # --- Sanitization and Validation Logic ---
 def process_and_validate(event_data: dict) -> dict | None:
-    #Sanitizes and validates event data using the sanitize module.
-    try:
-        cleaned_data = {}
+    try: 
+        
+        raw_description = event_data.get("description", "")
+        cleaned_description = sanitize.clean_html(raw_description)
+        clipped_description = sanitize.clip(cleaned_description, 1000)
+        final_description = sanitize.normalize_whitespace(clipped_description)
 
-        cleaned_data["title"] = sanitize.normalize_whitespace(event_data.get("title"))
-        cleaned_data["location"] = sanitize.normalize_whitespace(event_data.get("location"))
-        cleaned_data["description"] = sanitize.clean_html(event_data.get("description"))
+        final_title = sanitize.normalize_whitespace(event_data.get("title", ""))
 
+
+        event_data["description"] = final_description
+
+        start_at = event_data.get("start_at")
+        ends_at = event_data.get("ends_at")
+
+        # If date is given as a bare date string (YYYY-MM-DD), append end-of-day
+        if isinstance(ends_at, str) and len(ends_at) == 10:
+            ends_at = f"{ends_at}T23:59:59-08:00"
+
+        if isinstance(start_at, str) and len(start_at) == 10:
+            start_at = f"{start_at}T00:00:00-08:00"
+
+        # Prepare validated input; optional fields should be None when missing/empty
         validated_input = {
-            "title": cleaned_data["title"],
-            "description": cleaned_data["description"],
-            "start_at": event_data.get("start_at"),
-            "ends_at": event_data.get("ends_at"),
-            "location": cleaned_data["location"],
-            "website": event_data.get("website"),
-            "address": event_data.get("address"),
-            "latitude": event_data.get("latitude"),
-            "longitude": event_data.get("longitude"),
-            "image": event_data.get("image"),
+            "title": final_title,
+            "description": final_description,
+            "start_at": start_at or None,
+            "ends_at": ends_at or None,
+            "website": event_data.get("website") or None,
+            "image": event_data.get("image") or None,
         }
+
+        # Normalize and attach location-related fields
+        for field in ("location", "address"):
+            raw_value = event_data.get(field)
+            if isinstance(raw_value, str):
+                cleaned = sanitize.normalize_whitespace(raw_value)
+                validated_input[field] = cleaned if cleaned not in (None, "") else None
+            else:
+                validated_input[field] = raw_value if raw_value is not None else None
+
+        # Latitude/longitude: coerce strings to floats, leave None when missing
+        for coord in ("latitude", "longitude"):
+            raw_value = event_data.get(coord)
+            if raw_value is None or raw_value == "":
+                validated_input[coord] = None
+            elif isinstance(raw_value, (int, float)):
+                validated_input[coord] = float(raw_value)
+            else:
+                try:
+                    validated_input[coord] = float(str(raw_value))
+                except (ValueError, TypeError):
+                    validated_input[coord] = None            
+        
 
         validated_model = schemas.EventCreate(**validated_input)
         return validated_model.model_dump()
@@ -189,11 +227,10 @@ def process_and_validate(event_data: dict) -> dict | None:
         print(f"Validation failed for event: {event_data.get('title')}. Error: {e}")
         return None
 
-    
 
 # --- Main Orchestration ---
 
-#def crawl(url: str, out_csv: str):
+# def crawl(url: str, out_csv: str):
 def crawl(url: str):
     
     #Runs the scraping process: fetches the page, parses the data, 
@@ -234,7 +271,7 @@ def crawl(url: str):
                     validated_events.append(validated_event)
 
             print(f"-> Validated {len(validated_events)} events on this page.")
-            return validated_events
+            #print(validated_events)
             
 
         if page_counter >= MAX_PAGES:
@@ -245,7 +282,6 @@ def crawl(url: str):
     except Exception as e:
             print(f"An unexpected error occurred during crawl: {e}")
 
-            
     
     if not validated_events:
         print("No events were extracted during the entire crawl.")
@@ -266,13 +302,22 @@ def crawl(url: str):
     except IOError as e:
         print(f"Error writing to CSV file: {e}")
     """
+    
 
 
 if __name__ == "__main__":
-    #html = fetch_html(TARGET_URL)
-    #events = parse_listing(html, base_url=TARGET_URL)
-    #for raw_event in events:
-                #validated_event = process_and_validate(raw_event)
-                #print(validated_event)
+    #crawl(TARGET_URL, OUTPUT_FILE) 
+    crawl(TARGET_URL)
+
+    """
+    html = fetch_html(TARGET_URL)
+    events = parse_listing(html, base_url=TARGET_URL)
+    for raw_event in events:
+                validated_event = process_and_validate(raw_event)
+                if validated_event:
+                    pprint.pprint(validated_event)
+    """
+
+
+     
     
-    crawl(TARGET_URL) 
