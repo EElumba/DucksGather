@@ -14,7 +14,8 @@
     "react-router-dom": "^7.9.6",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.19",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4", 
+    "@supabase/supabase-js": "^2.45.1"
   },
   "scripts": {
     "start": "react-scripts start",

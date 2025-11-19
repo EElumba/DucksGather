@@ -8,3 +8,4 @@ schema.sql
 backend/src/services
 docs/
 .DS_Store
+backend/scripts/verify_db_url.py

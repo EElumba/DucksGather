@@ -7,7 +7,7 @@ from flask import Blueprint, jsonify, request, g
 import os
 
 from backend.src.db.db_init import get_db
-from backend.src.models.models import Event, User, UserEvent
+from backend.src.models.models import Event, User, UserEvent, Organization, Location
 from backend.src.auth.jwt import require_auth, require_app_user
 
 bp = Blueprint("events", __name__, url_prefix="/api/events")
@@ -180,6 +180,46 @@ def create_event():
         raw_category = data["category"]
         category = raw_category.lower().strip() if isinstance(raw_category, str) else raw_category
 
+        organization_name = (data.get("organization_name") or "").strip() or None
+        building_name = (data.get("building_name") or "").strip() or None
+        room_number = (data.get("room_number") or "").strip() or None
+
+        org_id = None
+        loc_id = None
+        if organization_name:
+            existing_org = (
+                db.query(Organization)
+                .filter(Organization.name.ilike(organization_name))
+                .first()
+            )
+            if existing_org:
+                org_id = existing_org.organization_id
+            else:
+                new_org = Organization(name=organization_name)
+                db.add(new_org)
+                db.flush()
+                org_id = new_org.organization_id
+
+        if building_name and room_number:
+            existing_loc = (
+                db.query(Location)
+                .filter(
+                    Location.building_name.ilike(building_name),
+                    Location.room_number == room_number,
+                )
+                .first()
+            )
+            if existing_loc:
+                loc_id = existing_loc.location_id
+            else:
+                new_loc = Location(
+                    building_name=building_name,
+                    room_number=room_number,
+                )
+                db.add(new_loc)
+                db.flush()
+                loc_id = new_loc.location_id
+
         ev = Event(
             title=data["title"],
             description=data.get("description"),
@@ -189,8 +229,8 @@ def create_event():
             end_time=et,
             image_url=data.get("image_url"),
             external_url=data.get("external_url"),
-            organization_id=data.get("organization_id"),
-            location_id=data.get("location_id"),
+            organization_id=org_id,
+            location_id=loc_id,
             created_by=g.user_id,
             is_scraped=False,
         )
