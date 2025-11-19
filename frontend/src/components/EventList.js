@@ -72,7 +72,15 @@ export default function EventList({ category, date, q }) {
       >
         {events.map((event, i) => {
           const imageUrl = event.image_url || "/campus-hero.jpg";
-          const location = event.location || "University of Oregon";
+          let location = "University of Oregon";
+          if (event.location) {
+            if (typeof event.location === "string") {
+              location = event.location;
+            } else if (typeof event.location === "object" && event.location !== null) {
+              // Try building_name, fallback to address, else JSON string
+              location = event.location.building_name || event.location.address || JSON.stringify(event.location);
+            }
+          }
           const date = event.date || "TBD";
           return (
             <div
