@@ -275,7 +275,7 @@ def crawl(url: str):
                     validated_events.append(validated_event)
 
             print(f"-> Validated {len(validated_events)} events on this page.")
-            pprint.pprint(validated_events)
+            #pprint.pprint(validated_events)
             
 
         if page_counter >= MAX_PAGES:
