@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const SearchContainer = styled.div`
@@ -40,11 +40,56 @@ const SearchIcon = styled.div`
   pointer-events: none;
 `;
 
-const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+const SearchBar = ({
+  // Optional initial value so parent can control/reset the search text
+  initialValue = '',
+  // Called every time the search text changes (for live filtering)
+  onSearchChange,
+  // Called when user explicitly submits the search via keyboard (Enter)
+  onSearchSubmit,
+  // Called when the search is cleared (e.g., Escape key)
+  onClear,
+}) => {
+  // Local state to track the current text in the input
+  const [searchTerm, setSearchTerm] = useState(initialValue);
 
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
+  // Keep local state in sync if parent changes initialValue
+  useEffect(() => {
+    setSearchTerm(initialValue);
+  }, [initialValue]);
+
+  // Handle text changes for every keystroke
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    // Notify parent on each change so it can update filters/EventList
+    if (typeof onSearchChange === 'function') {
+      onSearchChange(value);
+    }
+  };
+
+  // Handle keyboard interactions for accessibility and quick navigation
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      // Enter: treat as an explicit search submit
+      if (typeof onSearchSubmit === 'function') {
+        onSearchSubmit(searchTerm);
+      }
+    }
+
+    if (e.key === 'Escape') {
+      // Escape: clear the search text and notify parent
+      setSearchTerm('');
+
+      if (typeof onSearchChange === 'function') {
+        onSearchChange('');
+      }
+
+      if (typeof onClear === 'function') {
+        onClear();
+      }
+    }
   };
 
   return (
@@ -59,7 +104,10 @@ const SearchBar = () => {
         type="text"
         placeholder="Search for events, clubs, or activities..."
         value={searchTerm}
-        onChange={handleSearch}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        // aria-label helps screen readers describe the purpose of this input
+        aria-label="Search events, clubs, or activities"
       />
     </SearchContainer>
   );
