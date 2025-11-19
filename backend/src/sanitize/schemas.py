@@ -2,9 +2,9 @@ from pydantic import BaseModel, Field, EmailStr, AnyUrl, field_validator
 from datetime import datetime, timezone
 import re
 
-#SAFE_TITLE = re.compile(r"^[\w\s\-.,'!()]{1,100}$") # Alphanumeric, spaces, and some punctuation, max length 100
+#SAFE_TITLE = re.compile(r"^[\w\s\-.,'!()]{1,100}$") 
 #SAFE_TITLE = re.compile(r"^[\w\s\-.,'()]{1,100}$")
-SAFE_TITLE = re.compile(r"^[a-zA-Z0-9\s\-\.,'()&!?:\"“”%+/#]{1,100}$")
+SAFE_TITLE = re.compile(r"^[a-zA-Z0-9\s\-\.,'()&!?:\"“”%+/#]{1,100}$") # Alphanumeric, spaces, and punctuation, max length 100
 
 class EventCreate(BaseModel):
     title: str = Field("", min_length=1, max_length=100)

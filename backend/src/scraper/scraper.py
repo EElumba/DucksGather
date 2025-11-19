@@ -11,11 +11,17 @@ import sys
 import pprint
 from pathlib import Path
 
-# Add parent directories to path to allow imports
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+# Add repository root to path so `backend` package imports resolve
+# (Path(__file__).parent.parent.parent.parent points to the repo root)
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
-from src.sanitize import sanitize
-from src.sanitize import schemas
+from backend.src.sanitize import sanitize
+from backend.src.sanitize import schemas
+from backend.src.db.db_init import create_tables_if_needed, SessionLocal
+from backend.src.models.models import Event as ORMEvent, Location as ORMLocation
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.orm import Session
+from datetime import date, time
 
 """
 Script Example
@@ -232,6 +238,73 @@ def process_and_validate(event_data: dict) -> dict | None:
         return None
 
 
+def save_event_to_db(validated: dict, db: Session):
+    """Persist a validated event dict into the database.
+
+    This will upsert a Location (by building_name + address) and insert an Event row.
+    """
+    try:
+        # parse datetimes if they are strings
+        def _parse_dt(v):
+            if v is None:
+                return None
+            if isinstance(v, str):
+                try:
+                    return datetime.fromisoformat(v)
+                except Exception:
+                    return None
+            return v
+
+        start = _parse_dt(validated.get("start_at"))
+        ends = _parse_dt(validated.get("ends_at"))
+
+        # derive date and time values expected by ORM
+        db_date = start.date() if isinstance(start, datetime) else None
+        db_start_time = start.time().replace(tzinfo=None) if isinstance(start, datetime) else None
+        db_end_time = ends.time().replace(tzinfo=None) if isinstance(ends, datetime) else None
+
+        # Upsert location
+        building_name = validated.get("location") or "Unknown"
+        address = validated.get("address")
+        loc = None
+        try:
+            loc = db.query(ORMLocation).filter(ORMLocation.building_name == building_name, ORMLocation.address == address).first()
+        except Exception:
+            loc = None
+
+        if not loc:
+            loc = ORMLocation(
+                building_name=building_name,
+                room_number=None,
+                address=address,
+                latitude=validated.get("latitude"),
+                longitude=validated.get("longitude"),
+            )
+            db.add(loc)
+            db.flush()
+
+        # Create event record
+        ev = ORMEvent(
+            title=(validated.get("title") or "")[:500],
+            description=validated.get("description"),
+            category="scraped",
+            date=db_date or date.today(),
+            start_time=db_start_time or time(0, 0),
+            end_time=db_end_time or time(23, 59),
+            image_url=str(validated.get("image")) if validated.get("image") else None,
+            external_url=str(validated.get("website")) if validated.get("website") else None,
+            location_id=loc.location_id if loc else None,
+            is_scraped=True,
+        )
+
+        db.add(ev)
+        db.flush()
+        return ev
+    except SQLAlchemyError as e:
+        db.rollback()
+        raise
+
+
 # --- Main Orchestration ---
 
 # def crawl(url: str, out_csv: str):
@@ -291,6 +364,8 @@ def crawl(url: str):
         print("No events were extracted during the entire crawl.")
         return
     
+    return validated_events
+    
     """
     try:
         # Write data to CSV
@@ -298,6 +373,7 @@ def crawl(url: str):
             # Define fieldnames based on the keys we extracted
             fieldnames = ["title", "start_at", "ends_at", "location", "address", "latitude", "longitude", "description", "image", "website"]
             writer = csv.DictWriter(f, fieldnames=fieldnames)
+    
             writer.writeheader()
             writer.writerows(validated_events)
         
@@ -305,13 +381,78 @@ def crawl(url: str):
 
     except IOError as e:
         print(f"Error writing to CSV file: {e}")
-    """
     
+    
+# Initialize DB (create tables if running locally)
+    create_tables_if_needed()
+
+    html = fetch_html(TARGET_URL)
+    events = parse_listing(html, base_url=TARGET_URL)
+
+    # Open a DB session for persistence
+    db = SessionLocal()
+    try:
+        for raw_event in events:
+            validated_event = process_and_validate(raw_event)
+            if validated_event:
+                pprint.pprint(validated_event)
+                try:
+                    # attempt to save to DB; ignore errors per-event to continue
+                    save_event_to_db(validated_event, db)
+                except Exception as e:
+                    print(f"DB save failed for {validated_event.get('title')}: {e}")
+        db.commit()
+    finally:
+        db.close()
+    """
 
 
 if __name__ == "__main__":
     #crawl(TARGET_URL, OUTPUT_FILE) 
-    crawl(TARGET_URL)
+    #crawl(TARGET_URL)
+    
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Scrape UO calendar")
+    parser.add_argument("--persist", action="store_true", help="Persist scraped events to DB")
+    parser.add_argument("--max-pages", type=int, default=MAX_PAGES, help="Maximum pages to crawl")
+    parser.add_argument("--target", type=str, default=TARGET_URL, help="Target URL to crawl")
+    args = parser.parse_args()
+
+    # allow overriding global MAX_PAGES for this run
+    MAX_PAGES = args.max_pages
+
+    # Run crawl (returns list of validated event dicts)
+    events = crawl(args.target)
+
+    if not events:
+        print("No validated events extracted.")
+        sys.exit(0)
+
+    if args.persist:
+        # Initialize/create tables (safe: will only auto-create for sqlite or if AUTO_CREATE_TABLES set)
+        create_tables_if_needed()
+
+        db = SessionLocal()
+        try:
+            inserted = 0
+            for ev in events:
+                try:
+                    save_event_to_db(ev, db)
+                    inserted += 1
+                except Exception as e:
+                    print(f"Failed to save '{ev.get('title')}' -> {e}")
+            db.commit()
+            print(f"Persisted {inserted} events to the DB.")
+        finally:
+            db.close()
+    else:
+        # Dry-run: just pretty-print validated events
+        for ev in events:
+            pprint.pprint(ev)
+
+
+
 
     """
     html = fetch_html(TARGET_URL)
