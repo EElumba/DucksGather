@@ -4,7 +4,6 @@ import SearchBar from './SearchBar';
 import Navbar from './Navbar';
 import '../styles/HomePage.css';
 import EventList from "./EventList";
-import TextDirections from "./text_directions"
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -15,7 +14,6 @@ const HomePage = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="title">Find Your Next Campus Event</h1>
-          <TextDirections/>
           <p className="subtitle">
             Discover and join university events, clubs, and activities happening around you
           </p>
