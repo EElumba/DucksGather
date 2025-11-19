@@ -20,6 +20,11 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+.nav-user-email {
+  color: #f9fafb;
+  font-size: 0.9rem;
+  margin-right: 0.75rem;
+}
 
 .logo-icon {
   width: 40px;

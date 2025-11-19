@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import ExploreNavbar from './ExploreNavbar';
+import Navbar from './Navbar';
 import EventList from './EventList';
 import 'leaflet/dist/leaflet.css';
 import '../styles/ExploreEvents.css';
@@ -257,7 +258,7 @@ const ExploreEvents = () => {
   return (
     <div className="explore-events-container">
       {/* Transparent navbar at the top */}
-      <ExploreNavbar />
+     
       
       {/* Content wrapper for map and sidebar with clear navbar separation */}
       <div className="explore-content">
