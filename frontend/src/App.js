@@ -10,6 +10,7 @@ import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import ConfirmEmail from './components/ConfirmEmail';
 import Navbar from './components/Navbar';
+import ExploreNavbar from './components/ExploreNavbar';
 /**
  * Valid routes configuration
  * Add new routes here to make them accessible
@@ -27,7 +28,8 @@ const VALID_ROUTES = {
 function App() {
   return (
     <Router>
-       <Navbar />   {/* always visible */}
+       {/* <Navbar />   {/* always visible */} 
+       <ExploreNavbar />
       <Routes>
         {/* Define valid routes */}
         <Route path={VALID_ROUTES.HOME} element={<HomePage />} />
