@@ -38,8 +38,8 @@ const HomePage = () => {
             <button className="button primary-button" onClick={() => navigate('/explore')}>
               Explore Events
             </button>
-            <button className="button secondary-button" onClick={() => navigate('/create')}>
-              Create Event
+            <button className="button secondary-button" onClick={() => navigate('/login')}>
+              Log in
             </button>
           </div>
         </div>
