@@ -11,6 +11,7 @@ import SignUpPage from './components/SignUpPage';
 import ConfirmEmail from './components/ConfirmEmail';
 import Navbar from './components/Navbar';
 import ExploreNavbar from './components/ExploreNavbar';
+import ProfilesPage from './components/ProfilesPage';
 /**
  * Valid routes configuration
  * Add new routes here to make them accessible
@@ -29,7 +30,7 @@ function App() {
   return (
     <Router>
        {/* <Navbar />   {/* always visible */} 
-       <ExploreNavbar />
+      <ExploreNavbar />
       <Routes>
         {/* Define valid routes */}
         <Route path={VALID_ROUTES.HOME} element={<HomePage />} />
@@ -38,6 +39,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/confirm-email" element={<ConfirmEmail />} />
+        <Route path="/profile" element={<ProfilesPage />} />
 
         {/* 404 handling */}
         <Route path="/404" element={<NotFound />} />
