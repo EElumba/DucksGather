@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import ExploreNavbar from './ExploreNavbar';
 import EventList from './EventList';
+import { listEvents } from '../api/client';
 import 'leaflet/dist/leaflet.css';
 import '../styles/ExploreEvents.css';
 import L from 'leaflet';
@@ -11,13 +12,17 @@ import L from 'leaflet';
  * Main page for exploring events on campus with an interactive map
  * 
  * Features:
- * - Interactive map with event markers
- * - Filterable event list
+
+  
  * - Event details sidebar
  * - Custom Oregon-themed navigation
  * 
  * @component
  */
+
+
+// Handle filter changes from FilterBar
+// (moved inside component so it can access local state setters)
 
 // Fix Leaflet's default icon path issues
 delete L.Icon.Default.prototype._getIconUrl;
@@ -160,99 +165,71 @@ const ExploreEvents = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [activeCategory, setActiveCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(false);
   const mapRef = useRef(null);
 
-  const handleFilterChange = (filterType, value) => {
-    const normalized = value || "";
-
-    // Map front-end filters to backend query fields
-    if (filterType === "Activity" || filterType === "Major") {
-      // Both Activity and Major feed into backend category filter
-      setActiveCategory(normalized);
+  // Fetch events from backend when filters change
+  useEffect(() => {
+    async function fetchAndTransformEvents() {
+      try {
+        setLoading(true);
+        const response = await listEvents({
+          page: 1,
+          page_size: 50,
+          category: activeCategory || undefined,
+          q: searchQuery || undefined,
+        });
+        
+        // Transform backend events to frontend map format
+        const items = Array.isArray(response?.items) ? response.items : [];
+        const transformedEvents = items
+          .map(ev => {
+            // coerce lat/lon to numbers
+            const lat = ev?.latitude === null || ev?.latitude === undefined ? NaN : Number(ev.latitude);
+            const lon = ev?.longitude === null || ev?.longitude === undefined ? NaN : Number(ev.longitude);
+            return { ev, lat, lon };
+          })
+          .filter(({ lat, lon }) => Number.isFinite(lat) && Number.isFinite(lon))
+          .map(({ ev, lat, lon }) => ({
+            id: ev.event_id,
+            name: ev.title,
+            location: typeof ev.location === 'object' ? ev.location?.building_name || 'Unknown' : ev.location || 'Unknown',
+            position: [lat, lon],
+            date: ev.date || 'TBD',
+            image: ev.image_url || IMAGE_CONFIG.DEFAULT_EVENT_IMAGE,
+            description: ev.description || '',
+            ...ev, // Include all other fields from backend
+          }));
+        
+        setEvents(transformedEvents);
+      } catch (err) {
+        console.error('Error fetching events:', err);
+        setEvents([]);
+      } finally {
+        setLoading(false);
+      }
     }
 
-    if (filterType === "Search") {
-      setSearchQuery(normalized);
-    }
-  };
-
-  // Sample events data - replace with your actual events
-  // Sample events data - replace images and update details as needed
-  const events = [
-    {
-      id: 1,
-      name: 'Campus Tour Social',
-      location: 'University of Oregon',
-      position: [44.04503839053625, -123.07256258731347],
-      date: 'Nov 10, 2023',
-      duration: '1 hour',
-      difficulty: 'Easy',
-      image: '/event-images/campus-tour.jpg',
-      description: 'Join us for a social campus tour!'
-    },
-    {
-      id: 2,
-      name: 'Knight Library Study Group',
-      location: 'Knight Library',
-      position: [44.04328239297166, -123.07772853393564],
-      date: 'Nov 12, 2023',
-      duration: '2 hours',
-      difficulty: 'Moderate',
-      image: '/event-images/library-study.jpg',
-      description: 'Group study session for finals'
-    },
-    {
-      id: 3,
-      name: 'Science Fair Prep',
-      location: 'Price Science Library',
-      position: [44.04624536232639, -123.07218013034097],
-      date: 'Nov 15, 2023',
-      duration: '3 hours',
-      difficulty: 'Challenging',
-      image: '/event-images/science-fair.jpg',
-      description: 'Prepare for the upcoming science fair'
-    },
-    {
-      id: 4,
-      name: 'CS Club Meeting',
-      location: 'UO Department of Computer Science',
-      position: [44.046025617673784, -123.07108679685953],
-      date: 'Nov 11, 2023',
-      duration: '1.5 hours',
-      difficulty: 'Easy',
-      image: '/event-images/cs-club.jpg',
-      description: 'Weekly CS club meeting - all welcome!'
-    },
-    {
-      id: 5,
-      name: 'Basketball Tournament',
-      location: 'Matthew Knight Arena',
-      position: [44.044952954092054, -123.06631965565566],
-      date: 'Nov 18, 2023',
-      duration: '4 hours',
-      difficulty: 'Challenging',
-      image: '/event-images/basketball.jpg',
-      description: 'Inter-department basketball tournament'
-    },
-    {
-      id: 6,
-      name: 'Basketball Tournament',
-      location: 'Matthew Knight Arena',
-      position: [44.044952954092054, -123.06631965565566],
-      date: 'Nov 18, 2023',
-      duration: '4 hours',
-      difficulty: 'Challenging',
-      image: '/event-images/basketball.j',
-      description: 'Inter-department basketball tournament'
-    }
-  ];
+    fetchAndTransformEvents();
+  }, [activeCategory, searchQuery]);
 
   const handleEventSelect = (event) => {
     setSelectedEvent(event);
     mapRef.current?.setView(event.position, 15);
   };
 
-  // NOTE: handleFilterChange is defined above, wired to activeCategory/searchQuery
+  // Handle filter changes from FilterBar
+  const handleFilterChange = (filterType, value) => {
+    const normalized = value || "";
+    if (filterType === "Activity" || filterType === "Major") {
+      setActiveCategory(normalized);
+    } else if (filterType === "Search") {
+      setSearchQuery(normalized);
+    } else {
+      // Other filters can be handled here if needed
+    }
+  };
 
   return (
     <div className="explore-events-container">

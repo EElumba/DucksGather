@@ -9,10 +9,16 @@ const CreateEvent = () => {
     name: '',
     description: '',
     location: '',
-    date: '',
-    duration: '',
-    difficulty: 'Easy',
+    startDate: '',
+    endDate: '',
+    //date: '',
+    //duration: '',
+    url: '',
+    location: '',
+    latitude: '',
+    longitude: '',
     image: ''
+    //difficulty: 'Easy',
   });
 
   const handleInputChange = (e) => {
@@ -97,6 +103,7 @@ const CreateEvent = () => {
               />
             </div>
 
+            
             <div className="form-group">
               <label htmlFor="difficulty">Difficulty</label>
               <select
