@@ -86,6 +86,7 @@ export default function SignUpPage() {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="auth-eye-button"
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? '👁️':'👁️‍🗨️'}
             </button>
@@ -105,6 +106,7 @@ export default function SignUpPage() {
               type="button"
               onClick={() => setShowConfirm(!showConfirm)}
               className="auth-eye-button"
+              aria-label={showConfirm ? "Hide confirm password" : "Show confirm password"}
             >
               {showConfirm ? '👁️' : '👁️‍🗨️'}
             </button>
