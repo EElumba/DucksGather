@@ -35,7 +35,7 @@ function LogoutButton() {
 
   return (
     <button className="explore-nav-link active" onClick={handleClick}>
-      Log Out
+      Sign out
     </button>
   );
 }
@@ -79,18 +79,20 @@ const ExploreNavbar = () => {
         {/* If there is no logged-in user, show Log In and Sign Up buttons */}
         {!user && (
           <>
-            <LoginButton />
             <SignUpButton />
+            <LoginButton />
+            
           </>
         )}
 
-        {/* If a user is logged in, show their email/role and a Log Out button */}
+        {/* If a user is logged in, show a Profile button and a Log Out button */}
         {user && (
           <>
-            <span className="nav-user-email">
-              {user.email}
-              {role && ` (${role})`}
-            </span>
+            {/* Profile button links to the profile page and visually matches the Explore link.
+                Its presence (along with the Logout button) indicates that the user is signed in. */}
+            <Link to="/profile" className="explore-nav-link active">
+              Profile 
+            </Link>
             <LogoutButton />
           </>
         )}
