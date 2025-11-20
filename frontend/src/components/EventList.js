@@ -103,7 +103,11 @@ export default function EventList({ category, date, q }) {
               </div>
               <div className="event-info">
                 <h3>{event.title}</h3>
-                <p className="event-location">{location}</p>
+                <p className="event-location">
+                  {location?.building_name && location?.room_number
+                    ? `${location.building_name}, room ${location.room_number}`
+                    : location?.building_name || ''}
+                </p>
                 <p className="event-details">{date}</p>
               </div>
             </div>

@@ -123,9 +123,9 @@ export default function CreateEventForm() {
         start_time: startTime,
         end_time: endTime,
         description,
-        // Backend can resolve this name to an Organization row, then return:
-        // 'organization_id' and 'organization': {...}
         organization_name: organizationName || null,
+        building_name: buildingName || null,
+        room_number: roomNumber || null,
       };
 
       await createEvent(payload); // implement in your API client
@@ -139,6 +139,8 @@ export default function CreateEventForm() {
       setEndTime('');
       setDescription('');
       setOrganizationName('');
+      setBuildingName('');
+      setRoomNumber('');
     } catch (err) {
       setError(err.message || 'Failed to create event');
     } finally {
@@ -255,6 +257,29 @@ export default function CreateEventForm() {
               onChange={e => setOrganizationName(e.target.value)}
               placeholder="e.g. UO Esports, ACM, Women in CS"
             />
+          </div>
+                    {/* Location (building + room) */}
+          <div className="create-event-row">
+            <div className="create-event-field">
+              <label className="create-event-label">Building name</label>
+              <input
+                className="create-event-input"
+                type="text"
+                value={buildingName}
+                onChange={e => setBuildingName(e.target.value)}
+                placeholder="e.g. EMU, Lillis, Knight Library"
+              />
+            </div>
+            <div className="create-event-field">
+              <label className="create-event-label">Room number</label>
+              <input
+                className="create-event-input"
+                type="text"
+                value={roomNumber}
+                onChange={e => setRoomNumber(e.target.value)}
+                placeholder="e.g. 123, 2F, Auditorium"
+              />
+            </div>
           </div>
 
           <button
