@@ -10,7 +10,21 @@ if [ ! -d "backend/venv" ]; then
   python3 -m venv backend/venv
 fi
 
+# Create backend venv if missing
+if [ ! -d "backend/venv" ]; then
+  echo "Creating Python venv in backend/venv..."
+  python3 -m venv backend/venv
+
 # Activate venv
+echo "Activating venv..."
+source backend/venv/bin/activate
+
+# Install/upgrade dependencies
+echo "Installing dependencies from requirements.txt..."
+pip install --upgrade pip
+pip install -r backend/requirements.txt
+
+
 echo "Activating venv..."
 source backend/venv/bin/activate
 
