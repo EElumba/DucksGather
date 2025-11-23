@@ -13,6 +13,25 @@ export default function ProfilesPage() {
   // Grab auth state and actions from the shared AuthContext
   const { user, profile, loading, profileError, signOut } = useAuth();
 
+  // Handler for the Sign out button
+  // -------------------------------
+  // This wraps the shared signOut action from AuthContext so that:
+  // 1) We trigger the actual sign-out logic, and then
+  // 2) We show a simple confirmation popup so the user knows they logged out.
+  const handleSignOut = async () => {
+    try {
+      // Call the centralized signOut function (could clear auth state, tokens, etc.)
+      await signOut();
+
+      // After sign-out completes, let the user know what happened.
+      alert('You have logged out');
+    } catch (error) {
+      // If something unexpected happens, log it for debugging.
+      // (You could later surface a nicer UI error message here if desired.)
+      console.error('Error during sign out:', error);
+    }
+  };
+
   // While auth state is initializing, show a simple loading state
   if (loading) {
     return (
@@ -76,7 +95,7 @@ export default function ProfilesPage() {
           {/* Optional action row for signing out */}
           <button
             type="button"
-            onClick={signOut}
+            onClick={handleSignOut}
             className="auth-submit-button"
           >
             Sign out
