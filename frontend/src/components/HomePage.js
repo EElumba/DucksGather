@@ -13,7 +13,6 @@ const HomePage = () => {
 
   return (
     <>
-      <ExploreNavbar />
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="title">Find Your Next Campus Event</h1>
