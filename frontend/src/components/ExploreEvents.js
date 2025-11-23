@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import ExploreNavbar from './ExploreNavbar';
 import Navbar from './Navbar';
@@ -6,6 +6,7 @@ import EventList from './EventList';
 import 'leaflet/dist/leaflet.css';
 import '../styles/ExploreEvents.css';
 import L from 'leaflet';
+import { listEvents } from "../api/client";
 
 /**
  * ExploreEvents Component
@@ -47,6 +48,12 @@ const getEventImage = (imageUrl) => {
 };
 
 /**
+ * Default map center used when an event does not have latitude/longitude.
+ * This keeps the map focused on the main campus area.
+ */
+const DEFAULT_MAP_CENTER = [44.04503839053625, -123.07256258731347];
+
+/**
  * Component for the filter buttons at the top
  * @param {Object} props - Component props
  * @param {Object} props.filters - Filter options
@@ -75,9 +82,7 @@ const FilterBar = ({ filters, onFilterChange }) => (
 const ExploreEvents = () => {
   // Static filter options
   const [filters] = useState({
-    'Distance away': ['< 1 mile', '< 5 miles', '< 10 miles'],
     'Activity': ['Social', 'Sports', 'Academic', 'Cultural'],
-    'Length': ['>30mins', '>1hour', '>1.5hours', '>2hours'],
       'Major': [
     'Accounting',
     'Anthropology',
@@ -161,6 +166,8 @@ const ExploreEvents = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [activeCategory, setActiveCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  // Events shown in both the sidebar list (via EventList) and map markers
+  const [events, setEvents] = useState([]);
   const mapRef = useRef(null);
 
   const handleFilterChange = (filterType, value) => {
@@ -177,80 +184,44 @@ const ExploreEvents = () => {
     }
   };
 
-  // Sample events data - replace with your actual events
-  // Sample events data - replace images and update details as needed
-  const events = [
-    {
-      id: 1,
-      name: 'Campus Tour Social',
-      location: 'University of Oregon',
-      position: [44.04503839053625, -123.07256258731347],
-      date: 'Nov 10, 2023',
-      duration: '1 hour',
-      difficulty: 'Easy',
-      image: '/event-images/campus-tour.jpg',
-      description: 'Join us for a social campus tour!'
-    },
-    {
-      id: 2,
-      name: 'Knight Library Study Group',
-      location: 'Knight Library',
-      position: [44.04328239297166, -123.07772853393564],
-      date: 'Nov 12, 2023',
-      duration: '2 hours',
-      difficulty: 'Moderate',
-      image: '/event-images/library-study.jpg',
-      description: 'Group study session for finals'
-    },
-    {
-      id: 3,
-      name: 'Science Fair Prep',
-      location: 'Price Science Library',
-      position: [44.04624536232639, -123.07218013034097],
-      date: 'Nov 15, 2023',
-      duration: '3 hours',
-      difficulty: 'Challenging',
-      image: '/event-images/science-fair.jpg',
-      description: 'Prepare for the upcoming science fair'
-    },
-    {
-      id: 4,
-      name: 'CS Club Meeting',
-      location: 'UO Department of Computer Science',
-      position: [44.046025617673784, -123.07108679685953],
-      date: 'Nov 11, 2023',
-      duration: '1.5 hours',
-      difficulty: 'Easy',
-      image: '/event-images/cs-club.jpg',
-      description: 'Weekly CS club meeting - all welcome!'
-    },
-    {
-      id: 5,
-      name: 'Basketball Tournament',
-      location: 'Matthew Knight Arena',
-      position: [44.044952954092054, -123.06631965565566],
-      date: 'Nov 18, 2023',
-      duration: '4 hours',
-      difficulty: 'Challenging',
-      image: '/event-images/basketball.jpg',
-      description: 'Inter-department basketball tournament'
-    },
-    {
-      id: 6,
-      name: 'Basketball Tournament',
-      location: 'Matthew Knight Arena',
-      position: [44.044952954092054, -123.06631965565566],
-      date: 'Nov 18, 2023',
-      duration: '4 hours',
-      difficulty: 'Challenging',
-      image: '/event-images/basketball.j',
-      description: 'Inter-department basketball tournament'
+  /**
+   * Load events from the backend that match the sidebar filters.
+   * This mirrors the EventList fetching logic so the map markers and list
+   * are driven by the same data source (including nested location info).
+   */
+  useEffect(() => {
+    async function fetchEventsForMap() {
+      try {
+        const response = await listEvents({
+          page: 1,
+          page_size: 50,
+          // Use the same filter fields as EventList so results stay in sync
+          category: activeCategory || undefined,
+          q: searchQuery || undefined,
+        });
+
+        const items = Array.isArray(response?.items) ? response.items : [];
+        setEvents(items);
+      } catch (err) {
+        console.error("Error fetching events for map:", err);
+      }
     }
-  ];
+
+    fetchEventsForMap();
+  }, [activeCategory, searchQuery]);
 
   const handleEventSelect = (event) => {
     setSelectedEvent(event);
-    mapRef.current?.setView(event.position, 15);
+
+    // When an event marker is clicked, center the map on that event's coordinates.
+    // If no coordinates exist, fall back to the default campus center.
+    const lat = event?.location?.latitude;
+    const lng = event?.location?.longitude;
+    const hasCoords =
+      typeof lat === "number" && typeof lng === "number" && !Number.isNaN(lat) && !Number.isNaN(lng);
+
+    const targetPosition = hasCoords ? [lat, lng] : DEFAULT_MAP_CENTER;
+    mapRef.current?.setView(targetPosition, 15);
   };
 
   // NOTE: handleFilterChange is defined above, wired to activeCategory/searchQuery
@@ -274,7 +245,9 @@ const ExploreEvents = () => {
         <div className="map-container">
           {/* Leaflet MapContainer with explicit dimensions */}
           <MapContainer
-            center={[44.04503839053625, -123.07256258731347]}
+            // Initial center is the default campus area; individual events
+            // will recenter the view when selected.
+            center={DEFAULT_MAP_CENTER}
             zoom={16}
             ref={mapRef}
             style={{ height: '100vh', width: '100%', position: 'relative' }}
@@ -284,19 +257,35 @@ const ExploreEvents = () => {
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
           />
-          {events.map(event => (
-            <Marker
-              key={event.id}
-              position={event.position}
-              eventHandlers={{
-                click: () => handleEventSelect(event)
-              }}
-            >
-              <Popup closeButton={false} className="event-popup">
-                <h3>{event.name}</h3>
-              </Popup>
-            </Marker>
-          ))}
+          {events.map((event) => {
+            // Safely derive a Leaflet [lat, lng] position from the backend
+            // event.location object. If no coordinates exist, skip the marker
+            // so we do not place it at an incorrect location.
+            const lat = event?.location?.latitude;
+            const lng = event?.location?.longitude;
+            const hasCoords =
+              typeof lat === "number" && typeof lng === "number" && !Number.isNaN(lat) && !Number.isNaN(lng);
+
+            if (!hasCoords) {
+              return null;
+            }
+
+            const position = [lat, lng];
+
+            return (
+              <Marker
+                key={event.event_id}
+                position={position}
+                eventHandlers={{
+                  click: () => handleEventSelect(event),
+                }}
+              >
+                <Popup closeButton={false} className="event-popup">
+                  <h3>{event.title}</h3>
+                </Popup>
+              </Marker>
+            );
+          })}
         </MapContainer>
         </div>
       </div>
