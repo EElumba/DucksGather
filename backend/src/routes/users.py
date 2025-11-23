@@ -4,6 +4,7 @@ from flask import Blueprint, jsonify, request, g
 from backend.src.auth.jwt import require_app_user
 from backend.src.db.db_init import get_db
 from backend.src.models.models import User
+from datetime import datetime, timedelta, timezone
 
 bp = Blueprint("users", __name__, url_prefix="/api/users")
 
@@ -12,6 +13,33 @@ bp = Blueprint("users", __name__, url_prefix="/api/users")
 def me():
     return jsonify(g.app_user.to_dict()), 200
 
+@bp.patch("/me")
+@require_app_user()
+def update_me():
+    db = get_db()
+    try:
+        data = request.get_json(force=True)
+
+        if "full_name" in data:
+            incoming = (data["full_name"] or "").strip()
+            current = g.app_user.full_name
+
+            # Only enforce cooldown if there is an existing name and it’s changing
+            if current and incoming and incoming != current:
+                now = datetime.now(timezone.utc)
+                last = g.app_user.updated_at or g.app_user.created_at
+                if last and now - last < timedelta(days=30):
+                    return jsonify({
+                        "error": "Full name can only be changed once every 30 days"
+                    }), 400
+
+            g.app_user.full_name = incoming or current
+
+        db.commit()
+        return jsonify(g.app_user.to_dict()), 200
+    finally:
+        db.close()
+        
 @bp.get("/<user_id>")
 @require_app_user()
 def get_user(user_id: str):
