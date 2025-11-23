@@ -44,11 +44,8 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      
-      <div className="events-section">
-        {/* Pass searchQuery into EventList as `q` so it filters by keyword */}
-        <EventList q={searchQuery} />
-      </div>
+
+     
     </> 
   );
 };
