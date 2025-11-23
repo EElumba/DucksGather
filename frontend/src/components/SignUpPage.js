@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import '../styles/AuthPages.css';
 
 export default function SignUpPage() {
   const { signUp } = useAuth();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -19,12 +20,16 @@ export default function SignUpPage() {
   setSubmitting(true);
   setError(null);
 
-  // 1) ENFORCE UOregon email
-  if (!email.endsWith('@uoregon.edu')) {
-    setError('Only @uoregon.edu email addresses are allowed.');
-    setSubmitting(false);
-    return;
-  }
+const isLikelyValidEmail = (value) => {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(value);
+};
+
+if (!isLikelyValidEmail(email) || !email.endsWith('@uoregon.edu')) {
+  setError('Please use a valid @uoregon.edu email address.');
+  setSubmitting(false);
+  return;
+}
 
   // 2) Passwords must match
   if (password !== confirmPassword) {
@@ -34,14 +39,11 @@ export default function SignUpPage() {
   }
 
   try {
-    // AuthContext.signUp will throw if Supabase returns an error
-    await signUp(email, password);
-
-    // 3) Tell the user to check their email
-    navigate('/confirm-email', { state: { email } });
-  } catch (err) {
-    setError(err.message || 'Sign up failed');
-  } finally {
+  await signUp(email, password, name);
+  navigate('/confirm-email', { state: { email } });
+} catch (err) {
+  setError(err.message || 'Sign up failed');
+} finally {
     setSubmitting(false);
   }
 };
@@ -60,6 +62,17 @@ export default function SignUpPage() {
         )}
 
         <form onSubmit={handleSubmit} className="auth-form">
+          <div className="auth-field">
+            <label className="auth-label">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              required
+              className="auth-input"
+              placeholder="Your full name"
+            />
+          </div>
           <div className="auth-field">
             <label className="auth-label">Email</label>
             <input

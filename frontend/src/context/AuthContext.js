@@ -81,17 +81,37 @@ export function AuthProvider({ children }) {
     refreshProfile();
   };
 
-  const signUp = async (email, password) => {
-    if (!supabase) throw new Error('Supabase not configured');
-    const { data, error } = await supabase.auth.signUp({ email, password });
-    if (error) throw error;
-    // User must verify email; session may be null until confirmed.
-    if (data.session) {
-      setUser(data.session.user);
-      setAuthToken(data.session.access_token);
-      refreshProfile();
+  const signUp = async (email, password, fullName) => {
+  if (!supabase) throw new Error('Supabase not configured');
+  const { data, error } = await supabase.auth.signUp({ email, password });
+
+  if (error) {
+    // Supabase typically uses status 400 with a message like
+    // "User already registered" or "User already exists"
+    if (error.message && /already/i.test(error.message)) {
+      const e = new Error('An account with this email already exists.');
+      e.code = 'USER_EXISTS';
+      throw e;
     }
-  };
+    throw error;
+  }
+
+  if (data.session) {
+    setUser(data.session.user);
+    setAuthToken(data.session.access_token);
+
+    await fetch('/api/users/me', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${data.session.access_token}`,
+      },
+      body: JSON.stringify({ full_name: fullName }),
+    });
+
+    await refreshProfile();
+  }
+};
 
   const signOut = async () => {
     if (!supabase) { clearAuthToken(); setUser(null); setProfile(null); return; }
