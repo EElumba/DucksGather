@@ -4,7 +4,6 @@ import NotFound from './components/NotFound';
 import './App.css';
 import HomePage from './components/HomePage';
 import ExploreEvents from './components/ExploreEvents';
-import CreateEvent from './components/CreateEvent';
 import CreateEventForm from './components/CreateEventForm';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
