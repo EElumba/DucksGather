@@ -300,13 +300,17 @@ def update_event(event_id: int):
 @bp.delete("/<int:event_id>")
 @require_app_user()
 def delete_event(event_id: int):
-    """Authenticated: delete an event I own."""
+    """Authenticated: delete an event I own or any event if admin."""
     db = get_db()
     try:
         ev = db.query(Event).filter(Event.event_id == event_id).first()
         if not ev:
             return jsonify({"error": "Not found"}), 404
-        if not ev.created_by or str(ev.created_by) != str(g.user_id):
+
+        # Allow creator OR admin
+        if not ev.created_by:
+            return jsonify({"error": "Forbidden"}), 403
+        if str(ev.created_by) != str(g.user_id) and g.app_user.role != 'admin':
             return jsonify({"error": "Forbidden"}), 403
         db.delete(ev)
         db.commit()
@@ -316,7 +320,6 @@ def delete_event(event_id: int):
         return jsonify({"error": str(e)}), 500
     finally:
         db.close()
-
 
 # Interest (save/unsave) endpoints
 
