@@ -59,6 +59,11 @@ export async function listEvents({ page = 1, page_size = 20, category, from, to,
   return request(`/api/events/?${params.toString()}`, { auth: false }); // public list
 }
 
+// Fetch a single event by ID (public detail view)
+export async function getEvent(id) {
+  return request(`/api/events/${id}`, { auth: false });
+}
+
 export async function createEvent(payload) {
   return request('/api/events/', { method: 'POST', body: payload });
 }
