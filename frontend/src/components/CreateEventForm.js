@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/CreateEvent.css';
 import { useAuth } from '../context/AuthContext';
 import { createEvent } from '../api/client'; // or whatever you named it
+import { useNavigate } from 'react-router-dom';
 
 
 const CATEGORY_OPTIONS = [
@@ -88,6 +89,8 @@ const CATEGORY_OPTIONS = [
 
 export default function CreateEventForm() {
   const { role } = useAuth();
+  // React Router navigate helper used to redirect to the new event's detail page
+  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [categorySearch, setCategorySearch] = useState('');
@@ -128,9 +131,21 @@ export default function CreateEventForm() {
         room_number: roomNumber || null,
       };
 
-      await createEvent(payload); // implement in your API client
+      // Call the API to create the event. The backend returns the full
+      // created event object, including its unique `id`.
+      const createdEvent = await createEvent(payload); // implement in your API client
 
-      // Clear or redirect after success
+      // After successful creation, redirect the user to the EventDetail
+      // page for this specific event. The backend exposes the primary key
+      // as `event_id` (see Event.to_dict in the backend models), while
+      // the route in App.js is `/events/:id`.
+      // We therefore pass `createdEvent.event_id` as the dynamic :id param.
+      if (createdEvent && createdEvent.event_id) {
+        navigate(`/events/${createdEvent.event_id}`);
+      }
+
+      // Clear form fields in case the user navigates back here later
+      // (either via browser back button or direct route access).
       setTitle('');
       setCategory('');
       setCategorySearch('');
