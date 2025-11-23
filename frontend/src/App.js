@@ -4,7 +4,6 @@ import NotFound from './components/NotFound';
 import './App.css';
 import HomePage from './components/HomePage';
 import ExploreEvents from './components/ExploreEvents';
-import CreateEvent from './components/CreateEvent';
 import CreateEventForm from './components/CreateEventForm';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
@@ -12,6 +11,7 @@ import ConfirmEmail from './components/ConfirmEmail';
 import Navbar from './components/Navbar';
 import ExploreNavbar from './components/ExploreNavbar';
 import ProfilesPage from './components/ProfilesPage';
+import EventDetail from './components/EventDetail';
 /**
  * Valid routes configuration
  * Add new routes here to make them accessible
@@ -36,6 +36,8 @@ function App() {
         <Route path={VALID_ROUTES.HOME} element={<HomePage />} />
         <Route path={VALID_ROUTES.EXPLORE} element={<ExploreEvents />} />
         <Route path={VALID_ROUTES.CREATE} element={<CreateEventForm />} />
+        {/* Event detail route for viewing a single event by ID */}
+        <Route path="/events/:id" element={<EventDetail />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/confirm-email" element={<ConfirmEmail />} />

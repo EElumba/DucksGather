@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 //import EventDetails from "./EventDetails";
+import { useNavigate } from "react-router-dom";
 import { listEvents } from "../api/client";
 import "../styles/ExploreEvents.css";
 
@@ -7,6 +8,9 @@ export default function EventList({ category, date, q }) {
   const [events, setEvents] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedEvent, setSelectedEvent] = useState(null);
+
+  // React Router navigation hook used for "View Details" button
+  const navigate = useNavigate();
 
   const listRef = useRef(null);
   const itemRefs = useRef([]);
@@ -109,6 +113,20 @@ export default function EventList({ category, date, q }) {
                     : location?.building_name || ''}
                 </p>
                 <p className="event-details">{date}</p>
+
+                {/* Button to navigate to full event details page */}
+                <button
+                  type="button"
+                  className="event-view-details-button"
+                  onClick={(e) => {
+                    // Prevent parent card click from interfering with navigation
+                    e.stopPropagation();
+                    // Use backend event_id to build the detail URL
+                    navigate(`/events/${event.event_id}`);
+                  }}
+                >
+                  View Details
+                </button>
               </div>
             </div>
           );

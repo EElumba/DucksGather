@@ -192,7 +192,7 @@ def smoke_test() -> int:
     # User + token
     # Resolve a valid auth user id/email first to satisfy FK
     user_id = os.getenv("SMOKE_USER_ID")
-    email = "smoke@example.com"
+    email = ""
     if user_id:
         if verbose:
             print(f"INFO : using provided SMOKE_USER_ID={user_id}")
