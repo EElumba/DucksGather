@@ -1,0 +1,128 @@
+[
+  {
+    "building_name": "EMU",
+    "address": "1395 University St, Eugene, OR",
+    "latitude": 44.0446,
+    "longitude": -123.0739
+  },
+  {
+    "building_name": "Lillis Hall",
+    "address": "955 E 13th Ave, Eugene, OR",
+    "latitude": 44.0453,
+    "longitude": -123.0786
+  },
+  {
+    "building_name": "Knight Library",
+    "address": "1501 Kincaid St, Eugene, OR 97403",
+    "latitude": 44.043320,
+    "longitude": -123.077728
+  },
+  {
+    "building_name": "Allan Price Science Commons & Research Library (Science Library)",
+    "address": "1344 Franklin Blvd, Eugene, OR 97403",
+    "latitude": 44.0469,
+    "longitude": -123.0722
+  },
+  {
+    "building_name": "Straub Hall",
+    "address": "1280 University St (Onyx St area), Eugene, OR",
+    "latitude": 44.04384,
+    "longitude": -123.07302
+  },
+  {
+    "building_name": "Deschutes Hall",
+    "address": "1301 University St, Eugene, OR",
+    "latitude": 44.04589,
+    "longitude": -123.07115
+  },
+  {
+    "building_name": "Gerlinger Hall",
+    "address": "1213 University St, Eugene, OR",
+    "latitude": 44.0442,
+    "longitude": -123.0754
+  },
+  {
+    "building_name": "Johnson Hall",
+    "address": "1455 E 13th Ave, Eugene, OR",
+    "latitude": 44.0460,
+    "longitude": -123.0780
+  },
+  {
+    "building_name": "Friendly Hall",
+    "address": "1217 University St, Eugene, OR",
+    "latitude": 44.0444,
+    "longitude": -123.0765
+  },
+  {
+    "building_name": "Condon Hall",
+    "address": "1337 University St, Eugene, OR",
+    "latitude": 44.0449,
+    "longitude": -123.0728
+  },
+  {
+    "building_name": "Allen Hall",
+    "address": "1253 University St, Eugene, OR",
+    "latitude": 44.0446,
+    "longitude": -123.0751
+  },
+  {
+    "building_name": "Klamath Hall",
+    "address": "1240 Agate St, Eugene, OR",
+    "latitude": 44.0440,
+    "longitude": -123.0720
+  },
+  {
+    "building_name": "Ford Alumni Center",
+    "address": "1720 E 13th Ave, Eugene, OR",
+    "latitude": 44.0466,
+    "longitude": -123.0718
+  },
+  {
+    "building_name": "Matthew Knight Arena",
+    "address": "1 John E Jaqua Way, Eugene, OR",
+    "latitude": 44.0431,
+    "longitude": -123.0629
+  },
+  {
+    "building_name": "Autzen Stadium",
+    "address": "2700 Leo Harris Pkwy, Eugene, OR",
+    "latitude": 44.0416,
+    "longitude": -123.0688
+  },
+  {
+    "building_name": "McKenzie Hall",
+    "address": "1226 University St, Eugene, OR",
+    "latitude": 44.0448,
+    "longitude": -123.0759
+  },
+  {
+    "building_name": "Fenton Hall",
+    "address": "1215 University St, Eugene, OR",
+    "latitude": 44.0441,
+    "longitude": -123.0749
+  },
+  {
+    "building_name": "Klamath/Science Complex Annex (Klamath-related labs)",
+    "address": "1250 Agate St, Eugene, OR",
+    "latitude": 44.0441,
+    "longitude": -123.0715
+  },
+  {
+    "building_name": "Law Center (John E. Jaqua Law Library)",
+    "address": "1515 Agate St, Eugene, OR",
+    "latitude": 44.0440,
+    "longitude": -123.0696
+  },
+  {
+    "building_name": "Museum of Natural and Cultural History",
+    "address": "1680 E 15th Ave, Eugene, OR",
+    "latitude": 44.0455,
+    "longitude": -123.0648
+  },
+  {
+    "building_name": "Science & Engineering Complex (SEC) / related science building",
+    "address": "1726 Agate St, Eugene, OR",
+    "latitude": 44.0458,
+    "longitude": -123.0710
+  }
+]
