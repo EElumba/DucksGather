@@ -92,3 +92,8 @@ export function setAuthToken(token) {
 export function clearAuthToken() {
   localStorage.removeItem('dg_token');
 }
+
+export async function searchBuildings(q) {
+  // Use centralized request helper; building search is public
+  return request(`/api/events/buildings?q=${encodeURIComponent(q)}`, { auth: false });
+}

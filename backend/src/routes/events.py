@@ -200,25 +200,61 @@ def create_event():
                 db.flush()
                 org_id = new_org.organization_id
 
-        if building_name and room_number:
-            existing_loc = (
-                db.query(Location)
-                .filter(
-                    Location.building_name.ilike(building_name),
-                    Location.room_number == room_number,
+        # Location resolution: prefer pre-seeded building-level locations (room_number is NULL)
+        # and create room-specific rows that inherit their lat/long when needed.
+        if building_name:
+            if room_number:
+                # First, try to find an exact (building, room) match.
+                existing_loc = (
+                    db.query(Location)
+                    .filter(
+                        Location.building_name.ilike(building_name),
+                        Location.room_number == room_number,
+                    )
+                    .first()
                 )
-                .first()
-            )
-            if existing_loc:
-                loc_id = existing_loc.location_id
+                if existing_loc:
+                    loc_id = existing_loc.location_id
+                else:
+                    # Try to reuse a building-level row (room_number is NULL) for coords.
+                    base = (
+                        db.query(Location)
+                        .filter(
+                            Location.building_name.ilike(building_name),
+                            Location.room_number.is_(None),
+                        )
+                        .first()
+                    )
+                    new_loc = Location(
+                        building_name=building_name,
+                        room_number=room_number,
+                        address=base.address if base else None,
+                        latitude=base.latitude if base else None,
+                        longitude=base.longitude if base else None,
+                    )
+                    db.add(new_loc)
+                    db.flush()
+                    loc_id = new_loc.location_id
             else:
-                new_loc = Location(
-                    building_name=building_name,
-                    room_number=room_number,
+                # No room number: use or create a building-level location.
+                base = (
+                    db.query(Location)
+                    .filter(
+                        Location.building_name.ilike(building_name),
+                        Location.room_number.is_(None),
+                    )
+                    .first()
                 )
-                db.add(new_loc)
-                db.flush()
-                loc_id = new_loc.location_id
+                if base:
+                    loc_id = base.location_id
+                else:
+                    new_loc = Location(
+                        building_name=building_name,
+                        room_number=None,
+                    )
+                    db.add(new_loc)
+                    db.flush()
+                    loc_id = new_loc.location_id
 
         ev = Event(
             title=data["title"],
@@ -395,5 +431,34 @@ def list_saved_events():
             .all()
         )
         return jsonify([e.to_dict() for e in saved]), 200
+    finally:
+        db.close()
+
+@bp.get("/buildings")
+def search_buildings():
+    """
+    Public: search known building names.
+
+    Query params:
+      q: partial building name (case-insensitive)
+
+    Response: [ { building_name, location_id? } ]
+    """
+    db = get_db()
+    try:
+        from sqlalchemy import func
+        q = (request.args.get("q") or "").strip()
+        qry = db.query(Location.building_name).filter(Location.room_number.is_(None))
+        if q:
+            pattern = f"%{q.lower()}%"
+            qry = qry.filter(func.lower(Location.building_name).like(pattern))
+        # distinct + order
+        names = (
+            qry.distinct()
+               .order_by(Location.building_name.asc())
+               .limit(20)
+               .all()
+        )
+        return jsonify([row.building_name for row in names]), 200
     finally:
         db.close()
