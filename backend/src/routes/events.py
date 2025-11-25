@@ -57,11 +57,15 @@ def list_events():
         # Categories filter (case-insensitive, normalized to lowercase)
         from sqlalchemy import func  # local import to avoid global dependency when unused
 
+        # Categories filter (case-insensitive, normalized to lowercase)
         raw_list = request.args.getlist("category")
         single = request.args.get("category")
         categories = raw_list or ([s.strip() for s in single.split(",")] if single else [])
         cats = [c.lower().strip() for c in dict.fromkeys(categories) if c]
+
         if cats:
+            # Ensure only non-null categories are filtered
+            q = q.filter(Event.category.isnot(None))
             q = q.filter(func.lower(Event.category).in_(cats))
 
         # Date range

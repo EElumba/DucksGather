@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import ExploreNavbar from './ExploreNavbar';
-import Navbar from './Navbar';
 import EventList from './EventList';
 import 'leaflet/dist/leaflet.css';
 import '../styles/ExploreEvents.css';
@@ -15,7 +13,28 @@ L.Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
+/**
+ * Default image configurations
+ * Provides fallback images for events without images or when image loading fails
+ */
+const IMAGE_CONFIG = {
+  DEFAULT_EVENT_IMAGE: '/campus-hero.jpg',
+  DEFAULT_ALT_TEXT: 'Event at University of Oregon'
+};
 
+/**
+ * Helper function to get event image URL
+ * @param {string} imageUrl - The event's image URL
+ * @returns {string} - Valid image URL or default image
+ */
+const getEventImage = (imageUrl) => {
+  return imageUrl || IMAGE_CONFIG.DEFAULT_EVENT_IMAGE;
+};
+
+/**
+ * Default map center used when an event does not have latitude/longitude.
+ * This keeps the map focused on the main campus area.
+ */
 const DEFAULT_MAP_CENTER = [44.04503839053625, -123.07256258731347];
 
 const FilterBar = ({ filters, onFilterChange }) => (
@@ -74,9 +93,88 @@ const spreadMarkers = (events) => {
 };
 
 const ExploreEvents = () => {
+  // Static filter options
   const [filters] = useState({
     'Activity': ['Social', 'Sports', 'Academic', 'Cultural'],
-    'Major': [/* your 70+ majors unchanged */]
+      'Major': [
+    'Accounting',
+    'Anthropology',
+    'Architecture',
+    'Art',
+    'Art and Technology',
+    'Art History',
+    'Asian Studies',
+    'Biochemistry',
+    'Biology',
+    'Business Administration',
+    'Chemistry',
+    'Child Behavioral Health',
+    'Chinese',
+    'Cinema Studies',
+    'Classics',
+    'Communication Disorders & Sciences',
+    'Comparative Literature',
+    'Computer Science',
+    'Cybersecurity',
+    'Dance',
+    'Data Science',
+    'Earth Sciences',
+    'Economics',
+    'Educational Foundations',
+    'English',
+    'Environmental Design',
+    'Environmental Science',
+    'Environmental Studies',
+    'Ethnic Studies',
+    'Family & Human Services',
+    'Folklore & Public Culture',
+    'French & Francophone Studies',
+    'General Social Science',
+    'Geography',
+    'German',
+    'Global Studies',
+    'History',
+    'Human Physiology',
+    'Humanities',
+    'Interior Architecture',
+    'Italian Studies',
+    'Journalism',
+    'Journalism: Advertising',
+    'Journalism: Media Studies',
+    'Journalism: Public Relations',
+    'Judaic Studies',
+    'Japanese',
+    'Landscape Architecture',
+    'Latin American Studies',
+    'Linguistics',
+    'Mathematics',
+    'Mathematics & Computer Science',
+    'Marine Biology',
+    'Materials Science & Technology',
+    'Medieval Studies',
+    'Multidisciplinary Science',
+    'Music',
+    'Music Composition',
+    'Music Education',
+    'Music: Jazz Studies',
+    'Music Performance',
+    'Native American & Indigenous Studies',
+    'Neuroscience',
+    'Philosophy',
+    'Physics',
+    'Planning, Public Policy & Management',
+    'Political Science',
+    'Popular Music',
+    'Product Design',
+    'Psychology',
+    'Religious Studies',
+    'Romance Languages',
+    'Russian, East European & Eurasian Studies',
+    'Sociology',
+    'Spatial Data Science & Technology',
+    'Spanish',
+    'Theater Arts',
+    'Women, Gender & Sexuality Studies']
   });
 
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -117,16 +215,21 @@ const ExploreEvents = () => {
     fetchEventsForMap();
   }, [activeCategory, searchQuery]);
 
-  const handleEventSelect = (event) => {
-    setSelectedEvent(event);
+const handleEventSelect = (event) => {
+  setSelectedEvent(event);
 
-    const lat = event?.location?.latitude;
-    const lng = event?.location?.longitude;
+  const lat = event?.location?.latitude;
+  const lng = event?.location?.longitude;
 
-    if (typeof lat === "number" && typeof lng === "number") {
-      mapRef.current?.setView([lat, lng], 16);
-    }
-  };
+  if (typeof lat === "number" && typeof lng === "number") {
+    // Smoothly fly to the selected event
+    mapRef.current?.flyTo([lat, lng], 16, {
+      animate: true,
+      duration: 1.5 // seconds, adjust for faster/slower
+    });
+  }
+};
+
 
   // Prevent marker stacking
   const adjustedEvents = spreadMarkers(events);
@@ -139,7 +242,12 @@ const ExploreEvents = () => {
         <div className="sidebar">
           <h2 className="filter-heading">Filter Event by Type</h2>
           <FilterBar filters={filters} onFilterChange={handleFilterChange} />
-          <EventList category={activeCategory} q={searchQuery} />
+          <EventList
+            events={adjustedEvents}
+            onSelect={handleEventSelect}
+            activeIndex={events.findIndex(e => e === selectedEvent) || 0}
+            setActiveIndex={() => {}}
+          />
         </div>
 
         {/* MAP */}

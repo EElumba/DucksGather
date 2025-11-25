@@ -4,39 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { listEvents } from "../api/client";
 import "../styles/ExploreEvents.css";
 
-export default function EventList({ category, date, q }) {
-  const [events, setEvents] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [selectedEvent, setSelectedEvent] = useState(null);
-
-  // React Router navigation hook used for "View Details" button
-  const navigate = useNavigate();
-
+export default function EventList({ events, onSelect, activeIndex, setActiveIndex }) {
   const listRef = useRef(null);
   const itemRefs = useRef([]);
-  const lastFocusedIndexRef = useRef(0);
-
-  // Fetch events from backend using centralized client (matches /api/events/ response shape)
-  useEffect(() => {
-    async function fetchEvents() {
-      try {
-        const response = await listEvents({
-          page: 1,
-          page_size: 20,
-          category: category || undefined,
-          date: date || undefined,
-          q: q || undefined,
-        });
-        const items = Array.isArray(response?.items) ? response.items : [];
-        setEvents(items);
-        itemRefs.current = [];
-      } catch (err) {
-        console.error("Error fetching events:", err);
-      }
-    }
-
-    fetchEvents();
-  }, [category, date, q]);
 
   const handleListKeyDown = (e) => {
     if (events.length === 0) return;
@@ -46,7 +16,6 @@ export default function EventList({ category, date, q }) {
       const newIndex = (activeIndex - 1 + events.length) % events.length;
       setActiveIndex(newIndex);
       itemRefs.current[newIndex]?.focus();
-      lastFocusedIndexRef.current = newIndex;
     }
 
     if (e.key === "ArrowDown") {
@@ -54,19 +23,16 @@ export default function EventList({ category, date, q }) {
       const newIndex = (activeIndex + 1) % events.length;
       setActiveIndex(newIndex);
       itemRefs.current[newIndex]?.focus();
-      lastFocusedIndexRef.current = newIndex;
     }
   };
 
-  const handleItemKeyDown = (e, index) => {
-    if (e.key === "Enter") {
-      setSelectedEvent(events[index]);
-    }
+  const handleItemClick = (event, index) => {
+    setActiveIndex(index);
+    onSelect(event);
   };
 
   return (
     <div className="event-list">
-      {/* Accessible event list with cards matching ExploreEvents style */}
       <div
         ref={listRef}
         role="listbox"
@@ -74,78 +40,35 @@ export default function EventList({ category, date, q }) {
         tabIndex={0}
         onKeyDown={handleListKeyDown}
       >
-        {events.map((event, i) => {
-          const imageUrl = event.image_url || "/campus-hero.jpg";
-          const location = event.location || "University of Oregon";
-          const date = event.date || "TBD";
-          return (
-            <div
-              key={event.event_id}
-              id={`event-${event.event_id}`}
-              ref={(el) => (itemRefs.current[i] = el)}
-              role="option"
-              aria-selected={activeIndex === i}
-              tabIndex={activeIndex === i ? 0 : -1}
-              onFocus={() => setActiveIndex(i)}
-              onClick={() => {
-                lastFocusedIndexRef.current = i;
-                setSelectedEvent(event);
-              }}
-              onKeyDown={(e) => handleItemKeyDown(e, i)}
-              className={`event-card ${activeIndex === i ? "highlighted" : ""}`}
-            >
-              <div className="event-image">
-                <img
-                  src={imageUrl}
-                  alt={event.title || "Event"}
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = "/campus-hero.jpg";
-                  }}
-                  loading="lazy"
-                />
-              </div>
-              <div className="event-info">
-                <h3>{event.title}</h3>
-                <p className="event-location">
-                  {location?.building_name && location?.room_number
-                    ? `${location.building_name}, room ${location.room_number}`
-                    : location?.building_name || ''}
-                </p>
-                <p className="event-details">{date}</p>
-
-                {/* Button to navigate to full event details page */}
-                <button
-                  type="button"
-                  className="event-view-details-button"
-                  onClick={(e) => {
-                    // Prevent parent card click from interfering with navigation
-                    e.stopPropagation();
-                    // Use backend event_id to build the detail URL
-                    navigate(`/events/${event.event_id}`);
-                  }}
-                >
-                  View Details
-                </button>
-              </div>
+        {events.map((event, i) => (
+          <div
+            key={event.event_id}
+            id={`event-${event.event_id}`}
+            ref={(el) => (itemRefs.current[i] = el)}
+            role="option"
+            aria-selected={activeIndex === i}
+            tabIndex={activeIndex === i ? 0 : -1}
+            onClick={() => handleItemClick(event, i)}
+            className={`event-card ${activeIndex === i ? "highlighted" : ""}`}
+          >
+            <div className="event-image">
+              <img
+                src={event.image_url || "/campus-hero.jpg"}
+                alt={event.title || "Event"}
+                onError={(e) => { e.target.onerror = null; e.target.src = "/campus-hero.jpg"; }}
+                loading="lazy"
+              />
             </div>
-          );
-        })}
+            <div className="event-info">
+              <h3>{event.title}</h3>
+              <p className="event-location">
+                {event.location?.building_name}{event.location?.room_number ? `, room ${event.location.room_number}` : ''}
+              </p>
+              <p className="event-details">{event.date || 'TBD'}</p>
+            </div>
+          </div>
+        ))}
       </div>
-
-      {/* Popup (temporarily disabled until EventDetails exists) */}
-      {/**
-      {selectedEvent && (
-        <EventDetails
-          event={selectedEvent}
-          onClose={() => {
-            setSelectedEvent(null);
-            const index = lastFocusedIndexRef.current;
-            itemRefs.current[index]?.focus();
-          }}
-        />
-      )}
-      */}
     </div>
   );
 }
