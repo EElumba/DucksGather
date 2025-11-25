@@ -129,7 +129,7 @@ export default function ProfilesPage() {
   }
 
   // Derive display values from the user + profile objects
-  const displayName = (nameInput || profile?.full_name || profile?.name || 'Duck User');
+  const displayName = (user.full_name || nameInput || profile?.full_name || profile?.name || 'Verified User');
   const email = user.email || profile?.email || 'Unknown email';
   // Handler for saving the updated full name
   // ----------------------------------------
@@ -147,8 +147,17 @@ export default function ProfilesPage() {
     setIsSaving(true);
     setNameError(null);
     try {
-      // Call the backend to persist the new full name
-      await updateCurrentUser({ full_name: nameInput.trim() });
+      // Call the backend to persist the new full name. The endpoint returns the
+      // updated user object, which we can use to immediately reflect the
+      // persisted name in this textbox before (or in addition to) a full
+      // profile refresh.
+      const updatedUser = await updateCurrentUser({ full_name: nameInput.trim() });
+
+      // Immediately sync the local input with whatever the server actually
+      // stored (in case it trims or normalizes the value server-side).
+      if (updatedUser && (updatedUser.full_name || updatedUser.name)) {
+        setNameInput(updatedUser.full_name || updatedUser.name);
+      }
 
       // Ask the auth context to pull down the latest profile data.
       // This ensures any server-side transformations are reflected in the UI.
@@ -241,7 +250,14 @@ export default function ProfilesPage() {
                       fontSize: '0.85rem',
                       minWidth: 'auto',
                     }}
-                    onClick={() => { setIsEditingName(true); setNameError(null); }}
+                    onClick={() => {
+                      // Enter edit mode and make sure the input is populated with
+                      // the current display name so the user sees their existing
+                      // name as actual text rather than only as a placeholder.
+                      setIsEditingName(true);
+                      setNameError(null);
+                      setNameInput(profile?.full_name || profile?.name || nameInput || '');
+                    }}
                   >
                     Edit name
                   </button>
