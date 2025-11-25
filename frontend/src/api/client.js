@@ -43,8 +43,18 @@ async function request(path, { method = 'GET', body, headers = {}, auth = true }
 }
 
 // Users
+// -------
+// Fetch the currently authenticated user profile from the backend.
 export async function fetchCurrentUser() {
   return request('/api/users/me');
+}
+
+// Update the currently authenticated user.
+// This is used, for example, to let a user update their full name from the
+// profile page. It sends a PATCH request to /api/users/me with the provided
+// partial payload (e.g., { full_name: 'New Name' }).
+export async function updateCurrentUser(patch) {
+  return request('/api/users/me', { method: 'PATCH', body: patch });
 }
 
 // Events

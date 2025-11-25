@@ -25,8 +25,11 @@ def update_me():
             current = g.app_user.full_name
 
             # Only enforce cooldown if there is an existing name and it’s changing
+            # Use a naive UTC "now" to match the naive timestamps stored by
+            # SQLAlchemy's datetime.utcnow() defaults, avoiding timezone-aware
+            # vs. naive comparison errors.
             if current and incoming and incoming != current:
-                now = datetime.now(timezone.utc)
+                now = datetime.utcnow()
                 last = g.app_user.updated_at or g.app_user.created_at
                 if last and now - last < timedelta(days=30):
                     return jsonify({
