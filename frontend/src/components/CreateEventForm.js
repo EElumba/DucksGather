@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/CreateEvent.css';
 import { useAuth } from '../context/AuthContext';
-import { createEvent } from '../api/client'; // or whatever you named it
 import { useNavigate } from 'react-router-dom';
+import { createEvent, searchBuildings } from '../api/client';
 
 
 const CATEGORY_OPTIONS = [
@@ -103,6 +103,7 @@ export default function CreateEventForm() {
   const [submitting, setSubmitting] = useState(false);
   const [buildingName, setBuildingName] = useState('');
   const [roomNumber, setRoomNumber] = useState('');
+  const [buildingSuggestions, setBuildingSuggestions] = useState([]);
 
   if (role !== 'admin' && role !== 'coordinator') {
     return <p>You must be a coordinator or admin to create events.</p>;
@@ -112,10 +113,35 @@ export default function CreateEventForm() {
     opt.toLowerCase().includes(categorySearch.toLowerCase())
   );
 
+  async function handleBuildingChange(e) {
+    const value = e.target.value;
+    setBuildingName(value);
+
+    const trimmed = value.trim();
+    if (!trimmed) {
+      setBuildingSuggestions([]);
+      return;
+    }
+
+    try {
+      const results = await searchBuildings(trimmed);
+      setBuildingSuggestions(results || []);
+    } catch (err) {
+      // optional: ignore or log
+      setBuildingSuggestions([]);
+    }
+  }
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
+    if (!buildingName.trim()) {
+      setError('Building name is required.');
+      setSubmitting(false);
+      return;
+    }
 
     try {
       // Shape that matches Event.to_dict + optional organization
@@ -192,13 +218,7 @@ export default function CreateEventForm() {
           {/* Category searchable dropdown */}
           <div className="create-event-field">
             <label className="create-event-label">Category</label>
-            <input
-              className="create-event-input"
-              type="text"
-              placeholder="Search categories…"
-              value={categorySearch}
-              onChange={e => setCategorySearch(e.target.value)}
-            />
+            
             <select
               className="create-event-select"
               value={category}
@@ -273,28 +293,44 @@ export default function CreateEventForm() {
               placeholder="e.g. UO Esports, ACM, Women in CS"
             />
           </div>
-                    {/* Location (building + room) */}
-          <div className="create-event-row">
-            <div className="create-event-field">
-              <label className="create-event-label">Building name</label>
-              <input
-                className="create-event-input"
-                type="text"
-                value={buildingName}
-                onChange={e => setBuildingName(e.target.value)}
-                placeholder="e.g. EMU, Lillis, Knight Library"
-              />
-            </div>
-            <div className="create-event-field">
-              <label className="create-event-label">Room number</label>
-              <input
-                className="create-event-input"
-                type="text"
-                value={roomNumber}
-                onChange={e => setRoomNumber(e.target.value)}
-                placeholder="e.g. 123, 2F, Auditorium"
-              />
-            </div>
+
+          {/* Location (building + room) */}
+          <div className="create-event-field">
+            <label className="create-event-label">Building</label>
+            <input
+              className="create-event-input"
+              type="text"
+              value={buildingName}
+              onChange={handleBuildingChange}
+              placeholder="e.g. EMU, Lillis, Knight Library"
+            />
+
+            {buildingSuggestions.length > 0 && (
+              <ul className="create-event-suggestions">
+                {buildingSuggestions.map(name => (
+                  <li
+                    key={name}
+                    onClick={() => {
+                      setBuildingName(name);
+                      setBuildingSuggestions([]);
+                    }}
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <div className="create-event-field">
+            <label className="create-event-label">Room number</label>
+            <input
+              className="create-event-input"
+              type="text"
+              value={roomNumber}
+              onChange={e => setRoomNumber(e.target.value)}
+              placeholder="e.g. 123, 2F, Auditorium"
+            />
           </div>
 
           <button
