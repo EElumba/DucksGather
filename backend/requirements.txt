@@ -7,3 +7,9 @@ PyJWT
 pytest
 requests
 flask-cors
+bs4
+pydantic
+tenacity
+bleach
+beautifulsoup4
+lxml
