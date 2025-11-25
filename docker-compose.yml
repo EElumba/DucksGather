@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DATABASE_URL: "${DATABASE_URL}"
+      SUPABASE_JWT_SECRET: "${SUPABASE_JWT_SECRET}"
+      # Add any others you use:
+      # ADMIN_EMAILS: "${ADMIN_EMAILS}"
+  
+    ports:
+      - "5001:5000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    environment:
+      # Let frontend know where the API is if needed at build time
+      REACT_APP_API_ORIGIN: "http://backend:5000"
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
