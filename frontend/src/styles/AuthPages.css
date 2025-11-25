@@ -20,6 +20,13 @@
   border: 1px solid rgba(252, 211, 77, 0.8); /* yellow-300 */
 }
 
+/* Wider variant used on the profile page so that the profile details and
+   the saved-events list can sit side-by-side on larger screens without
+   affecting the login / sign-up cards. */
+.profile-card {
+  max-width: 900px;
+}
+
 /* Duck logo circle */
 .auth-logo-circle {
   position: absolute;

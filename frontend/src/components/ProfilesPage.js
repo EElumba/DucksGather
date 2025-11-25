@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { updateCurrentUser } from '../api/client';
+import { updateCurrentUser, listSavedEvents } from '../api/client';
+import EventList from './EventList';
 import '../styles/AuthPages.css';
 
 /**
@@ -34,6 +35,55 @@ export default function ProfilesPage() {
       setNameInput(profile.full_name || profile.name || '');
     }
   }, [profile]);
+
+  // Local state for the user's saved events shown on the profile page
+  // -----------------------------------------------------------------
+  // - savedEvents holds the list of events returned from /api/events/saved.
+  // - savedLoading indicates whether the saved-events list is currently loading.
+  // - savedError holds any error encountered while fetching saved events.
+  // - savedActiveIndex tracks which event card is currently focused/active in EventList.
+  const [savedEvents, setSavedEvents] = useState([]);
+  const [savedLoading, setSavedLoading] = useState(false);
+  const [savedError, setSavedError] = useState(null);
+  const [savedActiveIndex, setSavedActiveIndex] = useState(0);
+
+  // Fetch the authenticated user's saved events for display on the profile page.
+  // This reuses the backend /api/events/saved endpoint, which already returns
+  // only the events saved by the current user.
+  useEffect(() => {
+    // If there is no authenticated user, do not attempt to load saved events.
+    if (!user) return;
+
+    let isCancelled = false;
+
+    async function fetchSaved() {
+      setSavedLoading(true);
+      setSavedError(null);
+      try {
+        const data = await listSavedEvents();
+        if (!isCancelled) {
+          // Ensure we always store an array, even if the response is unexpected.
+          setSavedEvents(Array.isArray(data) ? data : []);
+        }
+      } catch (err) {
+        if (!isCancelled) {
+          console.error('Failed to load saved events:', err);
+          setSavedError(err.message || 'Failed to load saved events');
+        }
+      } finally {
+        if (!isCancelled) {
+          setSavedLoading(false);
+        }
+      }
+    }
+
+    fetchSaved();
+
+    // Cleanup flag so we do not update state after unmount.
+    return () => {
+      isCancelled = true;
+    };
+  }, [user]);
 
   // Handler for the Sign out button
   // -------------------------------
@@ -81,7 +131,6 @@ export default function ProfilesPage() {
   // Derive display values from the user + profile objects
   const displayName = (nameInput || profile?.full_name || profile?.name || 'Duck User');
   const email = user.email || profile?.email || 'Unknown email';
-
   // Handler for saving the updated full name
   // ----------------------------------------
   // This sends a PATCH request to the backend using the shared API client.
@@ -123,7 +172,10 @@ export default function ProfilesPage() {
 
   return (
     <div className="auth-page-root">
-      <div className="auth-card">
+      {/* Use the shared auth-card styling, plus a profile-specific class name
+          so we can make the profile layout wider without affecting other
+          auth pages like Login/Sign-Up. */}
+      <div className="auth-card profile-card">
         {/* Reuse the duck logo circle to keep visual consistency */}
         <div className="auth-logo-circle">🦆</div>
 
@@ -137,80 +189,135 @@ export default function ProfilesPage() {
           </div>
         )}
 
-        {/* Simple fields showing name and email. The name field is now editable
-            so the user can update the full name stored in the backend. */}
-        <div className="auth-form">
-          <div className="auth-field">
-            <label className="auth-label">Name</label>
-            <form
-              className="auth-input"
-              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-              onSubmit={handleSaveName}
-            >
-              {/* Controlled input bound to local state so the user can edit their name */}
-              <input
-                type="text"
-                value={nameInput}
-                onChange={(e) => setNameInput(e.target.value)}
-                placeholder={displayName}
-                style={{ flex: 1, border: 'none', outline: 'none', background: 'transparent' }}
-                readOnly={!isEditingName}
-              />
-              {/* The Save button is intentionally smaller and only visible while
-                  the user is actively editing their name. After a successful
-                  save, edit mode is turned off and this button disappears. */}
-              {isEditingName && (
-                <button
-                  type="submit"
-                  className="auth-submit-button"
-                  disabled={isSaving}
-                  style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', minWidth: 'auto' }}
+        {/* Layout row: profile details on the left, saved events on the right.
+            The outer flex container keeps both sections side-by-side on
+            wider screens while still allowing them to stack naturally on
+            smaller viewports. */}
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+          {/* Simple fields showing name and email. The name field is now editable
+              so the user can update the full name stored in the backend. */}
+          <div style={{ flex: 1, minWidth: '260px' }}>
+            <div className="auth-form">
+              <div className="auth-field">
+                <label className="auth-label">Name</label>
+                <form
+                  className="auth-input"
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                  onSubmit={handleSaveName}
                 >
-                  {isSaving ? 'Saving…' : 'Save'}
-                </button>
-              )}
-            </form>
-            {/* Small helper action under the Duck User display that toggles edit mode.
-                When not editing, the input behaves like read-only and there is
-                no Save button. Once "Edit name" is pressed, the user can
-                modify the value and a Save button appears to persist it. */}
-            <div style={{ marginTop: '0.25rem', marginBottom: '0.25rem' }}>
+                  {/* Controlled input bound to local state so the user can edit their name */}
+                  <input
+                    type="text"
+                    value={nameInput}
+                    onChange={(e) => setNameInput(e.target.value)}
+                    placeholder={displayName}
+                    style={{ flex: 1, border: 'none', outline: 'none', background: 'transparent' }}
+                    readOnly={!isEditingName}
+                  />
+                  {/* The Save button is intentionally smaller and only visible while
+                      the user is actively editing their name. After a successful
+                      save, edit mode is turned off and this button disappears. */}
+                  {isEditingName && (
+                    <button
+                      type="submit"
+                      className="auth-submit-button"
+                      disabled={isSaving}
+                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.85rem', minWidth: 'auto' }}
+                    >
+                      {isSaving ? 'Saving…' : 'Save'}
+                    </button>
+                  )}
+                </form>
+                {/* Small helper action under the Duck User display that toggles edit mode.
+                    When not editing, the input behaves like read-only and there is
+                    no Save button. Once "Edit name" is pressed, the user can
+                    modify the value and a Save button appears to persist it. */}
+                <div style={{ marginTop: '0.25rem', marginBottom: '0.25rem' }}>
+                  <button
+                    type="button"
+                    className="auth-submit-button"
+                    style={{
+                      padding: '0.25rem 0.5rem',
+                      fontSize: '0.85rem',
+                      minWidth: 'auto',
+                    }}
+                    onClick={() => { setIsEditingName(true); setNameError(null); }}
+                  >
+                    Edit name
+                  </button>
+                </div>
+                {/* Inline error message specific to the name update (e.g., 30-day rule) */}
+                {nameError && (
+                  <div className="auth-error" style={{ marginTop: '0.25rem' }}>
+                    {nameError}
+                  </div>
+                )}
+              </div>
+
+              <div className="auth-field">
+                <label className="auth-label">Email</label>
+                <div className="auth-input" style={{ display: 'flex', alignItems: 'center' }}>
+                  {email}
+                </div>
+              </div>
+
+              {/* Optional action row for signing out */}
               <button
                 type="button"
+                onClick={handleSignOut}
                 className="auth-submit-button"
-                style={{
-                  padding: '0.25rem 0.5rem',
-                  fontSize: '0.85rem',
-                  minWidth: 'auto',
-                }}
-                onClick={() => { setIsEditingName(true); setNameError(null); }}
               >
-                Edit name
+                Sign out
               </button>
             </div>
-            {/* Inline error message specific to the name update (e.g., 30-day rule) */}
-            {nameError && (
-              <div className="auth-error" style={{ marginTop: '0.25rem' }}>
-                {nameError}
-              </div>
-            )}
           </div>
 
-          <div className="auth-field">
-            <label className="auth-label">Email</label>
-            <div className="auth-input" style={{ display: 'flex', alignItems: 'center' }}>
-              {email}
+          {/* Saved Events section on the profile page
+              ---------------------------------------
+              This embeds the shared EventList component so that the user can
+              quickly see the events they have saved. It pulls data from the
+              authenticated /api/events/saved endpoint via the centralized
+              listSavedEvents API helper. */}
+          <div style={{ flex: 1, minWidth: '260px' }}>
+            <div
+              style={{
+                border: '1px solid rgba(0,0,0,0.08)',
+                borderRadius: '8px',
+                padding: '1rem',
+                backgroundColor: 'rgba(255,255,255,0.9)',
+              }}
+            >
+              <h2 className="auth-title" style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+                Your Saved Events
+              </h2>
+
+              {/* Show basic loading and error states for the saved-events list. */}
+              {savedLoading && (
+                <div style={{ textAlign: 'center', padding: '0.5rem 0' }}>
+                  <p>Loading your saved events...</p>
+                </div>
+              )}
+              {savedError && (
+                <div className="auth-error" style={{ marginBottom: '0.5rem' }}>
+                  {savedError}
+                </div>
+              )}
+
+              {/* Only render the EventList when we have at least one saved event.
+                  This reuses the existing EventList card layout and keyboard
+                  navigation behavior. */}
+              {savedEvents.length > 0 ? (
+                <EventList
+                  events={savedEvents}
+                  onSelect={() => {}}
+                  activeIndex={savedActiveIndex}
+                  setActiveIndex={setSavedActiveIndex}
+                />
+              ) : !savedLoading && !savedError ? (
+                <p>You have no saved events yet.</p>
+              ) : null}
             </div>
           </div>
-
-          {/* Optional action row for signing out */}
-          <button
-            type="button"
-            onClick={handleSignOut}
-            className="auth-submit-button"
-          >
-            Sign out
-          </button>
         </div>
       </div>
     </div>
