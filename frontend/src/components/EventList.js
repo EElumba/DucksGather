@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-//import EventDetails from "./EventDetails";
 import { useNavigate } from "react-router-dom";
 import { listEvents } from "../api/client";
+import EventDetails from "./EventDetail";
 import "../styles/ExploreEvents.css";
 
 export default function EventList({ category, date, q }) {
@@ -9,14 +9,13 @@ export default function EventList({ category, date, q }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
-  // React Router navigation hook used for "View Details" button
   const navigate = useNavigate();
 
   const listRef = useRef(null);
   const itemRefs = useRef([]);
   const lastFocusedIndexRef = useRef(0);
 
-  // Fetch events from backend using centralized client (matches /api/events/ response shape)
+  // Fetch events from backend
   useEffect(() => {
     async function fetchEvents() {
       try {
@@ -27,6 +26,7 @@ export default function EventList({ category, date, q }) {
           date: date || undefined,
           q: q || undefined,
         });
+
         const items = Array.isArray(response?.items) ? response.items : [];
         setEvents(items);
         itemRefs.current = [];
@@ -38,6 +38,7 @@ export default function EventList({ category, date, q }) {
     fetchEvents();
   }, [category, date, q]);
 
+  // Keyboard navigation for list container
   const handleListKeyDown = (e) => {
     if (events.length === 0) return;
 
@@ -58,6 +59,7 @@ export default function EventList({ category, date, q }) {
     }
   };
 
+  // Keyboard: Enter opens popup
   const handleItemKeyDown = (e, index) => {
     if (e.key === "Enter") {
       setSelectedEvent(events[index]);
@@ -66,7 +68,6 @@ export default function EventList({ category, date, q }) {
 
   return (
     <div className="event-list">
-      {/* Accessible event list with cards matching ExploreEvents style */}
       <div
         ref={listRef}
         role="listbox"
@@ -76,8 +77,9 @@ export default function EventList({ category, date, q }) {
       >
         {events.map((event, i) => {
           const imageUrl = event.image_url || "/campus-hero.jpg";
-          const location = event.location || "University of Oregon";
-          const date = event.date || "TBD";
+          const location = event.location || {};
+          const dateLabel = event.date || "TBD";
+
           return (
             <div
               key={event.event_id}
@@ -98,30 +100,31 @@ export default function EventList({ category, date, q }) {
                 <img
                   src={imageUrl}
                   alt={event.title || "Event"}
+                  loading="lazy"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = "/campus-hero.jpg";
                   }}
-                  loading="lazy"
                 />
               </div>
+
               <div className="event-info">
                 <h3>{event.title}</h3>
-                <p className="event-location">
-                  {location?.building_name && location?.room_number
-                    ? `${location.building_name}, room ${location.room_number}`
-                    : location?.building_name || ''}
-                </p>
-                <p className="event-details">{date}</p>
 
-                {/* Button to navigate to full event details page */}
+                <p className="event-location">
+                  {location.building_name && location.room_number
+                    ? `${location.building_name}, room ${location.room_number}`
+                    : location.building_name || ""}
+                </p>
+
+                <p className="event-details">{dateLabel}</p>
+
+                {/* Navigate to /events/:id */}
                 <button
                   type="button"
                   className="event-view-details-button"
                   onClick={(e) => {
-                    // Prevent parent card click from interfering with navigation
                     e.stopPropagation();
-                    // Use backend event_id to build the detail URL
                     navigate(`/events/${event.event_id}`);
                   }}
                 >
@@ -133,8 +136,7 @@ export default function EventList({ category, date, q }) {
         })}
       </div>
 
-      {/* Popup (temporarily disabled until EventDetails exists) */}
-      {/**
+      {/* Popup Modal */}
       {selectedEvent && (
         <EventDetails
           event={selectedEvent}
@@ -145,7 +147,6 @@ export default function EventList({ category, date, q }) {
           }}
         />
       )}
-      */}
     </div>
   );
 }

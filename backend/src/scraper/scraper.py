@@ -10,12 +10,19 @@ from pydantic import ValidationError
 import sys
 import pprint
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from env file
+load_dotenv()
 
 # Add parent directories to path to allow imports
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from src.sanitize import sanitize
 from src.sanitize import schemas
+from src.sanitize.duplicate_check import is_duplicate_event, filter_duplicate_events
+from models.models import Event as EventModel, Location as LocationModel
+from db.db_init import SessionLocal
 
 """
 Script Example
@@ -57,7 +64,6 @@ Type2
 
 # --- Configuration ---
 TARGET_URL = "https://calendar.uoregon.edu"
-OUTPUT_FILE = "uoregon_events.csv"
 MAX_PAGES = 10
 HEADERS = {
     # It's always best practice to identify your scraper
@@ -232,6 +238,104 @@ def process_and_validate(event_data: dict) -> dict | None:
         return None
 
 
+# --- Database Insertion Logic ---
+def insert_events_to_db(validated_events: list[dict]) -> tuple[int, int]:
+    """
+    Insert validated events into the database.
+    Returns a tuple of (successful_inserts, failed_inserts).
+    """
+    db = SessionLocal()
+    success_count = 0
+    failure_count = 0
+    skipped_count = 0
+    
+    try:
+        # Filter out duplicate events before processing
+        unique_events = filter_duplicate_events(db, validated_events)
+        duplicate_count = len(validated_events) - len(unique_events)
+        
+        if duplicate_count > 0:
+            print(f"⊘ Filtered out {duplicate_count} duplicate event(s)")
+        
+        for event_data in unique_events:
+            try:
+                # Parse datetime strings to datetime objects
+                start_at = event_data.get("start_at")
+                ends_at = event_data.get("ends_at")
+                
+                if isinstance(start_at, str):
+                    start_at = datetime.fromisoformat(start_at.replace('Z', '+00:00'))
+                if isinstance(ends_at, str):
+                    ends_at = datetime.fromisoformat(ends_at.replace('Z', '+00:00'))
+                
+                # Extract date and time components
+                event_date = start_at.date() if start_at else None
+                start_time = start_at.time() if start_at else None
+                end_time = ends_at.time() if ends_at else None
+                
+                # Handle location data
+                location_id = None
+                location_name = event_data.get("location")
+                address = event_data.get("address")
+                latitude = event_data.get("latitude")
+                longitude = event_data.get("longitude")
+                
+                # Create or find location if we have location data
+                if location_name or address or (latitude and longitude):
+                    # Check if location already exists
+                    existing_location = db.query(LocationModel).filter(
+                        LocationModel.building_name == (location_name or "Unknown"),
+                        LocationModel.address == address
+                    ).first()
+                    
+                    if existing_location:
+                        location_id = existing_location.location_id
+                    else:
+                        # Create new location
+                        new_location = LocationModel(
+                            building_name=location_name or "Unknown",
+                            address=address,
+                            latitude=latitude,
+                            longitude=longitude
+                        )
+                        db.add(new_location)
+                        db.flush()  # Get the location_id without committing
+                        location_id = new_location.location_id
+                
+                # Create Event model instance
+                event_title = event_data.get("title")
+                event = EventModel(
+                    title=event_title,
+                    description=event_data.get("description"),
+                    category="Scraped",  # Default category for scraped events
+                    date=event_date,
+                    start_time=start_time,
+                    end_time=end_time,
+                    image_url=str(event_data.get("image")) if event_data.get("image") else None,
+                    external_url=str(event_data.get("website")) if event_data.get("website") else None,
+                    location_id=location_id,
+                    is_scraped=True
+                )
+                
+                # TODO: Handle location insertion 
+                
+                db.add(event)
+                db.commit()
+                success_count += 1
+                print(f"✓ Inserted: {event_title}")
+                
+            except Exception as e:
+                db.rollback()
+                failure_count += 1
+                print(f"✗ Failed to insert '{event_data.get('title')}': {e}")
+                
+    finally:
+        db.close()
+    
+    return success_count, failure_count
+
+
+
 # --- Main Orchestration ---
 
 # def crawl(url: str, out_csv: str):
@@ -275,7 +379,6 @@ def crawl(url: str):
                     validated_events.append(validated_event)
 
             print(f"-> Validated {len(validated_events)} events on this page.")
-            #pprint.pprint(validated_events)
             
 
         if page_counter >= MAX_PAGES:
@@ -291,21 +394,13 @@ def crawl(url: str):
         print("No events were extracted during the entire crawl.")
         return
     
-    """
-    try:
-        # Write data to CSV
-        with open(out_csv, "w", newline="", encoding="utf-8") as f:
-            # Define fieldnames based on the keys we extracted
-            fieldnames = ["title", "start_at", "ends_at", "location", "address", "latitude", "longitude", "description", "image", "website"]
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
-            writer.writeheader()
-            writer.writerows(validated_events)
-        
-        print(f"\n Success! Scraped {len(validated_events)} events and saved to **{out_csv}**")
-
-    except IOError as e:
-        print(f"Error writing to CSV file: {e}")
-    """
+    print(f"\n=== Inserting {len(validated_events)} events into database ===")
+    success_count, failure_count = insert_events_to_db(validated_events)
+    
+    print(f"\nSuccessfully inserted: {success_count} events")
+    print(f"Failed to insert: {failure_count} events")
+    print(f"Total processed: {len(validated_events)} events")
+    
     
 
 

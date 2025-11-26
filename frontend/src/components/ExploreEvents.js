@@ -1,34 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import ExploreNavbar from './ExploreNavbar';
-import Navbar from './Navbar';
 import EventList from './EventList';
 import 'leaflet/dist/leaflet.css';
 import '../styles/ExploreEvents.css';
 import L from 'leaflet';
 import { listEvents } from "../api/client";
 
-/**
- * ExploreEvents Component
- * Main page for exploring events on campus with an interactive map
- * 
- * Features:
- * - Interactive map with event markers
- * - Filterable event list
- * - Event details sidebar
- * - Custom Oregon-themed navigation
- * 
- * @component
- */
-
-// Fix Leaflet's default icon path issues
+// Fix Leaflet icon path issue
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
-
 /**
  * Default image configurations
  * Provides fallback images for events without images or when image loading fails
@@ -53,12 +37,6 @@ const getEventImage = (imageUrl) => {
  */
 const DEFAULT_MAP_CENTER = [44.04503839053625, -123.07256258731347];
 
-/**
- * Component for the filter buttons at the top
- * @param {Object} props - Component props
- * @param {Object} props.filters - Filter options
- * @param {Function} props.onFilterChange - Filter change handler
- */
 const FilterBar = ({ filters, onFilterChange }) => (
   <div className="filter-bar">
     {Object.entries(filters).map(([key, options]) => (
@@ -74,10 +52,45 @@ const FilterBar = ({ filters, onFilterChange }) => (
   </div>
 );
 
-// TO DO: Add filter functionality
-// TO DO: add how to handle population of events from webscaper
+// Function to slightly offset overlapping markers
+const spreadMarkers = (events) => {
+  const grouped = {};
 
+  events.forEach(event => {
+    const lat = event?.location?.latitude;
+    const lng = event?.location?.longitude;
 
+    if (typeof lat !== "number" || typeof lng !== "number") return;
+
+    const key = `${lat},${lng}`;
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(event);
+  });
+
+  // Apply offsets
+  const result = [];
+  const OFFSET = 0.00008; // Small enough to keep markers close, large enough to click
+
+  Object.values(grouped).forEach(group => {
+    if (group.length === 1) {
+      result.push({ ...group[0], _offsetPos: [group[0].location.latitude, group[0].location.longitude] });
+    } else {
+      // Spread around in a circle
+      const centerLat = group[0].location.latitude;
+      const centerLng = group[0].location.longitude;
+
+      group.forEach((event, idx) => {
+        const angle = (idx / group.length) * 2 * Math.PI;
+        const lat = centerLat + OFFSET * Math.cos(angle);
+        const lng = centerLng + OFFSET * Math.sin(angle);
+
+        result.push({ ...event, _offsetPos: [lat, lng] });
+      });
+    }
+  });
+
+  return result;
+};
 
 const ExploreEvents = () => {
   // Static filter options
@@ -161,21 +174,19 @@ const ExploreEvents = () => {
     'Spatial Data Science & Technology',
     'Spanish',
     'Theater Arts',
-    'Women, Gender & Sexuality Studies'],
+    'Women, Gender & Sexuality Studies']
   });
+
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [activeCategory, setActiveCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  // Events shown in both the sidebar list (via EventList) and map markers
   const [events, setEvents] = useState([]);
   const mapRef = useRef(null);
 
   const handleFilterChange = (filterType, value) => {
     const normalized = value || "";
 
-    // Map front-end filters to backend query fields
     if (filterType === "Activity" || filterType === "Major") {
-      // Both Activity and Major feed into backend category filter
       setActiveCategory(normalized);
     }
 
@@ -184,18 +195,12 @@ const ExploreEvents = () => {
     }
   };
 
-  /**
-   * Load events from the backend that match the sidebar filters.
-   * This mirrors the EventList fetching logic so the map markers and list
-   * are driven by the same data source (including nested location info).
-   */
   useEffect(() => {
     async function fetchEventsForMap() {
       try {
         const response = await listEvents({
           page: 1,
           page_size: 50,
-          // Use the same filter fields as EventList so results stay in sync
           category: activeCategory || undefined,
           q: searchQuery || undefined,
         });
@@ -210,83 +215,66 @@ const ExploreEvents = () => {
     fetchEventsForMap();
   }, [activeCategory, searchQuery]);
 
-  const handleEventSelect = (event) => {
-    setSelectedEvent(event);
+const handleEventSelect = (event) => {
+  setSelectedEvent(event);
 
-    // When an event marker is clicked, center the map on that event's coordinates.
-    // If no coordinates exist, fall back to the default campus center.
-    const lat = event?.location?.latitude;
-    const lng = event?.location?.longitude;
-    const hasCoords =
-      typeof lat === "number" && typeof lng === "number" && !Number.isNaN(lat) && !Number.isNaN(lng);
+  const lat = event?.location?.latitude;
+  const lng = event?.location?.longitude;
 
-    const targetPosition = hasCoords ? [lat, lng] : DEFAULT_MAP_CENTER;
-    mapRef.current?.setView(targetPosition, 15);
-  };
+  if (typeof lat === "number" && typeof lng === "number") {
+    // Smoothly fly to the selected event
+    mapRef.current?.flyTo([lat, lng], 16, {
+      animate: true,
+      duration: 1.5 // seconds, adjust for faster/slower
+    });
+  }
+};
 
-  // NOTE: handleFilterChange is defined above, wired to activeCategory/searchQuery
+
+  // Prevent marker stacking
+  const adjustedEvents = spreadMarkers(events);
 
   return (
     <div className="explore-events-container">
-      {/* Transparent navbar at the top */}
-     
-      
-      {/* Content wrapper for map and sidebar with clear navbar separation */}
       <div className="explore-content">
-        {/* Left sidebar with event listings */}
+
+        {/* Sidebar */}
         <div className="sidebar">
           <h2 className="filter-heading">Filter Event by Type</h2>
           <FilterBar filters={filters} onFilterChange={handleFilterChange} />
-          {/* Backend-driven global EventList wired to filters */}
-          <EventList category={activeCategory} q={searchQuery} />
+          <EventList
+            events={adjustedEvents}
+            onSelect={handleEventSelect}
+            activeIndex={events.findIndex(e => e === selectedEvent) || 0}
+            setActiveIndex={() => {}}
+          />
         </div>
 
-        {/* Main map container */}
+        {/* MAP */}
         <div className="map-container">
-          {/* Leaflet MapContainer with explicit dimensions */}
           <MapContainer
-            // Initial center is the default campus area; individual events
-            // will recenter the view when selected.
             center={DEFAULT_MAP_CENTER}
             zoom={16}
-            ref={mapRef}
-            style={{ height: '100vh', width: '100%', position: 'relative' }}
+            whenCreated={(map) => (mapRef.current = map)}
+            style={{ height: '100vh', width: '100%' }}
           >
-          {/* Esri World Imagery satellite map tiles */}
-          <TileLayer
-            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-            attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-          />
-          {events.map((event) => {
-            // Safely derive a Leaflet [lat, lng] position from the backend
-            // event.location object. If no coordinates exist, skip the marker
-            // so we do not place it at an incorrect location.
-            const lat = event?.location?.latitude;
-            const lng = event?.location?.longitude;
-            const hasCoords =
-              typeof lat === "number" && typeof lng === "number" && !Number.isNaN(lat) && !Number.isNaN(lng);
+            <TileLayer
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+              attribution="Tiles © Esri & others"
+            />
 
-            if (!hasCoords) {
-              return null;
-            }
-
-            const position = [lat, lng];
-
-            return (
+            {adjustedEvents.map(event => (
               <Marker
                 key={event.event_id}
-                position={position}
-                eventHandlers={{
-                  click: () => handleEventSelect(event),
-                }}
+                position={event._offsetPos}
+                eventHandlers={{ click: () => handleEventSelect(event) }}
               >
-                <Popup closeButton={false} className="event-popup">
+                <Popup closeButton={false}>
                   <h3>{event.title}</h3>
                 </Popup>
               </Marker>
-            );
-          })}
-        </MapContainer>
+            ))}
+          </MapContainer>
         </div>
       </div>
     </div>
