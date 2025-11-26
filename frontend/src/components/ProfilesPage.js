@@ -202,7 +202,7 @@ export default function ProfilesPage() {
             The outer flex container keeps both sections side-by-side on
             wider screens while still allowing them to stack naturally on
             smaller viewports. */}
-        <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '4rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
           {/* Simple fields showing name and email. The name field is now editable
               so the user can update the full name stored in the backend. */}
           <div style={{ flex: 1, minWidth: '260px' }}>
@@ -246,6 +246,7 @@ export default function ProfilesPage() {
                     type="button"
                     className="auth-submit-button"
                     style={{
+                      textAlign: 'center',
                       padding: '0.25rem 0.5rem',
                       fontSize: '0.85rem',
                       minWidth: 'auto',
@@ -330,7 +331,9 @@ export default function ProfilesPage() {
                   setActiveIndex={setSavedActiveIndex}
                 />
               ) : !savedLoading && !savedError ? (
-                <p>You have no saved events yet.</p>
+                <div style={{ textAlign: 'center', padding: '0.5rem 0' }}>
+                  <p>You have no saved events yet.</p>
+                </div>
               ) : null}
             </div>
           </div>

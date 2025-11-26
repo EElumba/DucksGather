@@ -22,7 +22,7 @@ async function request(path, { method = 'GET', body, headers = {}, auth = true }
   }
   const resp = await fetch(url, {
     method,
-    headers: finalHeaders,
+    headers: finalHeaders, 
     body: body ? JSON.stringify(body) : undefined,
   });
   const isJson = resp.headers.get('content-type')?.includes('application/json');
@@ -82,6 +82,12 @@ export async function updateEvent(id, patch) {
   return request(`/api/events/${id}`, { method: 'PATCH', body: patch });
 }
 
+// Delete an event by ID (authenticated). Only the creator or an admin is
+// allowed to perform this action, as enforced by the backend route.
+export async function deleteEvent(id) {
+  return request(`/api/events/${id}`, { method: 'DELETE' });
+}
+
 export async function saveEvent(id) {
   return request(`/api/events/${id}/save`, { method: 'POST' });
 }
@@ -92,6 +98,21 @@ export async function unsaveEvent(id) {
 
 export async function listSavedEvents() {
   return request('/api/events/saved');
+}
+
+/**
+ * Check if a specific event is saved by the current user
+ * Returns true if the event is in the user's saved events list
+ */
+export async function isEventSaved(id) {
+  try {
+    const savedEvents = await listSavedEvents();
+    return savedEvents.some(event => event.event_id === parseInt(id));
+  } catch (error) {
+    // If we can't fetch saved events, assume not saved
+    console.error('Failed to check if event is saved:', error);
+    return false;
+  }
 }
 
 // Auth convenience
