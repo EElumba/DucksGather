@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from src.sanitize import sanitize
 from src.sanitize import schemas
+from src.sanitize.duplicate_check import is_duplicate_event, filter_duplicate_events
 from models.models import Event as EventModel, Location as LocationModel
 from db.db_init import SessionLocal
 
@@ -246,9 +247,17 @@ def insert_events_to_db(validated_events: list[dict]) -> tuple[int, int]:
     db = SessionLocal()
     success_count = 0
     failure_count = 0
+    skipped_count = 0
     
     try:
-        for event_data in validated_events:
+        # Filter out duplicate events before processing
+        unique_events = filter_duplicate_events(db, validated_events)
+        duplicate_count = len(validated_events) - len(unique_events)
+        
+        if duplicate_count > 0:
+            print(f"⊘ Filtered out {duplicate_count} duplicate event(s)")
+        
+        for event_data in unique_events:
             try:
                 # Parse datetime strings to datetime objects
                 start_at = event_data.get("start_at")
@@ -294,8 +303,9 @@ def insert_events_to_db(validated_events: list[dict]) -> tuple[int, int]:
                         location_id = new_location.location_id
                 
                 # Create Event model instance
+                event_title = event_data.get("title")
                 event = EventModel(
-                    title=event_data.get("title"),
+                    title=event_title,
                     description=event_data.get("description"),
                     category="Scraped",  # Default category for scraped events
                     date=event_date,
@@ -312,7 +322,7 @@ def insert_events_to_db(validated_events: list[dict]) -> tuple[int, int]:
                 db.add(event)
                 db.commit()
                 success_count += 1
-                print(f"Inserted: {event_data.get('title')}")
+                print(f"✓ Inserted: {event_title}")
                 
             except Exception as e:
                 db.rollback()
