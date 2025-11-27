@@ -4,7 +4,7 @@ import { listEvents } from "../api/client";
 import EventDetails from "./EventDetail";
 import "../styles/ExploreEvents.css";
 
-export default function EventList({ category, date, q, events: propEvents, onSelect, activeIndex: propActiveIndex, setActiveIndex: propSetActiveIndex }) {
+5export default function EventList({ category, date, q, events: propEvents, onSelect, activeIndex: propActiveIndex, setActiveIndex: propSetActiveIndex }) {
   const [events, setEvents] = useState(propEvents || []);
   const [activeIndex, setActiveIndex] = useState(propActiveIndex || 0);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -93,7 +93,8 @@ export default function EventList({ category, date, q, events: propEvents, onSel
         tabIndex={0}
         onKeyDown={handleListKeyDown}
       >
-        {currentEvents.map((event, i) => {
+
+{currentEvents.map((event, i) => {
           const imageUrl = event.image_url || "/campus-hero.jpg";
           const location = event.location || {};
           const dateLabel = event.date || "TBD";
