@@ -25,6 +25,7 @@ def update_me():
             current = g.app_user.full_name
 
             # Only enforce cooldown if there is an existing name and it’s changing
+            # 
             if current and incoming and incoming != current:
                 now = datetime.now(timezone.utc)
                 last = g.app_user.updated_at or g.app_user.created_at

@@ -4,10 +4,15 @@ import { listEvents } from "../api/client";
 import EventDetails from "./EventDetail";
 import "../styles/ExploreEvents.css";
 
-export default function EventList({ category, date, q }) {
-  const [events, setEvents] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+5export default function EventList({ category, date, q, events: propEvents, onSelect, activeIndex: propActiveIndex, setActiveIndex: propSetActiveIndex }) {
+  const [events, setEvents] = useState(propEvents || []);
+  const [activeIndex, setActiveIndex] = useState(propActiveIndex || 0);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  
+  // Determine if we should use internal state or props
+  const useInternalState = !propEvents;
+  const currentActiveIndex = propActiveIndex !== undefined ? propActiveIndex : activeIndex;
+  const currentSetActiveIndex = propSetActiveIndex || setActiveIndex;
 
   const navigate = useNavigate();
 
@@ -15,8 +20,11 @@ export default function EventList({ category, date, q }) {
   const itemRefs = useRef([]);
   const lastFocusedIndexRef = useRef(0);
 
-  // Fetch events from backend
+  // Fetch events from backend (only if no events provided as props)
   useEffect(() => {
+    // If events are provided as props, don't fetch
+    if (propEvents) return;
+    
     async function fetchEvents() {
       try {
         const response = await listEvents({
@@ -36,24 +44,34 @@ export default function EventList({ category, date, q }) {
     }
 
     fetchEvents();
-  }, [category, date, q]);
+  }, [category, date, q, propEvents]);
+
+  // Update events when prop changes
+  useEffect(() => {
+    if (propEvents) {
+      setEvents(propEvents);
+      itemRefs.current = [];
+    }
+  }, [propEvents]);
+
+  const currentEvents = propEvents || events;
 
   // Keyboard navigation for list container
   const handleListKeyDown = (e) => {
-    if (events.length === 0) return;
+    if (currentEvents.length === 0) return;
 
     if (e.key === "ArrowUp") {
       e.preventDefault();
-      const newIndex = (activeIndex - 1 + events.length) % events.length;
-      setActiveIndex(newIndex);
+      const newIndex = (currentActiveIndex - 1 + currentEvents.length) % currentEvents.length;
+      currentSetActiveIndex(newIndex);
       itemRefs.current[newIndex]?.focus();
       lastFocusedIndexRef.current = newIndex;
     }
 
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      const newIndex = (activeIndex + 1) % events.length;
-      setActiveIndex(newIndex);
+      const newIndex = (currentActiveIndex + 1) % currentEvents.length;
+      currentSetActiveIndex(newIndex);
       itemRefs.current[newIndex]?.focus();
       lastFocusedIndexRef.current = newIndex;
     }
@@ -62,7 +80,7 @@ export default function EventList({ category, date, q }) {
   // Keyboard: Enter opens popup
   const handleItemKeyDown = (e, index) => {
     if (e.key === "Enter") {
-      setSelectedEvent(events[index]);
+      setSelectedEvent(currentEvents[index]);
     }
   };
 
@@ -71,11 +89,12 @@ export default function EventList({ category, date, q }) {
       <div
         ref={listRef}
         role="listbox"
-        aria-activedescendant={`event-${events[activeIndex]?.event_id}`}
+        aria-activedescendant={`event-${currentEvents[currentActiveIndex]?.event_id}`}
         tabIndex={0}
         onKeyDown={handleListKeyDown}
       >
-        {events.map((event, i) => {
+
+{currentEvents.map((event, i) => {
           const imageUrl = event.image_url || "/campus-hero.jpg";
           const location = event.location || {};
           const dateLabel = event.date || "TBD";
@@ -86,15 +105,19 @@ export default function EventList({ category, date, q }) {
               id={`event-${event.event_id}`}
               ref={(el) => (itemRefs.current[i] = el)}
               role="option"
-              aria-selected={activeIndex === i}
-              tabIndex={activeIndex === i ? 0 : -1}
-              onFocus={() => setActiveIndex(i)}
+              aria-selected={currentActiveIndex === i}
+              tabIndex={currentActiveIndex === i ? 0 : -1}
+              onFocus={() => currentSetActiveIndex(i)}
               onClick={() => {
                 lastFocusedIndexRef.current = i;
                 setSelectedEvent(event);
+                // Call onSelect prop if provided (used by ProfilesPage)
+                if (onSelect) {
+                  onSelect(event);
+                }
               }}
               onKeyDown={(e) => handleItemKeyDown(e, i)}
-              className={`event-card ${activeIndex === i ? "highlighted" : ""}`}
+              className={`event-card ${currentActiveIndex === i ? "highlighted" : ""}`}
             >
               <div className="event-image">
                 <img
