@@ -3,6 +3,7 @@ import '../styles/CreateEvent.css';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getEvent, updateEvent, searchBuildings, deleteEvent } from '../api/client';
+import DeleteEvent from './delete';
 
 // We reuse the same category options and styling as the create-event flow
 const CATEGORY_OPTIONS = [
@@ -423,6 +424,15 @@ export default function EditEventForm() {
               placeholder="e.g. 123, 2F, Auditorium"
             />
           </div>
+
+          {/* Reusable delete control: this embeds the DeleteEvent component, which
+              shows a confirmation modal before calling the DELETE /api/events
+              endpoint. We pass the current event id and navigate back to
+              Explore once deletion succeeds. */}
+          <DeleteEvent
+            eventId={id}
+            onDelete={() => navigate('/explore')}
+          />
 
           {/* Destructive delete action: styled similarly to the primary submit
               button but with a red variant, and placed directly above the
