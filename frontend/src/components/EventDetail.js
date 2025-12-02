@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/EventDetail.css';
 import { getEvent, saveEvent, unsaveEvent, isEventSaved } from '../api/client';
 import { useAuth } from '../context/AuthContext';
+import TextDirections from "./text_directions"
 
 /**
  * EventDetail Component
@@ -241,7 +242,7 @@ const EventDetail = () => {
         <div className="event-info-section">
           <h2>Location</h2>
           <p>{locationText || 'Location TBD'}</p>
-
+          < TextDirections/>
           <h2>Description</h2>
           <p>{description}</p>
         </div>
