@@ -44,12 +44,15 @@ const SearchIcon = styled.div`
 
 const ResultsList = styled.div`
   margin-top: 0.5rem;
+  margin-left: 0.5rem;
   max-height: 300px;
   overflow-y: auto;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 `;
+
+
 
 const ResultButton = styled.button`
   width: 100%;
