@@ -1,17 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 
 /**
- * TextDirectionsModal.jsx (updated)
+ * TextDirectionsModal.jsx (updated final)
  *
- * Changes made:
- * - BUILDINGS is now an array of canonical building objects { name, lat, lon }.
- * - The component no longer relies on text geocoding for known campus buildings;
- *   it looks up lat/lon directly from the BUILDINGS map.
- * - All original modal, autocomplete, keyboard, aria-live, focus-trap, and routing
- *   logic preserved. Only minimal wiring changes to use building objects.
+ * Preserves all of your accessibility structure and modal/autocomplete logic.
+ * Changes:
+ *  - Adds FALLBACK_MAP and FALLBACK_FROM_EMU
+ *  - Adds getFallbackDirections()
+ *  - Adds streetFallbackDirections() (generic non-visual fallback)
+ *  - Replaces submitForm routing catch with prioritized fallbacks:
+ *      1) Geoapify route (preferred)
+ *      2) handcraftedDirections (existing)
+ *      3) FALLBACK_MAP / FALLBACK_FROM_EMU
+ *      4) streetFallbackDirections (last resort)
  *
- * Note: Geoapify routing still used for turn-by-turn steps; ensure REACT_APP_GEOAPIFY_KEY
- * is set and that your key has routing permissions.
+ * NOTE: Keep your REACT_APP_GEOAPIFY_KEY in env for Geoapify to run.
  */
 
 const GEOAPIFY_KEY = process.env.REACT_APP_GEOAPIFY_KEY || "";
@@ -69,8 +72,6 @@ function filterBuildings(query) {
 // Helper: request Geoapify routing (walking) between coords; returns array of readable steps
 async function routeGeoapify(start, end) {
   if (!GEOAPIFY_KEY) throw new Error("Geoapify API key missing (REACT_APP_GEOAPIFY_KEY).");
-  // waypoints: lat,lon|lat,lon (Geoapify expects lat,lon but some versions accept lon,lat; keep consistent with earlier usage)
-  // We will use lat,lon ordering in the waypoint string per Geoapify docs: lat,lon|lat,lon
   const waypoints = `${start.lat},${start.lon}|${end.lat},${end.lon}`;
   const url =
     "https://api.geoapify.com/v1/routing?waypoints=" +
@@ -89,17 +90,13 @@ async function routeGeoapify(start, end) {
     if (!legs || legs.length === 0) throw new Error("No route legs");
     const steps = legs[0].steps || [];
     // Convert steps into human readable text using available instruction or name + distance
-    return steps.map((s, i) => {
-      // Geoapify may provide s.instruction, s.action, s.name, s.distance
+    return steps.map((s) => {
       const instr = s.instruction || s.action || "";
       const distMeters = s.distance || (s.properties && s.properties.distance) || 0;
       const distText = distMeters ? Math.round(distMeters) + " m" : "";
       const name = s.name || (s.properties && s.properties.name) || "";
 
-      // Build a descriptive sentence:
-      // Prefer a full instruction if provided; otherwise compose from action/name/distance.
       if (instr && instr.length > 0) {
-        // Ensure instruction ends with punctuation
         let out = instr;
         if (distText) out += " — about " + distText + ".";
         else if (!out.endsWith(".")) out += ".";
@@ -119,24 +116,135 @@ async function routeGeoapify(start, end) {
       return "Continue on the current path.";
     });
   } catch (err) {
-    // Fallback if structure unexpected
     throw new Error("Unexpected routing response format.");
   }
 }
 
-// Handcrafted detailed directions for a few high-value pairs (street-aware instructions)
-// These are written to be as explicit as possible: exit location, initial bearing, street names, approximate distances.
+// Handcrafted detailed directions for a few high-value pairs (non-visual, tactile/structural)
 function handcraftedDirections(startName, endName) {
   const key = startName + "__" + endName;
   const map = {
     "Knight Library__Erb Memorial Union (EMU)":
-      "Exit the Knight Library through the main south doors onto the Memorial Quad. Face east toward the EMU. Walk across the concrete path for about 60 meters (approximately 200 feet). When you reach the brick plaza, continue straight toward the EMU main entrance; the doors face north and will be directly ahead after about 45 meters. There are no street crossings—this is entirely on campus pathways.",
+      "Exit the Knight Library via the main south entrance onto the Memorial Quad. Walk northeast across the quad on the paved path for about 60 meters (approximately 200 feet). Continue onto the brick plaza and follow it for another 45 meters until you reach the EMU north-side doors. This route is on paved campus pathways with no street crossings.",
     "Erb Memorial Union (EMU)__Knight Library":
-      "Exit the EMU through the north-facing doors onto the brick plaza. Face west and walk straight across the plaza for about 45 meters until the concrete path begins. Follow that path west/southwest for about 60 meters (approx. 200 feet). The Knight Library main entrance will be on your right, recessed slightly under the building overhang.",
-    // Add any other high-value handcrafted pairs here as needed
+      "From the EMU north-side exit on 13th Avenue, face west and walk along the pedestrian plaza for about 45 meters until the main concrete path begins. Follow the path as it bends slightly southwest for about 60 meters. You will reach the approach to the Knight Library entrance area: a broad ramp/stair run that leads to the library's north-facing entry.",
+    // add other precise handcrafted pairs here when you author them
   };
-  if (map[key]) return map[key];
+  return map[key] || null;
+}
+
+/* ------------------------------
+   Fallback directions data + helpers
+   ------------------------------ */
+
+/**
+ * FALLBACK_MAP:
+ * Keys are exactly "<START>__<END>" (match startInput and endInput strings users will choose).
+ * Values are arrays of strings (each string becomes a list item).
+ *
+ * Keep language non-visual (tactile/structural/audio).
+ */
+const FALLBACK_MAP = {
+  // Example pair (you can add more entries keyed exactly as users select them)
+  "EMU__Knight Library": [
+    "From the EMU north side on East 13th Avenue, face west along the sidewalk.",
+    "Walk west along 13th for about 250 feet (approx. 75 meters) until you reach the Kincaid intersection, identified by a curb cut and audible traffic.",
+    "Cross at Kincaid using the marked crossing and tactile indicators.",
+    "Turn left (south) and walk along the sidewalk for about 150 feet until you reach the pedestrian plaza.",
+    "Turn right onto the wide pedestrian walkway and continue for about 120 feet until you reach the library entrance ramp/stairs."
+  ]
+  // Add more keys here
+};
+
+/**
+ * FALLBACK_FROM_EMU:
+ * Simpler hub-style map keyed by destination building name (used when start is EMU).
+ * Values are arrays of strings.
+ */
+const FALLBACK_FROM_EMU = {
+  "Knight Library": [
+    "From the EMU north side on East 13th Avenue, face west along the sidewalk.",
+    "Walk west on 13th for about 250 feet (approx. 75 meters) until you reach Kincaid — indicated by heavier traffic noise and a curb cut.",
+    "Cross Kincaid and turn left (south); walk 150 feet on Kincaid until a wide pedestrian walkway entrance.",
+    "Follow that walkway west for about 120 feet to the library entrance ramp/stairs."
+  ],
+  // Add more EMU -> building entries here (one per destination name)
+};
+
+/**
+ * getFallbackDirections(startName, endName)
+ * - Returns an array of strings (or null if none)
+ */
+function getFallbackDirections(startName, endName) {
+  if (!startName || !endName) return null;
+  const exactKey = `${startName}__${endName}`;
+  if (FALLBACK_MAP[exactKey]) return FALLBACK_MAP[exactKey];
+
+  // Normalize common EMU variants so you can use "EMU" as start
+  const emuKeys = new Set(["EMU", "Erb Memorial Union (EMU)", "Erb Memorial Union", "Erb Memorial Union EMU"]);
+  if (emuKeys.has(startName) && FALLBACK_FROM_EMU[endName]) {
+    return FALLBACK_FROM_EMU[endName];
+  }
+
+  // Reverse lookup optional: if user has reverse pair in FALLBACK_MAP, return note
+  const reverseKey = `${endName}__${startName}`;
+  if (FALLBACK_MAP[reverseKey]) {
+    return [...FALLBACK_MAP[reverseKey], "(Note: this route was authored in reverse; follow it in reverse.)"];
+  }
+
   return null;
+}
+
+/* ------------------------------
+   Generic street-based fallback (non-visual)
+   ------------------------------ */
+
+/**
+ * A pragmatic, last-resort fallback that:
+ * - computes rough cardinal direction
+ * - estimates walking distance in feet
+ * - provides stepwise text (non-visual cues)
+ *
+ * Inputs:
+ *  - startName: string label (e.g., "EMU")
+ *  - start: { lat, lon }
+ *  - endName: string label (e.g., "Knight Library")
+ *  - end: { lat, lon }
+ *
+ * Returns: array of strings
+ */
+function streetFallbackDirections(startName, start, endName, end) {
+  // Haversine-ish small-distance approximation
+  const R = 6371000; // meters
+  const toRad = (d) => (d * Math.PI) / 180;
+  const lat1 = toRad(start.lat);
+  const lat2 = toRad(end.lat);
+  const dLat = toRad(end.lat - start.lat);
+  const dLon = toRad(end.lon - start.lon);
+
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const meters = R * c;
+  const feet = Math.round(meters * 3.28084);
+
+  // bearing: 0 = north
+  const y = Math.sin(dLon) * Math.cos(lat2);
+  const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+  let bearing = (Math.atan2(y, x) * 180) / Math.PI;
+  bearing = (bearing + 360) % 360;
+
+  const directions8 = ["north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest"];
+  const dir = directions8[Math.round(bearing / 45) % 8];
+
+  // Build text steps (non-visual cues only)
+  const steps = [];
+  steps.push(`Begin at ${startName}.`);
+  steps.push(`Head generally ${dir} toward the destination.`);
+  steps.push(`Continue along sidewalks and pedestrian paths for approximately ${feet} feet.`);
+  steps.push(`When you reach a major crossing or street, use marked crosswalks and tactile indicators to continue toward ${endName}.`);
+  steps.push(`This is an approximate route generated as a fallback; verify surroundings and listen for traffic cues as you walk.`);
+
+  return steps;
 }
 
 // Small utility to find building object by exact name
@@ -388,12 +496,17 @@ export default function TextDirectionsModal() {
       try {
         steps = await routeGeoapify({ lat: startGeo.lat, lon: startGeo.lon }, { lat: endGeo.lat, lon: endGeo.lon });
       } catch (routeErr) {
-        // If routing fails, fall back to handcrafted directions if present
-        const fallback = handcraftedDirections(startInput, endInput);
-        if (fallback) {
-          steps = [fallback];
+        // NEW: prioritized fallbacks
+        const handcrafted = handcraftedDirections(startInput, endInput);
+        const manualFallback = getFallbackDirections(startInput, endInput);
+
+        if (handcrafted) {
+          steps = [handcrafted];
+        } else if (manualFallback) {
+          steps = manualFallback;
         } else {
-          steps = ["Turn-by-turn directions not available for this pair."];
+          // last resort: generic street-based approximator
+          steps = streetFallbackDirections(startInput, startGeo, endInput, endGeo);
         }
       }
       setDirections(steps);
