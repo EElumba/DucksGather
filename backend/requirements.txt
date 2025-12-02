@@ -13,3 +13,4 @@ tenacity
 bleach
 beautifulsoup4
 lxml
+gunicorn
