@@ -44,12 +44,15 @@ const SearchIcon = styled.div`
 
 const ResultsList = styled.div`
   margin-top: 0.5rem;
+  margin-left: 2.5rem;
   max-height: 300px;
   overflow-y: auto;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 `;
+
+
 
 const ResultButton = styled.button`
   width: 100%;
@@ -147,12 +150,14 @@ const SearchBar = ({ initialValue = '' }) => {
 
   return (
     <SearchContainer>
-      <SearchIcon>
+      
+      {/* <SearchIcon>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="11" cy="11" r="8" />
           <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
-      </SearchIcon>
+      </SearchIcon> */}
+      
 
       <SearchInput
         type="text"
