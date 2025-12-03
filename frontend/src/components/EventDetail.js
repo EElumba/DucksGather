@@ -240,9 +240,9 @@ const EventDetail = () => {
 
         {/* Detailed information section for location and description */}
         <div className="event-info-section">
+          < TextDirections/>
           <h2>Location</h2>
           <p>{locationText || 'Location TBD'}</p>
-          < TextDirections/>
           <h2>Description</h2>
           <p>{description}</p>
         </div>
