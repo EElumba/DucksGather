@@ -18,11 +18,11 @@ load_dotenv()
 # Add parent directories to path to allow imports
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from src.sanitize import sanitize
-from src.sanitize import schemas
-from src.sanitize.duplicate_check import is_duplicate_event, filter_duplicate_events
-from models.models import Event as EventModel, Location as LocationModel
-from db.db_init import SessionLocal
+from backend.src.sanitize import sanitize
+from backend.src.sanitize import schemas
+from backend.src.sanitize.duplicate_check import is_duplicate_event, filter_duplicate_events
+from backend.src.models.models import Event as EventModel, Location as LocationModel
+from backend.src.db.db_init import SessionLocal
 
 """
 Script Example
@@ -250,15 +250,15 @@ def insert_events_to_db(validated_events: list[dict]) -> tuple[int, int]:
     skipped_count = 0
     
     try:
-        # Filter out duplicate events before processing
-        unique_events = filter_duplicate_events(db, validated_events)
-        duplicate_count = len(validated_events) - len(unique_events)
-        
-        if duplicate_count > 0:
-            print(f"⊘ Filtered out {duplicate_count} duplicate event(s)")
-        
-        for event_data in unique_events:
+        for event_data in validated_events:
             try:
+                # Check if this specific event is a duplicate BEFORE processing
+                event_title = event_data.get("title")
+                if is_duplicate_event(db, event_title):
+                    skipped_count += 1
+                    print(f"Skipped duplicate: {event_title}")
+                    continue
+                
                 # Parse datetime strings to datetime objects
                 start_at = event_data.get("start_at")
                 ends_at = event_data.get("ends_at")
@@ -303,7 +303,6 @@ def insert_events_to_db(validated_events: list[dict]) -> tuple[int, int]:
                         location_id = new_location.location_id
                 
                 # Create Event model instance
-                event_title = event_data.get("title")
                 event = EventModel(
                     title=event_title,
                     description=event_data.get("description"),
@@ -317,8 +316,6 @@ def insert_events_to_db(validated_events: list[dict]) -> tuple[int, int]:
                     is_scraped=True
                 )
                 
-                # TODO: Handle location insertion 
-                
                 db.add(event)
                 db.commit()
                 success_count += 1
@@ -328,6 +325,10 @@ def insert_events_to_db(validated_events: list[dict]) -> tuple[int, int]:
                 db.rollback()
                 failure_count += 1
                 print(f"✗ Failed to insert '{event_data.get('title')}': {e}")
+        
+        # Print summary if any were skipped
+        if skipped_count > 0:
+            print(f"\nTotal skipped duplicates: {skipped_count}")
                 
     finally:
         db.close()
