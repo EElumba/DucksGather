@@ -337,6 +337,8 @@ def update_event(event_id: int):
         db.close()
 
 
+
+'''
 @bp.delete("/<int:event_id>")
 @require_app_user()
 def delete_event(event_id: int):
@@ -360,6 +362,41 @@ def delete_event(event_id: int):
         return jsonify({"error": str(e)}), 500
     finally:
         db.close()
+        
+        
+'''
+
+@bp.delete("/<int:event_id>")
+@require_app_user()
+def delete_event(event_id: int):
+    """Authenticated: delete an event I own or any event if admin."""
+    db = get_db()
+    try:
+        ev = db.query(Event).filter(Event.event_id == event_id).first()
+        if not ev:
+            return jsonify({"error": "Not found"}), 404
+
+        # Allow creator OR admin
+        if not ev.created_by:
+            return jsonify({"error": "Forbidden"}), 403
+        if str(ev.created_by) != str(g.user_id) and g.app_user.role != 'admin':
+            return jsonify({"error": "Forbidden"}), 403
+
+        # Delete dependent user-events (saves/interest) first
+        from backend.src.models import UserEvent  # adjust path to your actual models
+
+        db.query(UserEvent).filter(UserEvent.event_id == event_id).delete()
+
+        # Now delete the event itself
+        db.delete(ev)
+        db.commit()
+        return jsonify({"status": "deleted"}), 200
+    except Exception as e:
+        db.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        db.close()
+
 
 # Interest (save/unsave) endpoints
 
