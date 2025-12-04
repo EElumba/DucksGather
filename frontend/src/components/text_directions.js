@@ -18,6 +18,7 @@ import React, { useEffect, useRef, useState } from "react";
  */
 
 const GEOAPIFY_KEY = process.env.REACT_APP_GEOAPIFY_KEY || "";
+const ELEVENLABS_API_KEY = process.env.REACT_APP_ELEVENLABS_API_KEY || "";
 
 /**
  * Canonical buildings with coordinates (pre-resolved).
@@ -298,13 +299,18 @@ export default function TextDirectionsModal() {
   const [error, setError] = useState(null);
   const [coords, setCoords] = useState({ start: null, end: null });
   const [directions, setDirections] = useState([]);
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const [isLoadingAudio, setIsLoadingAudio] = useState(false);
+  const [audioError, setAudioError] = useState(null);
 
-  const geocodeCache = useRef({}); // still kept for possible future use
+  const geocodeCache = useRef({});
+  const audioCacheRef = useRef({});
   const openButtonRef = useRef(null);
   const startInputRef = useRef(null);
   const endInputRef = useRef(null);
   const modalRef = useRef(null);
   const liveRef = useRef(null);
+  const audioRef = useRef(null);
 
   // Open modal: reset fields and focus
   function openModal() {
@@ -319,6 +325,12 @@ export default function TextDirectionsModal() {
     setDirections([]);
     setCoords({ start: null, end: null });
     setStatusMessage("");
+    setIsPlayingAudio(false);
+    setAudioError(null);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
     setTimeout(() => {
       if (startInputRef.current) startInputRef.current.focus();
     }, 0);
@@ -327,6 +339,10 @@ export default function TextDirectionsModal() {
   // Close modal: restore focus to button
   function closeModal() {
     setOpen(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
     setTimeout(() => {
       if (openButtonRef.current) openButtonRef.current.focus();
     }, 0);
@@ -525,6 +541,7 @@ export default function TextDirectionsModal() {
       if (endInputRef.current) endInputRef.current.focus();
     }, 0);
   }
+
   function pickEndSuggestion(s) {
     setEndInput(s);
     setEndSuggestions([]);
@@ -534,6 +551,111 @@ export default function TextDirectionsModal() {
   // aria-activedescendant helpers
   const startActivedId = activeStartIndex >= 0 ? "start-option-" + activeStartIndex : undefined;
   const endActivedId = activeEndIndex >= 0 ? "end-option-" + activeEndIndex : undefined;
+
+  // Text-to-speech function using ElevenLabs API
+  async function playDirectionsAudio() {
+    if (!ELEVENLABS_API_KEY) {
+      setAudioError("ElevenLabs API key not configured. Please add REACT_APP_ELEVENLABS_API_KEY to your .env file.");
+      return;
+    }
+
+    if (!directions || directions.length === 0) {
+      setAudioError("No directions available to play.");
+      return;
+    }
+
+    setIsLoadingAudio(true);
+    setAudioError(null);
+
+    try {
+      // Combine all direction steps into one text
+      const fullText = directions.join(" ");
+
+      // Check cache first for instant playback
+      if (audioCacheRef.current[fullText]) {
+        const audio = new Audio(audioCacheRef.current[fullText]);
+        audioRef.current = audio;
+        
+        audio.onended = () => {
+          setIsPlayingAudio(false);
+        };
+
+        audio.onerror = () => {
+          setIsPlayingAudio(false);
+          setAudioError("Error playing audio.");
+        };
+
+        setIsLoadingAudio(false);
+        setIsPlayingAudio(true);
+        await audio.play();
+        return;
+      }
+
+      // ElevenLabs API endpoint for text-to-speech with streaming for faster response
+      const voiceId = "21m00Tcm4TlvDq8ikWAM"; // Rachel voice
+      const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream`;
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Accept": "audio/mpeg",
+          "Content-Type": "application/json",
+          "xi-api-key": ELEVENLABS_API_KEY
+        },
+        body: JSON.stringify({
+          text: fullText,
+          model_id: "eleven_turbo_v2_5",
+          voice_settings: {
+            stability: 0.5,
+            similarity_boost: 0.75,
+            style: 0.0,
+            use_speaker_boost: true
+          }
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`ElevenLabs API error: ${response.status} ${response.statusText}`);
+      }
+
+      // Convert response to blob and create audio URL
+      const audioBlob = await response.blob();
+      const audioUrl = URL.createObjectURL(audioBlob);
+
+      // Cache the audio for instant replay
+      audioCacheRef.current[fullText] = audioUrl;
+
+      // Create and play audio element
+      const audio = new Audio(audioUrl);
+      audioRef.current = audio;
+
+      audio.onended = () => {
+        setIsPlayingAudio(false);
+      };
+
+      audio.onerror = () => {
+        setIsPlayingAudio(false);
+        setAudioError("Error playing audio.");
+      };
+
+      setIsLoadingAudio(false);
+      setIsPlayingAudio(true);
+      await audio.play();
+    } catch (err) {
+      setIsLoadingAudio(false);
+      setIsPlayingAudio(false);
+      setAudioError(err.message || "Failed to generate audio. Please check your API key and try again.");
+    }
+  }
+
+  // Stop audio playback
+  function stopAudio() {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+    setIsPlayingAudio(false);
+  }
 
   return (
     <div>
@@ -740,6 +862,76 @@ export default function TextDirectionsModal() {
               {coords.start && coords.end && directions && directions.length > 0 && (
                 <section aria-live="polite" aria-atomic="true" style={{ marginTop: 12 }}>
                   <h3>Walking Directions</h3>
+                  
+                  {/* Audio controls */}
+                  <div style={{ marginBottom: 16, display: "flex", gap: 8, alignItems: "center" }}>
+                    {!isPlayingAudio && !isLoadingAudio ? (
+                      <button
+                        onClick={playDirectionsAudio}
+                        style={{
+                          padding: "8px 16px",
+                          backgroundColor: "#007bff",
+                          color: "white",
+                          border: "none",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 6
+                        }}
+                        aria-label="Play audio directions"
+                      >
+                        🔊 Play Audio Directions
+                      </button>
+                    ) : isLoadingAudio ? (
+                      <button
+                        disabled
+                        style={{
+                          padding: "8px 16px",
+                          backgroundColor: "#6c757d",
+                          color: "white",
+                          border: "none",
+                          borderRadius: 6,
+                          cursor: "wait",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 6,
+                          opacity: 0.8
+                        }}
+                        aria-label="Loading audio"
+                      >
+                        ⏳ Loading Audio...
+                      </button>
+                    ) : (
+                      <button
+                        onClick={stopAudio}
+                        style={{
+                          padding: "8px 16px",
+                          backgroundColor: "#dc3545",
+                          color: "white",
+                          border: "none",
+                          borderRadius: 6,
+                          cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 6
+                        }}
+                        aria-label="Stop audio playback"
+                      >
+                        ⏸️ Stop Audio
+                      </button>
+                    )}
+                    {isPlayingAudio && (
+                      <span style={{ fontSize: 14, color: "#28a745" }}>Playing...</span>
+                    )}
+                  </div>
+
+                  {audioError && (
+                    <div role="alert" style={{ color: "#dc3545", marginBottom: 12, padding: 8, backgroundColor: "#f8d7da", borderRadius: 4 }}>
+                      {audioError}
+                    </div>
+                  )}
+
                   <ol>
                     {directions.map((d, i) => (
                       <li key={i} style={{ marginBottom: 8 }}>
