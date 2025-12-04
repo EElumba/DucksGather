@@ -130,6 +130,23 @@
   transition: transform 0.05s ease, box-shadow 0.1s ease, opacity 0.1s ease;
 }
 
+
+/* Delete button*/
+.delete-event-submit {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #fa1515, #f5130b);
+  color: #111827;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(234, 179, 8, 0.4);
+  transition: transform 0.05s ease, box-shadow 0.1s ease, opacity 0.1s ease;
+}
+
 .create-event-submit:hover:not(:disabled) {
   transform: translateY(-1px);
   box-shadow: 0 18px 40px rgba(234, 179, 8, 0.5);
