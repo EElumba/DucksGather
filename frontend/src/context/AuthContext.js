@@ -28,16 +28,25 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const refreshProfile = useCallback(async () => {
-    if (!user) { setProfile(null); setProfileError(null); return; }
     try {
       setProfileError(null);
+      console.log('[DEBUG AuthContext] Fetching current user...');
       const data = await fetchCurrentUser();
+      console.log('[DEBUG AuthContext] Received user data:', data);
+      // Keep both top-level user and profile in sync with the backend
+      // representation so fields like full_name reflect recent updates.
+      setUser((prev) => {
+        const updated = { ...(prev || {}), ...data };
+        console.log('[DEBUG AuthContext] Updated user state:', updated);
+        return updated;
+      });
       setProfile(data);
+      console.log('[DEBUG AuthContext] Updated profile state:', data);
     } catch (e) {
       console.warn('Failed to fetch profile', e);
       setProfileError(e.message || 'Profile fetch failed');
     }
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     let mounted = true;
@@ -78,7 +87,7 @@ export function AuthProvider({ children }) {
     if (error) throw error;
     setUser(data.user);
     setAuthToken(data.session.access_token);
-    refreshProfile();
+    await refreshProfile();
   };
 
   const signUp = async (email, password, fullName) => {

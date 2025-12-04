@@ -30,11 +30,20 @@ export default function ProfilesPage() {
   // Keep the local name input in sync when the profile finishes loading or changes.
   // This ensures that if we navigate to the page before the profile is ready,
   // the input is updated once the data arrives.
+  //useEffect(() => {
+  //  if (profile) {
+  //    setNameInput(profile.full_name || profile.name || '');
+  //  }
+  //}, [profile]);
   useEffect(() => {
-    if (profile) {
-      setNameInput(profile.full_name || profile.name || '');
-    }
-  }, [profile]);
+  if (profile || user) {
+    setNameInput(
+      (profile && (profile.full_name || profile.name)) ||
+      user.full_name ||
+      ''
+    );
+  }
+}, [profile, user]);
 
   // Local state for the user's saved events shown on the profile page
   // -----------------------------------------------------------------
@@ -129,7 +138,13 @@ export default function ProfilesPage() {
   }
 
   // Derive display values from the user + profile objects
-  const displayName = (user.full_name || nameInput || profile?.full_name || profile?.name || 'Verified User');
+  //const displayName = (user.full_name || nameInput || profile?.full_name || profile?.name || 'Verified User');
+  const displayName =
+  (profile?.full_name ||
+   user.full_name ||
+   nameInput ||
+   profile?.name ||
+   'Verified User');
   const email = user.email || profile?.email || 'Unknown email';
   // Handler for saving the updated full name
   // ----------------------------------------
@@ -147,22 +162,27 @@ export default function ProfilesPage() {
     setIsSaving(true);
     setNameError(null);
     try {
+      console.log('[DEBUG] Sending PATCH with full_name:', nameInput.trim());
       // Call the backend to persist the new full name. The endpoint returns the
       // updated user object, which we can use to immediately reflect the
       // persisted name in this textbox before (or in addition to) a full
       // profile refresh.
       const updatedUser = await updateCurrentUser({ full_name: nameInput.trim() });
+      console.log('[DEBUG] Received updatedUser from PATCH:', updatedUser);
 
       // Immediately sync the local input with whatever the server actually
       // stored (in case it trims or normalizes the value server-side).
       if (updatedUser && (updatedUser.full_name || updatedUser.name)) {
+        console.log('[DEBUG] Setting nameInput to:', updatedUser.full_name || updatedUser.name);
         setNameInput(updatedUser.full_name || updatedUser.name);
       }
 
       // Ask the auth context to pull down the latest profile data.
       // This ensures any server-side transformations are reflected in the UI.
       if (typeof refreshProfile === 'function') {
+        console.log('[DEBUG] Calling refreshProfile...');
         await refreshProfile();
+        console.log('[DEBUG] After refreshProfile, user:', user, 'profile:', profile);
       }
 
       // Once the save completes successfully, exit edit mode so the
