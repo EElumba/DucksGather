@@ -92,6 +92,60 @@ const spreadMarkers = (events) => {
   return result;
 };
 
+/**
+ * Filter out events that have already passed
+ * @param {Array} events - Array of event objects
+ * @returns {Array} - Filtered array of upcoming events only
+ */
+const filterOutdatedEvents = (events) => {
+  const now = new Date();
+
+  return events.filter(event => {
+    // If no date, keep the event (avoid filtering out events without dates)
+    if (!event.date) {
+      console.log('Event has no date, keeping:', event.title);
+      return true;
+    }
+
+    try {
+      // Parse the event date - handle both ISO format and simple date strings
+      let eventDate;
+      
+      // Check if date is in YYYY-MM-DD format
+      if (typeof event.date === 'string' && event.date.match(/^\d{4}-\d{2}-\d{2}/)) {
+        eventDate = new Date(event.date + 'T00:00:00');
+      } else {
+        eventDate = new Date(event.date);
+      }
+      
+      console.log('Checking event:', event.title, 'Date:', event.date, 'Time:', event.time, 'Parsed:', eventDate);
+      
+      // If event has a time, use the full datetime comparison
+      if (event.time) {
+        const timeMatch = event.time.match(/(\d{1,2}):(\d{2})/);
+        if (timeMatch) {
+          const [_, hours, minutes] = timeMatch;
+          eventDate.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+          console.log('Event with time - EventDateTime:', eventDate, 'Now:', now, 'Show:', eventDate >= now);
+          return eventDate >= now;
+        }
+      }
+      
+      // For events without time, compare dates only (include entire day)
+      const todayStart = new Date();
+      todayStart.setHours(0, 0, 0, 0);
+      eventDate.setHours(0, 0, 0, 0);
+      console.log('Event without time - EventDate:', eventDate, 'TodayStart:', todayStart, 'Show:', eventDate >= todayStart);
+      return eventDate >= todayStart;
+      
+    } catch (err) {
+      // If date parsing fails, keep the event
+      console.warn('Failed to parse event date:', event.date, err);
+      return true;
+    }
+  });
+};
+
 const ExploreEvents = () => {
   // Static filter options
   const [filters] = useState({
@@ -181,6 +235,9 @@ const ExploreEvents = () => {
   const [activeCategory, setActiveCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [events, setEvents] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   const mapRef = useRef(null);
 
   const handleFilterChange = (filterType, value) => {
@@ -193,27 +250,48 @@ const ExploreEvents = () => {
     if (filterType === "Search") {
       setSearchQuery(normalized);
     }
+    
+    // Reset to page 1 when filters change
+    setCurrentPage(1);
   };
 
   useEffect(() => {
     async function fetchEventsForMap() {
+      setIsLoading(true);
       try {
         const response = await listEvents({
-          page: 1,
+          page: currentPage,
           page_size: 50,
           category: activeCategory || undefined,
           q: searchQuery || undefined,
         });
 
         const items = Array.isArray(response?.items) ? response.items : [];
-        setEvents(items);
+        // Filter out outdated events
+        const upcomingEvents = filterOutdatedEvents(items);
+        setEvents(upcomingEvents);
+        
+        // Calculate total pages based on total count from API
+        const total = response?.total || items.length;
+        setTotalPages(Math.ceil(total / 50));
       } catch (err) {
         console.error("Error fetching events for map:", err);
+      } finally {
+        setIsLoading(false);
       }
     }
 
     fetchEventsForMap();
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, currentPage]);
+
+  const goToPage = (pageNum) => {
+    if (pageNum >= 1 && pageNum <= totalPages && pageNum !== currentPage) {
+      setCurrentPage(pageNum);
+      // Scroll to top of event list
+      const sidebar = document.querySelector('.sidebar');
+      if (sidebar) sidebar.scrollTop = 0;
+    }
+  };
 
 const handleEventSelect = (event) => {
   setSelectedEvent(event);
@@ -242,12 +320,99 @@ const handleEventSelect = (event) => {
         <div className="sidebar">
           <h2 className="filter-heading">Filter Event by Type</h2>
           <FilterBar filters={filters} onFilterChange={handleFilterChange} />
-          <EventList
-            events={adjustedEvents}
-            onSelect={handleEventSelect}
-            activeIndex={events.findIndex(e => e === selectedEvent) || 0}
-            setActiveIndex={() => {}}
-          />
+          {isLoading ? (
+            <div style={{ padding: '20px', textAlign: 'center', color: '#666' }}>
+              Loading events...
+            </div>
+          ) : (
+            <>
+              <EventList
+                events={adjustedEvents}
+                onSelect={handleEventSelect}
+                activeIndex={events.findIndex(e => e === selectedEvent) || 0}
+                setActiveIndex={() => {}}
+              />
+              {totalPages > 1 && (
+                <div style={{ 
+                  padding: '16px', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center',
+                  gap: '8px',
+                  flexWrap: 'wrap',
+                  borderTop: '1px solid #e0e0e0'
+                }}>
+                  {/* Previous Button */}
+                  <button
+                    onClick={() => goToPage(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    style={{
+                      padding: '6px 12px',
+                      backgroundColor: currentPage === 1 ? '#f0f0f0' : '#007bff',
+                      color: currentPage === 1 ? '#999' : 'white',
+                      border: 'none',
+                      borderRadius: 4,
+                      cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                      fontSize: '14px'
+                    }}
+                  >
+                    ‹ Prev
+                  </button>
+
+                  {/* Page Numbers */}
+                  {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
+                    let pageNum;
+                    if (totalPages <= 7) {
+                      pageNum = i + 1;
+                    } else if (currentPage <= 4) {
+                      pageNum = i + 1;
+                    } else if (currentPage >= totalPages - 3) {
+                      pageNum = totalPages - 6 + i;
+                    } else {
+                      pageNum = currentPage - 3 + i;
+                    }
+
+                    return (
+                      <button
+                        key={pageNum}
+                        onClick={() => goToPage(pageNum)}
+                        style={{
+                          padding: '6px 12px',
+                          backgroundColor: currentPage === pageNum ? '#007bff' : 'white',
+                          color: currentPage === pageNum ? 'white' : '#007bff',
+                          border: '1px solid #007bff',
+                          borderRadius: 4,
+                          cursor: 'pointer',
+                          fontSize: '14px',
+                          fontWeight: currentPage === pageNum ? 'bold' : 'normal',
+                          minWidth: '36px'
+                        }}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  })}
+
+                  {/* Next Button */}
+                  <button
+                    onClick={() => goToPage(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    style={{
+                      padding: '6px 12px',
+                      backgroundColor: currentPage === totalPages ? '#f0f0f0' : '#007bff',
+                      color: currentPage === totalPages ? '#999' : 'white',
+                      border: 'none',
+                      borderRadius: 4,
+                      cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                      fontSize: '14px'
+                    }}
+                  >
+                    Next ›
+                  </button>
+                </div>
+              )}
+            </>
+          )}
         </div>
 
         {/* MAP */}
