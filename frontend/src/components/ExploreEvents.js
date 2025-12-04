@@ -92,6 +92,60 @@ const spreadMarkers = (events) => {
   return result;
 };
 
+/**
+ * Filter out events that have already passed
+ * @param {Array} events - Array of event objects
+ * @returns {Array} - Filtered array of upcoming events only
+ */
+const filterOutdatedEvents = (events) => {
+  const now = new Date();
+
+  return events.filter(event => {
+    // If no date, keep the event (avoid filtering out events without dates)
+    if (!event.date) {
+      console.log('Event has no date, keeping:', event.title);
+      return true;
+    }
+
+    try {
+      // Parse the event date - handle both ISO format and simple date strings
+      let eventDate;
+      
+      // Check if date is in YYYY-MM-DD format
+      if (typeof event.date === 'string' && event.date.match(/^\d{4}-\d{2}-\d{2}/)) {
+        eventDate = new Date(event.date + 'T00:00:00');
+      } else {
+        eventDate = new Date(event.date);
+      }
+      
+      console.log('Checking event:', event.title, 'Date:', event.date, 'Time:', event.time, 'Parsed:', eventDate);
+      
+      // If event has a time, use the full datetime comparison
+      if (event.time) {
+        const timeMatch = event.time.match(/(\d{1,2}):(\d{2})/);
+        if (timeMatch) {
+          const [_, hours, minutes] = timeMatch;
+          eventDate.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+          console.log('Event with time - EventDateTime:', eventDate, 'Now:', now, 'Show:', eventDate >= now);
+          return eventDate >= now;
+        }
+      }
+      
+      // For events without time, compare dates only (include entire day)
+      const todayStart = new Date();
+      todayStart.setHours(0, 0, 0, 0);
+      eventDate.setHours(0, 0, 0, 0);
+      console.log('Event without time - EventDate:', eventDate, 'TodayStart:', todayStart, 'Show:', eventDate >= todayStart);
+      return eventDate >= todayStart;
+      
+    } catch (err) {
+      // If date parsing fails, keep the event
+      console.warn('Failed to parse event date:', event.date, err);
+      return true;
+    }
+  });
+};
+
 const ExploreEvents = () => {
   // Static filter options
   const [filters] = useState({
@@ -206,7 +260,9 @@ const ExploreEvents = () => {
         });
 
         const items = Array.isArray(response?.items) ? response.items : [];
-        setEvents(items);
+        // Filter out outdated events
+        const upcomingEvents = filterOutdatedEvents(items);
+        setEvents(upcomingEvents);
       } catch (err) {
         console.error("Error fetching events for map:", err);
       }
