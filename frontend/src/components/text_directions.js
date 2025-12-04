@@ -300,9 +300,11 @@ export default function TextDirectionsModal() {
   const [coords, setCoords] = useState({ start: null, end: null });
   const [directions, setDirections] = useState([]);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const [isLoadingAudio, setIsLoadingAudio] = useState(false);
   const [audioError, setAudioError] = useState(null);
 
   const geocodeCache = useRef({});
+  const audioCacheRef = useRef({});
   const openButtonRef = useRef(null);
   const startInputRef = useRef(null);
   const endInputRef = useRef(null);
@@ -562,17 +564,36 @@ export default function TextDirectionsModal() {
       return;
     }
 
-    setIsPlayingAudio(true);
+    setIsLoadingAudio(true);
     setAudioError(null);
 
     try {
       // Combine all direction steps into one text
       const fullText = directions.join(" ");
 
-      // ElevenLabs API endpoint for text-to-speech
-      // Using voice ID for "Rachel" - you can change this to any voice ID
+      // Check cache first for instant playback
+      if (audioCacheRef.current[fullText]) {
+        const audio = new Audio(audioCacheRef.current[fullText]);
+        audioRef.current = audio;
+        
+        audio.onended = () => {
+          setIsPlayingAudio(false);
+        };
+
+        audio.onerror = () => {
+          setIsPlayingAudio(false);
+          setAudioError("Error playing audio.");
+        };
+
+        setIsLoadingAudio(false);
+        setIsPlayingAudio(true);
+        await audio.play();
+        return;
+      }
+
+      // ElevenLabs API endpoint for text-to-speech with streaming for faster response
       const voiceId = "21m00Tcm4TlvDq8ikWAM"; // Rachel voice
-      const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
+      const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream`;
 
       const response = await fetch(url, {
         method: "POST",
@@ -583,10 +604,12 @@ export default function TextDirectionsModal() {
         },
         body: JSON.stringify({
           text: fullText,
-          model_id: "eleven_monolingual_v1",
+          model_id: "eleven_turbo_v2_5",
           voice_settings: {
             stability: 0.5,
-            similarity_boost: 0.5
+            similarity_boost: 0.75,
+            style: 0.0,
+            use_speaker_boost: true
           }
         })
       });
@@ -599,23 +622,27 @@ export default function TextDirectionsModal() {
       const audioBlob = await response.blob();
       const audioUrl = URL.createObjectURL(audioBlob);
 
+      // Cache the audio for instant replay
+      audioCacheRef.current[fullText] = audioUrl;
+
       // Create and play audio element
       const audio = new Audio(audioUrl);
       audioRef.current = audio;
 
       audio.onended = () => {
         setIsPlayingAudio(false);
-        URL.revokeObjectURL(audioUrl);
       };
 
       audio.onerror = () => {
         setIsPlayingAudio(false);
         setAudioError("Error playing audio.");
-        URL.revokeObjectURL(audioUrl);
       };
 
+      setIsLoadingAudio(false);
+      setIsPlayingAudio(true);
       await audio.play();
     } catch (err) {
+      setIsLoadingAudio(false);
       setIsPlayingAudio(false);
       setAudioError(err.message || "Failed to generate audio. Please check your API key and try again.");
     }
@@ -838,7 +865,7 @@ export default function TextDirectionsModal() {
                   
                   {/* Audio controls */}
                   <div style={{ marginBottom: 16, display: "flex", gap: 8, alignItems: "center" }}>
-                    {!isPlayingAudio ? (
+                    {!isPlayingAudio && !isLoadingAudio ? (
                       <button
                         onClick={playDirectionsAudio}
                         style={{
@@ -855,6 +882,25 @@ export default function TextDirectionsModal() {
                         aria-label="Play audio directions"
                       >
                         🔊 Play Audio Directions
+                      </button>
+                    ) : isLoadingAudio ? (
+                      <button
+                        disabled
+                        style={{
+                          padding: "8px 16px",
+                          backgroundColor: "#6c757d",
+                          color: "white",
+                          border: "none",
+                          borderRadius: 6,
+                          cursor: "wait",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 6,
+                          opacity: 0.8
+                        }}
+                        aria-label="Loading audio"
+                      >
+                        ⏳ Loading Audio...
                       </button>
                     ) : (
                       <button
