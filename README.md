@@ -14,36 +14,109 @@ This guide explains how to run both the backend and frontend components of the D
 
 ## Running the Full Application
 
-You can run the entire application (frontend + backend) in one of two ways:
+You can run the entire application (frontend + backend)
 
-### Option 1 — Start Everything Automatically
-From the project’s main directory:
+### Run Frontend and Backend Individually (using two terminals)
 
-```bash
-python run.py
-```
-
-This script launches both the backend server and the frontend development server so the whole system runs together.
-
----
-
-### Option 2 — Run Frontend and Backend Individually
-
-#### Start the Backend
+#### Start the Backend in a terminal
 From the project’s main directory:
 ```bash
 bash run-backend.sh
 ```
 
+This will take some time
 
-#### Start the Frontend
+
+#### Start the Frontend in a separate terminal
 In a separate terminal:
 ```bash
 
 bash run-frontend.sh
 ```
 
-This gives you full control over each service.
+for a MacOS/Linux user it may be beneficial to chmod +x path/to/Flock\Code/frontend/node_modulues/.bin/react-scripts if the above command results in error.
+
+
+
+---
+
+### Manual Setup and Installation
+
+It is highly recommended to use a virtual environment.
+
+```bash
+# 1. Navigate to the root directory (backend/)
+cd backend
+
+# 2. Create and activate a virtual environment 
+python -m venv venv #alternatively python3 -m venv venv py -m venv venv
+
+# Only create a virtual environment if you don't have one already
+
+source venv/bin/activate  # macOS/Linux
+.\venv\Scripts\activate.bat # Windows
+
+# 3. Create requirements.txt (if not already present)
+cat <<EOL > requirements.txt
+flask
+supabase
+python-dotenv
+sqlalchemy
+psycopg2-binary
+PyJWT
+pytest
+requests
+flask-cors
+bs4
+pydantic
+tenacity
+bleach
+beautifulsoup4
+lxml
+EOL
+
+# Ensure your virtual environment is active!
+
+# Upgrade pip
+pip install --upgrade pip
+
+# 4. Install Dependencies
+pip install -r requirements.txt # MacOS/Linux
+pip install -r .\requirements.txt # Windows
+
+# Running the Scraper
+# You must run the scraper first!
+
+# Leave the backend/ folder
+cd ..
+
+# Run the scraper
+python -m backend.src.scraper.scraper
+
+# Run Flask app
+python -m backend.src.app
+
+
+## Frontend Guide
+
+### Running the Frontend Manually
+To start just the frontend on its own:
+
+1. Open a terminal in the project’s main directory.  
+2. Navigate into the frontend folder:  
+   ```bash
+   cd frontend
+   ```
+3. Install dependencies:  
+   ```bash
+   npm install
+   ```
+4. Start the development server:  
+   ```bash
+   npm start
+   ```
+
+This will launch the React frontend and automatically open it in your browser.
 
 ---
 
