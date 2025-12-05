@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .env
 backend/.env
 venv/
@@ -9,6 +8,3 @@ instance/
 .DS_Store
 .idea/
 .vscode/ 
-=======
-docs/.DS_Store
->>>>>>> 534ec82 (adding a architecture diagram)
