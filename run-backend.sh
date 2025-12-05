@@ -19,5 +19,9 @@ cd ..
 # export EVENTS_DEBUG=1
 # export DB_DEBUG=1
 
+# Run scraper first to populate database
+echo "Running scraper to fetch events..."
+python3 -m backend.src.scraper.scraper
+
 # Run Flask app (package-style)
 python -m backend.src.app
