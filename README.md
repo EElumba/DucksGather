@@ -128,27 +128,6 @@ The frontend is responsible for all user-facing interactions and application wor
 - Map/text interplay – users can toggle between map view and text directions or use both together. To access the text directions, navigate to the details of any event, and click on the text directions button located beneath the location heading for that event.
 
 
-```
-DucksGather/
-├── run-backend.sh    # Backend startup script
-├── run-frontend.sh   # Frontend startup script
-├── backend/          # Python Flask application
-│   ├── venv/         # Python virtual environment
-│   └── src/          # Source code
-└── frontend/         # React application
-    ├── node_modules/ # npm dependencies
-    └── src/          # Source code
-        |__ components/
-            |___ AuthPage.js
-            |___ EventList.js
-            |___ EventDetail.js
-            
-        |__ context/
-        |__ styles/
-        |__ api/
-
-
-
     
 ## File Structure Summary
 
