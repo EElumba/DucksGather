@@ -133,12 +133,9 @@ The frontend is responsible for all user-facing interactions and application wor
 
 ```
 DucksGather/
-├── .DS_Store                    # macOS system file (hidden)
 ├── .git/                        # Git version control directory
 ├── .gitignore                   # Git ignore patterns
 ├── README.md                    # Main project documentation
-├── README1.md                   # Documentation for shell scripts
-├── README2.md                   # Documentation for run.py launcher
 ├── architecture-diagram.md      # System architecture documentation
 ├── package-lock.json            # Root npm lock file (minimal)
 ├── run-backend.sh               # Backend startup shell script
@@ -198,7 +195,6 @@ DucksGather/
 │       ├── test_schemas.py      # Schema validation tests
 │       └── test_scraper.py      # Scraper functionality tests
 └── frontend/                    # React frontend application
-    ├── .DS_Store                # macOS system file (hidden)
     ├── .env                     # Frontend environment variables
     ├── .gitignore               # Frontend-specific git ignore
     ├── node_modules/            # npm dependencies
@@ -215,7 +211,6 @@ DucksGather/
     │   ├── manifest.json        # PWA manifest
     │   └── robots.txt           # Search engine instructions
     └── src/                     # Frontend source code
-        ├── .DS_Store            # macOS system file (hidden)
         ├── App.css              # Main application styles
         ├── App.js               # Main React component
         ├── App.test.js          # App component tests
