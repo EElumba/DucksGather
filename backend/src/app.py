@@ -17,7 +17,7 @@ def create_app() -> Flask:
 	CORS(
 		app,
 		resources={r"/api/*": {
-			"origins": ["http://localhost:3000", "http://127.0.0.1:3000"],
+			"origins": ["http://localhost:3000", "http://127.0.0.1:3000", "https://ducksgather-1.onrender.com", "https://ducksgather-1.onrender.com"],
 			"allow_headers": ["Authorization", "Content-Type"],
 		}},
 	)
