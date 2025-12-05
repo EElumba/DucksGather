@@ -1,16 +1,3 @@
-# 🤖 Event Scraper
-
-This repository contains a robust Python web scraper designed to extract structured event data from a target calendar website, specifically targeting **JSON-LD** data embedded in the HTML. The extracted data is then validated against a Pydantic schema and sanitized before being processed.
-
-## ⚙️ Core Components
-
-| File | Location | Purpose |
-| :--- | :--- | :--- |
-| `scraper.py` | `src/scraper/` | **Main Logic:** Contains the fetching (`fetch_html`), JSON-LD parsing (`parse_listing`), sanitizing (`process_and_validate`) and orchestration (`crawl`) functions. Includes robust retry logic using `tenacity`. |
-| `schemas.py` | `src/sanitize/` | **Data Validation:** Defines the `EventCreate` Pydantic model for strict data structure, type, and logical constraint checking. |
-| `sanitize.py` | `src/sanitize/` | **Data Cleaning:** Provides utilities (`clean_html`, `normalize_whitespace`, `clip`) to sanitize raw string data before validation. |
-
-
 ## 🚀 Getting Started
 
 Follow these steps to set up your environment and run the scraper. 
