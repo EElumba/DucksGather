@@ -40,8 +40,11 @@ for a MacOS/Linux user it may be beneficial to chmod +x path/to/Flock\Code/front
 
 ---
 
-### Manual Setup and Installation
+## Manual Setup and Installation
 
+## Backend Guide
+
+### Running the Backend Manually
 It is highly recommended to use a virtual environment.
 
 ```bash
@@ -95,7 +98,7 @@ python -m backend.src.scraper.scraper
 
 # Run Flask app
 python -m backend.src.app
-
+```
 
 ## Frontend Guide
 
@@ -140,6 +143,77 @@ The frontend is responsible for all user-facing interactions and application wor
 - Interactive map component – displays event locations on a map.  
 - Text-based directions – provides readable, screen-reader-friendly step-by-step navigation.  
 - Map/text interplay – users can toggle between map view and text directions or use both together. To access the text directions, navigate to the details of any event, and click on the text directions button located beneath the location heading for that event.
+
+
+## What the Backend Handles
+
+## ⚙️ Core Responsibilities
+
+### 1. Data Management & Persistence (DB Layer)
+
+The backend is the **single source of truth** for all application data.
+
+- **Models**  
+  Defined in `backend/src/models/models.py` using SQLAlchemy.  
+  These models represent core entities such as:
+  - Events
+  - Users
+  - Locations
+
+- **Database Initialization**  
+  `backend/src/db/db_init.py` is responsible for:
+  - Creating the database schema
+  - Initializing connections (Supabase)
+ 
+### 2. API Endpoints (Routing Layer)
+
+The backend exposes a REST-style API that the frontend uses to interact with data.
+
+- **Event API** – `backend/src/routes/events.py`
+  - Create new events
+  - Read / explore / search events
+  - Update events
+  - Delete events  
+  This powers the frontend event discovery, details pages, and admin tools.
+
+- **User API** – `backend/src/routes/users.py`
+  - Handles user-related operations such as:
+    - Fetching user data
+    - Updating user profile info
+  - Serves as the main interface for user-specific backend logic.
+
+---
+
+### 3. Authentication & Security
+
+The backend is responsible for **verifying user identities** and securing access to data.
+
+- **Login / Signup**
+  - Processes user credentials (e.g., email/password) for authentication.
+  - Issues secure tokens after successful login.
+
+- **Session Management with JWT**  
+  `backend/src/auth/jwt.py` manages:
+  - Issuing JSON Web Tokens (JWT)
+  - Verifying tokens on protected routes
+  - Allowing the frontend to:
+    - Determine whether a user is logged in
+    - Adjust UI and permissions based on authentication state
+
+---
+
+### 4. Data Harvesting (Web Scraping)
+
+The backend can automatically **harvest external events** and populate the database.
+
+- **Web Scraper Module** – `backend/src/scraper/scraper.py`
+  - Fetches event pages from external sources
+  - Parses structured event data (JSON-LD)
+  - Sanitizes and validates the data
+  - Inserts new events into the database  
+  Typically run via:
+  ```bash
+  python -m backend.src.scraper.scraper
 
 
 ## Troubleshooting
@@ -272,69 +346,3 @@ DucksGather/
             ├── Navbar.css       # Navigation bar styles
             └── NotFound.css     # 404 page styles
 ```
-
-
-
-
-
-## Web Scraping
-
-Follow these steps to set up your environment and run the scraper. 
-
-### Setup and Installation
-
-It is highly recommended to use a virtual environment.
-
-```bash
-# 1. Navigate to the root directory (backend/)
-cd backend
-
-# 2. Create and activate a virtual environment 
-python -m venv .venv
-source .venv/bin/activate  # macOS/Linux
-# .venv\Scripts\activate.bat # Windows
-
-# 3. Create requirements.txt (if not already present)
-cat <<EOL > requirements.txt
-requests
-beautifulsoup4
-lxml
-pydantic
-bleach
-tenacity
-EOL
-
-# 4. Install Dependencies
-pip install -r requirements.txt
-
-# Running the Scraper
-
-# Ensure your virtual environment is active!
-python src/scraper/scraper.py
-
-Play around with the commented pprint statements to see what they are doing.
-
-## Frontend Guide
-
-### Running the Frontend Manually
-To start just the frontend on its own:
-
-1. Open a terminal in the project’s main directory.  
-2. Navigate into the frontend folder:  
-   ```bash
-   cd frontend
-   ```
-3. Install dependencies:  
-   ```bash
-   npm install
-   ```
-4. Start the development server:  
-   ```bash
-   npm start
-   ```
-
-This will launch the React frontend and automatically open it in your browser.
-
----
-
-    
